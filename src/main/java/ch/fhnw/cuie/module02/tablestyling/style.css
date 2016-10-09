@@ -1,0 +1,12 @@
+
+.table-cell:hover {
+    -fx-background-color: lightsteelblue;
+}
+
+.scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: palevioletred;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: plum;
+}

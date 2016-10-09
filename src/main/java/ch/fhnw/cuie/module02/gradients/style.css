@@ -1,0 +1,33 @@
+GradientPane {
+    -fx-background-color: azure;
+    -fx-padding: 20;
+    -fx-spacing: 20;
+}
+
+.playground {
+    -fx-pref-height: 200;
+    -fx-pref-width: 200;
+    -fx-background-color: beige;
+}
+
+.linearGradientPlayground {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #FF0000 0%, #0000FF 100%);
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-color: #979797;
+}
+
+.radialGradientPlayground {
+    -fx-background-color: radial-gradient(center 50% 50%, radius 70%, #FF0000 0%, #00FF00 50%, #0000FF 100%);
+}
+
+.slimValuePlayground {
+    -fx-shape: circle;
+    -fx-shape-border: #424242;
+    -fx-shape-border-width: 5px;
+    -fx-shape-color: #D8D8D8;
+}
+
+

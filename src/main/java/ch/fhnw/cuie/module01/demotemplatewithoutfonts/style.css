@@ -1,0 +1,5 @@
+.button {
+    -fx-background-color: white;
+    -fx-text-fill: crimson;
+    -fx-background-radius: 16;
+}
