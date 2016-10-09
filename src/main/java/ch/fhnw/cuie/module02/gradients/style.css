@@ -23,11 +23,11 @@ GradientPane {
     -fx-background-color: radial-gradient(center 50% 50%, radius 70%, #FF0000 0%, #00FF00 50%, #0000FF 100%);
 }
 
-.slimValuePlayground {
-    -fx-shape: circle;
-    -fx-shape-border: #424242;
-    -fx-shape-border-width: 5px;
-    -fx-shape-color: #D8D8D8;
+.slimValueDisplayPlayground {
+    -fx-fill: #D8D8D8;
+    -fx-stroke: #424242;
+    -fx-stroke-width: 5px;
+    -fx-text-alignment: center;
 }
 
 

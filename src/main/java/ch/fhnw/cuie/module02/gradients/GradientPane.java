@@ -10,7 +10,7 @@ import javafx.scene.layout.Region;
 public class GradientPane extends HBox {
 	private Region regionA;
 	private Region regionB;
-	private Region regionC;
+    private Region regionC;
 
 	public GradientPane() {
         initializeSelf();
@@ -34,14 +34,13 @@ public class GradientPane extends HBox {
 		regionB = new Region();
 		regionB.getStyleClass().addAll("playground", "radialGradientPlayground");
 
-		regionC = new Region();
-		regionC.getStyleClass().addAll("playground", "slimValueDisplayPlayground");
+        regionC = new SlimValueDisplayPane();
 	}
 
 	private void layoutParts() {
 		setHgrow(regionA, Priority.ALWAYS);
 		setHgrow(regionB, Priority.ALWAYS);
-		setHgrow(regionC, Priority.ALWAYS);
+        setHgrow(regionC, Priority.ALWAYS);
 		getChildren().addAll(regionA, regionB, regionC);
 	}
 }
