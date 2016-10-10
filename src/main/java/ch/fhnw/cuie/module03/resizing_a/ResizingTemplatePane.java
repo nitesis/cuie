@@ -43,7 +43,7 @@ public class ResizingTemplatePane extends Region {
 	private Line      line2;
 	private Circle    center;
 	private Rectangle innerRect;
-
+//Hier werden die Elemente des CustomControl abgelegt. die drawingPane wird dann für das Resizing verwendet
 	private Pane drawingPane;
 
 	public ResizingTemplatePane() {
@@ -128,7 +128,7 @@ public class ResizingTemplatePane extends Region {
 			center.setCenterY(size * 0.5);
 			center.setRadius(CENTER_RADIUS * scalingFactor);
 			center.setStrokeWidth(LINE_WIDTH * scalingFactor);
-
+//relocate zentriert das Element
 			innerRect.relocate(size * 0.25, size * 0.25);
 			innerRect.setWidth(size * 0.5);
 			innerRect.setHeight(size * 0.5);

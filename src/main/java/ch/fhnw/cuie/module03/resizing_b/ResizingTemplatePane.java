@@ -103,12 +103,14 @@ public class ResizingTemplatePane extends Region {
 	}
 
 	private void resize() {
+		//holte Breite und Höhe
 		double width  = getWidth() - getInsets().getLeft() - getInsets().getRight();
 		double height = getHeight() - getInsets().getTop() - getInsets().getBottom();
+		//berechnet die maximal mögliche Grösse
 		double size = Math.max(Math.min(Math.min(width, height), MAXIMUM_SIZE), MINIMUM_SIZE);
-
+		//berechnet die Skalierungsfaktor
 		double scalingFactor = size / PREFERRED_SIZE;
-
+		//ist das eigentliche Skalieren
 		if(width > 0 && height > 0){
 			drawingPane.relocate((getWidth() - PREFERRED_SIZE) * 0.5, (getHeight() - PREFERRED_SIZE) * 0.5);
 			drawingPane.setScaleX(scalingFactor);
