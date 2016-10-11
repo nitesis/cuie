@@ -1,8 +1,13 @@
 package ch.fhnw.cuie.module03.horizon;
 
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 
 public class Horizon extends Region {
     private static final double PREFERRED_SIZE = 300;
@@ -10,6 +15,12 @@ public class Horizon extends Region {
     private static final double MAXIMUM_SIZE   = 800;
 
     //declare all parts
+    private Line line;
+    private Label title;
+    private TextField value;
+    private Label unit;
+    private Circle circle;
+    private Arc arc;
 
 
     // needed for resizing
@@ -39,6 +50,12 @@ public class Horizon extends Region {
     }
 
     private void initializeParts() {
+
+        double center = getPrefWidth() * 0.5;
+
+        line = new Line(25.0f, 15.0f, 225.0f, 15.0f);
+        line.getStyleClass().addAll("line");
+        //highlight = new Circle(center, center, 116 * sizeFactor());
 
         drawingPane = new Pane();
         drawingPane.getStyleClass().add("horizon");
