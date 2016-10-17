@@ -1,0 +1,18 @@
+TicksExample {
+    -fx-padding: 5;
+    -fx-background-color: black;
+}
+
+.ticksExample .face {
+    -fx-stroke: steelblue;
+    -fx-stroke-width: 4;
+    -fx-fill: transparent;
+
+}
+
+.ticksExample .tick {
+    -fx-stroke: steelblue;
+    -fx-stroke-width: 6;
+    -fx-stroke-line-cap: butt;
+
+}
