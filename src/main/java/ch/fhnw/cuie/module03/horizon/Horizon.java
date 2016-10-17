@@ -63,13 +63,11 @@ public class Horizon extends Region {
 
         unit = new Label("UNIT");
 
-        bar = new Arc(125.0f, 150.0f, 100.0f, 100.0f, 90.0f, -314.1f);
-        bar.getStyleClass().add("bar");
+        bar = new Arc(center, center, 100.0f, 100.0f, 90.0f, -314.1f);
+        bar.getStyleClass().addAll("bar");
 
-        barBackground = new Circle(100.0f);
-        barBackground.setCenterX(125.0f);
-        barBackground.setCenterY(150.0f);
-        barBackground.getStyleClass().add("barBackground");
+        barBackground = new Circle(center, center, 100.0f);
+        barBackground.getStyleClass().addAll("barBackground");
 
 
 
@@ -82,7 +80,7 @@ public class Horizon extends Region {
 
     private void layoutParts() {
         // add all parts to drawingPane
-        drawingPane.getChildren().addAll();
+        drawingPane.getChildren().addAll(seperator, title, value, unit, bar, barBackground);
 
         getChildren().add(drawingPane);
     }
