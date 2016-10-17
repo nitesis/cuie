@@ -1,6 +1,6 @@
 Horizon {
     -fx-padding: 5;
-    -fx-background-color: azure;
+    -fx-background-color: #ffd8de;
 }
 
 .seperator {
@@ -8,7 +8,7 @@ Horizon {
 }
 
 .title {
-
+    -fx-font-family: "Lato-Regular, Lato";
 }
  .value {
 
