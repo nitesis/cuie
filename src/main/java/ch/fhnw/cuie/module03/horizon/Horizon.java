@@ -15,12 +15,12 @@ public class Horizon extends Region {
     private static final double MAXIMUM_SIZE   = 800;
 
     //declare all parts
-    private Line line;
+    private Line seperator;
     private Label title;
     private TextField value;
     private Label unit;
-    private Circle circle;
-    private Arc arc;
+    private Arc bar;
+    private Circle barBackground;
 
 
     // needed for resizing
@@ -53,9 +53,25 @@ public class Horizon extends Region {
 
         double center = getPrefWidth() * 0.5;
 
-        line = new Line(25.0f, 15.0f, 225.0f, 15.0f);
-        line.getStyleClass().addAll("line");
+        seperator = new Line(25.0f, 15.0f, 225.0f, 15.0f);
+        seperator.getStyleClass().addAll("line");
         //highlight = new Circle(center, center, 116 * sizeFactor());
+
+        title = new Label ("Title");
+
+        value = new TextField();
+
+        unit = new Label("UNIT");
+
+        bar = new Arc(125.0f, 150.0f, 100.0f, 100.0f, 90.0f, -314.1f);
+        bar.getStyleClass().add("bar");
+
+        barBackground = new Circle(100.0f);
+        barBackground.setCenterX(125.0f);
+        barBackground.setCenterY(150.0f);
+        barBackground.getStyleClass().add("barBackground");
+
+
 
         drawingPane = new Pane();
         drawingPane.getStyleClass().add("horizon");

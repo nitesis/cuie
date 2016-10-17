@@ -3,4 +3,34 @@ Horizon {
     -fx-background-color: azure;
 }
 
+.seperator {
+
+}
+
+.title {
+
+}
+ .value {
+
+ }
+
+ .unit {
+
+ }
+
+.bar {
+    -fx-fill: #D8D8D8;
+    -fx-stroke: #4DD0E1;
+    -fx-stroke-width: 5px;
+    -fx-stroke-line-cap: square;
+}
+
+.barBackground {
+    -fx-fill: #D8D8D8;
+    -fx-stroke: #424242;
+    -fx-stroke-width: 5px;
+
+
+}
+
 
