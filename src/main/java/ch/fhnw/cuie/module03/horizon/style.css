@@ -1,28 +1,31 @@
 Horizon {
     -fx-padding: 5;
-    -fx-background-color: #ffd8de;
+    -fx-background-color: floralwhite;
 }
 
 .seperator {
+    -fx-stroke: #4DD0E1;
+    -fx-stroke-width: 3px;
 
 }
 
 .title {
     -fx-font-family: "Lato-Regular, Lato";
 }
- .value {
+ .valueInput {
+     -fx-border-width: 0px;
 
  }
 
  .unit {
-
+     -fx-font-family: "Lato-Regular, Lato";
+     -fx-font-size: 25px;
  }
 
 .bar {
     -fx-fill: #D8D8D8;
     -fx-stroke: #4DD0E1;
     -fx-stroke-width: 5px;
-    -fx-stroke-line-cap: square;
 }
 
 .barBackground {

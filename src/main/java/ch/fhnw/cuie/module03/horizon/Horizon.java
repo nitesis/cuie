@@ -1,6 +1,7 @@
 package ch.fhnw.cuie.module03.horizon;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -17,7 +18,7 @@ public class Horizon extends Region {
     //declare all parts
     private Line seperator;
     private Label title;
-    private TextField value;
+    private TextField valueInput;
     private Label unit;
     private Arc bar;
     private Circle barBackground;
@@ -54,14 +55,19 @@ public class Horizon extends Region {
         double center = getPrefWidth() * 0.5;
 
         seperator = new Line(25.0f, 15.0f, 225.0f, 15.0f);
-        seperator.getStyleClass().addAll("line");
+        seperator.getStyleClass().addAll("seperator");
         //highlight = new Circle(center, center, 116 * sizeFactor());
 
         title = new Label ("Title");
+        title.getStyleClass().addAll("title");
+        title.setAlignment(Pos.TOP_RIGHT);
 
-        value = new TextField();
+        valueInput = new TextField();
+        valueInput.getStyleClass().addAll("value");
 
         unit = new Label("UNIT");
+        unit.getStyleClass().addAll("unit");
+        unit.setAlignment(Pos.BOTTOM_CENTER);
 
         bar = new Arc(center, center, 100.0f, 100.0f, 90.0f, -314.1f);
         bar.getStyleClass().addAll("bar");
@@ -80,7 +86,7 @@ public class Horizon extends Region {
 
     private void layoutParts() {
         // add all parts to drawingPane
-        drawingPane.getChildren().addAll(seperator, title, value, unit, bar, barBackground);
+        drawingPane.getChildren().addAll(seperator, title, valueInput, unit, barBackground, bar);
 
         getChildren().add(drawingPane);
     }
