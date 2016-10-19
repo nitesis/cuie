@@ -11,7 +11,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 
 public class Horizon extends Region {
-    private static final double PREFERRED_SIZE = 300;
+    private static final double PREFERRED_SIZE = 200;
     private static final double MINIMUM_SIZE   = 75;
     private static final double MAXIMUM_SIZE   = 800;
 
@@ -54,22 +54,25 @@ public class Horizon extends Region {
 
         double center = getPrefWidth() * 0.5;
 
-        seperator = new Line(25.0f, 15.0f, 225.0f, 15.0f);
+        seperator = new Line(0.0f, 0.0f, 200.0f, 0.0f);
+        //M0,0 L200,0
         seperator.getStyleClass().addAll("seperator");
         //highlight = new Circle(center, center, 116 * sizeFactor());
 
         title = new Label ("Title");
         title.getStyleClass().addAll("title");
-        title.setAlignment(Pos.TOP_RIGHT);
+        title.setPrefSize(34, 16);
+        title.relocate(center - 80, center - 17);
 
         valueInput = new TextField();
         valueInput.getStyleClass().addAll("value");
-        valueInput.setPrefSize(50, 30);
-        valueInput.relocate(center - 25, center - 15);
+        valueInput.setPrefSize(112, 57);
+        valueInput.relocate(center - 56, center - 28);
 
         unit = new Label("UNIT");
         unit.getStyleClass().addAll("unit");
-        unit.setAlignment(Pos.BOTTOM_CENTER);
+        unit.setPrefSize(45, 150);
+        unit.relocate(center - 23, center - 45);
 
         bar = new Arc(center, center, 100.0f, 100.0f, 90.0f, -314.1f);
         bar.getStyleClass().addAll("bar");

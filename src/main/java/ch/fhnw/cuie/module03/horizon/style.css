@@ -11,18 +11,21 @@ Horizon {
 
 .title {
     -fx-font-family: "Lato-Regular, Lato";
+    -fx-font-size: 13px;
+    -fx-fill: #4DD0E1;
+    -fx-font-weight: normal;
 }
  .valueInput {
      -fx-border-width: 0px;
      -fx-font-family: "Lato-Light, Lato";
-     -fx-font-size: 48px;
-     -fx-font-weight: 300px;
+     -fx-font-size: 48;
+     -fx-font-weight: 300;
 
  }
 
  .unit {
      -fx-font-family: "Lato-Regular, Lato";
-     -fx-font-size: 25px;
+     -fx-font-size: 18px;
  }
 
 .bar {
