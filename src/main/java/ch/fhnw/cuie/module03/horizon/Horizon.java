@@ -64,6 +64,8 @@ public class Horizon extends Region {
 
         valueInput = new TextField();
         valueInput.getStyleClass().addAll("value");
+        valueInput.setPrefSize(50, 30);
+        valueInput.relocate(center - 25, center - 15);
 
         unit = new Label("UNIT");
         unit.getStyleClass().addAll("unit");
@@ -86,7 +88,7 @@ public class Horizon extends Region {
 
     private void layoutParts() {
         // add all parts to drawingPane
-        drawingPane.getChildren().addAll(seperator, title, valueInput, unit, barBackground, bar);
+        drawingPane.getChildren().addAll(barBackground, bar, unit, valueInput, title, seperator);
 
         getChildren().add(drawingPane);
     }

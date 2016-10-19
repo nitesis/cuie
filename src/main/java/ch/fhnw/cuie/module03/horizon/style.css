@@ -1,6 +1,6 @@
 Horizon {
     -fx-padding: 5;
-    -fx-background-color: floralwhite;
+    -fx-background-color: white;
 }
 
 .seperator {
@@ -14,6 +14,9 @@ Horizon {
 }
  .valueInput {
      -fx-border-width: 0px;
+     -fx-font-family: "Lato-Light, Lato";
+     -fx-font-size: 48px;
+     -fx-font-weight: 300px;
 
  }
 
