@@ -62,7 +62,7 @@ public class Horizon extends Region {
         title = new Label ("Title");
         title.getStyleClass().addAll("title");
         title.setPrefSize(34, 16);
-        title.relocate(center - 80, center - 17);
+        title.relocate(80, 17);
 
         valueInput = new TextField();
         valueInput.getStyleClass().addAll("value");
