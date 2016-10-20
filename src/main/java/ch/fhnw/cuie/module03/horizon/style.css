@@ -17,6 +17,8 @@ Horizon {
 }
  .valueInput {
      -fx-background-color: -fx-shadow-highlight-color;
+     -fx-text-fill: #E4E7EE;
+     -fx-padding: 3px;
      -fx-font-family: 'Lato Light';
      -fx-font-size: 48px;
      -fx-font-weight: 300;
