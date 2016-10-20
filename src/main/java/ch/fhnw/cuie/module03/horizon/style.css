@@ -10,20 +10,21 @@ Horizon {
 }
 
 .title {
-    -fx-font-family: "Lato-Regular, Lato";
+    -fx-font-family: 'Lato Regular';
     -fx-font-size: 13px;
     -fx-fill: #4DD0E1;
     -fx-font-weight: normal;
 }
  .valueInput {
-     -fx-font-family: "Lato-Light, Lato";
+     -fx-background-color: -fx-shadow-highlight-color;
+     -fx-font-family: 'Lato Light';
      -fx-font-size: 48px;
      -fx-font-weight: 300;
 
  }
 
  .unit {
-     -fx-font-family: "Lato-Regular, Lato";
+     -fx-font-family: 'Lato Regular';
      -fx-font-size: 18px;
  }
 
