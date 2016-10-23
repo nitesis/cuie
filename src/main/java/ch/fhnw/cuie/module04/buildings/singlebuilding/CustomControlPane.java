@@ -14,14 +14,19 @@ public class CustomControlPane extends VBox {
 
     private Label height_mLabel;
     private Label buildingLabel;
-    private Slider height_Slider;
+    private Slider height_mSlider;
 
     public CustomControlPane(BuildingPM building) {
         this.building = building;
         initializeSelf();
         initializeParts();
         layoutParts();
+        addValueChangeListener();
         setupBindings();
+    }
+
+    private void addValueChangeListener() {
+        height_mSlider.valueProperty().addListener((observable, oldValue, newValue) -> building.setHeight_m(newValue.doubleValue()));
     }
 
     private void initializeSelf() {
