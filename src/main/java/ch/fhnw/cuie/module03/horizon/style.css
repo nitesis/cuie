@@ -33,7 +33,7 @@ Horizon {
 .bar {
     -fx-fill: #D8D8D8;
     -fx-stroke: #4DD0E1;
-    -fx-stroke-width: 5px;
+    -fx-stroke-width: 6px;
 }
 
 .barBackground {
