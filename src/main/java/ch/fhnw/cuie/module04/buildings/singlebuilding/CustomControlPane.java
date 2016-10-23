@@ -2,6 +2,7 @@ package ch.fhnw.cuie.module04.buildings.singlebuilding;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.VBox;
 
 import ch.fhnw.cuie.module04.buildings.BuildingPM;
@@ -13,6 +14,7 @@ public class CustomControlPane extends VBox {
 
     private Label height_mLabel;
     private Label buildingLabel;
+    private Slider height_Slider;
 
     public CustomControlPane(BuildingPM building) {
         this.building = building;
