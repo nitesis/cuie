@@ -35,12 +35,15 @@ public class CustomControlPane extends VBox {
 
     private void initializeParts() {
         buildingLabel = new Label();
-        buildingLabel.setStyle("-fx-font-size: 32;");
+        buildingLabel.getStyleClass().addAll("custom-label");
+        //buildingLabel.setStyle("-fx-font-size: 32;");
 
         height_mLabel = new Label();
-        height_mLabel.setStyle("-fx-font-size: 32;");
+        height_mLabel.getStyleClass().addAll("custom-label");
+        //height_mLabel.setStyle("-fx-font-size: 32;");
 
         height_mSlider = new Slider(0, 1000, 500);
+        height_mSlider.getStyleClass().addAll("custom-slider");
     }
 
     private void layoutParts() {

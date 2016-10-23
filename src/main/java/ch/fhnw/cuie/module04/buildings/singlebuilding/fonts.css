@@ -28,4 +28,9 @@
     src: url(/fonts/ds_digital/DS-DIGI.TTF);
 }
 
+@font-face {
+    font-family: 'Arvo Regular';
+    src: url(/fonts/Arvo/Arvo-Regular.ttf);
+}
+
 

@@ -10,3 +10,13 @@
 .scroll-bar:vertical .thumb:hover {
     -fx-background-color: blue;
 }
+
+.custom-label {
+    -fx-font-family: 'Arvo Regular';
+    -fx-font-size: 32px;
+}
+
+.custom-slider {
+    -fx-background-color:#8CD9F1;
+    -fx-fill: #00FF00;
+}
