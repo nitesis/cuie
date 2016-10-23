@@ -50,7 +50,7 @@ public class CustomControlPane extends VBox {
     private void setupBindings() {
         buildingLabel.textProperty().bind(building.buildingProperty());
         height_mLabel.textProperty().bind(building.height_mProperty().asString());
-        height_mSlider.valueProperty().bind(building.height_mProperty());
+        height_mSlider.valueProperty().bindBidirectional(building.height_mProperty());
 
     }
 }
