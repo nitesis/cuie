@@ -46,6 +46,7 @@ public class BuildingPM {
 
     public BuildingPM(long id, int rank, String building, String city, String country, double height_m, double height_ft,
                       int floors, int build, String architect, String architectual_style, double cost, String material, double longitude, double latitude, String image_url) {
+        addEventListeners();
         setId(id);
         setRank(rank);
         setBuilding(building);
@@ -62,6 +63,10 @@ public class BuildingPM {
         setLongitude(longitude);
         setLatitude(latitude);
         setImage_url(image_url);
+    }
+
+    private void addEventListeners(){
+
     }
 
     public long getId() {

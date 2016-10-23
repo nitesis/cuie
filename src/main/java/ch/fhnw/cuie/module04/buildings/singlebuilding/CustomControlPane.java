@@ -21,11 +21,11 @@ public class CustomControlPane extends VBox {
         initializeSelf();
         initializeParts();
         layoutParts();
-        addValueChangeListener();
+        addValueChangedListeners();
         setupBindings();
     }
 
-    private void addValueChangeListener() {
+    private void addValueChangedListeners() {
         height_mSlider.valueProperty().addListener((observable, oldValue, newValue) -> building.setHeight_m(newValue.doubleValue()));
     }
 
@@ -39,15 +39,18 @@ public class CustomControlPane extends VBox {
 
         height_mLabel = new Label();
         height_mLabel.setStyle("-fx-font-size: 32;");
+
+        height_mSlider = new Slider(0, 1000, 500);
     }
 
     private void layoutParts() {
-        getChildren().addAll(buildingLabel, height_mLabel);
+        getChildren().addAll(buildingLabel, height_mLabel, height_mSlider);
     }
 
     private void setupBindings() {
         buildingLabel.textProperty().bind(building.buildingProperty());
         height_mLabel.textProperty().bind(building.height_mProperty().asString());
+        height_mSlider.valueProperty().bind(building.height_mProperty());
 
     }
 }
