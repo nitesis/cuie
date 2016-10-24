@@ -157,8 +157,13 @@ public class AnimationPlayground extends BorderPane {
                 scaleTransition.setCycleCount(2);
                 scaleTransition.setAutoReverse(true);
             }
+
+            if (fillTransition == null) {
+                fillTransition = new FillTransition(Duration.seconds(1), circle, Color.BEIGE, Color.PINK);
+            }
             if (!scaleTransition.getStatus().equals(Animation.Status.RUNNING)) {
                 scaleTransition.play();
+                fillTransition.play();
             }
         });
 
