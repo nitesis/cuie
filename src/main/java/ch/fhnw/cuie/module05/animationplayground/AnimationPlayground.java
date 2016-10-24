@@ -132,6 +132,7 @@ public class AnimationPlayground extends BorderPane {
 
     private void addEventHandlers() {
         rectangle.setOnMouseClicked(event -> {
+            //Nur, wenn ich noch KEINE Instanz habe, wird hier jetzt eine erstellt.
             if (translateTransition == null) {
                 translateTransition = new TranslateTransition(Duration.seconds(1), rectangle);
                 translateTransition.setInterpolator(Interpolator.EASE_BOTH);
