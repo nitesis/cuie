@@ -43,8 +43,9 @@ public class DemoPane extends BorderPane {
         setCenter(led);
         setRight(controlPane);
     }
-
+    //hier kommen alle bindings rein
     private void setupBindings() {
+        led.onProperty().bindBidirectional(onBox.selectedProperty());
     }
 
 }
