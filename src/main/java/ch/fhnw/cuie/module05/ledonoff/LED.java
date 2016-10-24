@@ -63,6 +63,7 @@ public class LED extends Region {
 
     private void addValueChangedListeners() {
         //UI action, jetzt ist die Led on-off action auch zu sehen
+        //Also, hier: wie ändert sich das UI, wenn ich die Property (in diesem Fall onProperty()) ändere
         onProperty().addListener((observable, oldValue, newValue) -> {
             mainOn.setVisible(newValue);
             mainOff.setVisible(!newValue);
