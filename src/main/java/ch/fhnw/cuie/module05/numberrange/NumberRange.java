@@ -1,5 +1,7 @@
 package ch.fhnw.cuie.module05.numberrange;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
@@ -19,6 +21,9 @@ public class NumberRange extends Region {
     private Circle thumb;
 
     //declare all Properties
+    private final IntegerProperty countValue = new SimpleIntegerProperty();
+    private final IntegerProperty minValue = new SimpleIntegerProperty();
+    private final IntegerProperty maxValue = new SimpleIntegerProperty();
 
     // needed for resizing
     private Pane drawingPane;
@@ -131,5 +136,41 @@ public class NumberRange extends Region {
             drawingPane.setScaleX(scalingFactor);
             drawingPane.setScaleY(scalingFactor);
         }
+    }
+
+    public int getCountValue() {
+        return countValue.get();
+    }
+
+    public IntegerProperty countValueProperty() {
+        return countValue;
+    }
+
+    public void setCountValue(int countValue) {
+        this.countValue.set(countValue);
+    }
+
+    public int getMinValue() {
+        return minValue.get();
+    }
+
+    public IntegerProperty minValueProperty() {
+        return minValue;
+    }
+
+    public void setMinValue(int minValue) {
+        this.minValue.set(minValue);
+    }
+
+    public int getMaxValue() {
+        return maxValue.get();
+    }
+
+    public IntegerProperty maxValueProperty() {
+        return maxValue;
+    }
+
+    public void setMaxValue(int maxValue) {
+        this.maxValue.set(maxValue);
     }
 }
