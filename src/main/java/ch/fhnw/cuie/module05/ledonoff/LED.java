@@ -1,5 +1,7 @@
 package ch.fhnw.cuie.module05.ledonoff;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Insets;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
@@ -29,6 +31,7 @@ public class LED extends Region {
     private Circle frame;
 
     // all properties
+    private final BooleanProperty on = new SimpleBooleanProperty();
 
 
     // drawing pane needed for resizing
@@ -112,5 +115,17 @@ public class LED extends Region {
             drawingPane.setScaleX(scalingFactor);
             drawingPane.setScaleY(scalingFactor);
         }
+    }
+
+    public boolean isOn() {
+        return on.get();
+    }
+
+    public BooleanProperty onProperty() {
+        return on;
+    }
+
+    public void setOn(boolean on) {
+        this.on.set(on);
     }
 }
