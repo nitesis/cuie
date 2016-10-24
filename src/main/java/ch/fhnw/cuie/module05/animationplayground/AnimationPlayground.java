@@ -140,6 +140,7 @@ public class AnimationPlayground extends BorderPane {
                 translateTransition.setCycleCount(2);
                 translateTransition.setAutoReverse(true);
             }
+            //Wichtig ist immer daran zu denken, was passieren soll, wenn die Animation bereits läuft.
             if (!translateTransition.getStatus().equals(Animation.Status.RUNNING)) {
                 translateTransition.play();
             }
