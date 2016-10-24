@@ -45,6 +45,7 @@ public class DemoPane extends BorderPane {
     }
     //hier kommen alle bindings rein
     private void setupBindings() {
+        //hier ist noch keine UI Reaktion
         led.onProperty().bindBidirectional(onBox.selectedProperty());
     }
 
