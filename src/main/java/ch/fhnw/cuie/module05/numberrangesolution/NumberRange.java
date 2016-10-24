@@ -85,6 +85,7 @@ public class NumberRange extends Region {
     }
 
     private void addEventHandlers() {
+        //Winkel der Maus wird als Referenz für den Winkel im Kreis genommen...logisch
         thumb.setOnMouseDragged(event -> {
             double percentage = (angle(PREFERRED_SIZE * 0.5, PREFERRED_SIZE * 0.5, event.getX(), event.getY()) / 3.6) / 100.0;
 
