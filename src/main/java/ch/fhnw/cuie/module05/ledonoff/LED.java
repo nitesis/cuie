@@ -49,6 +49,14 @@ public class LED extends Region {
         initializeSelf();
         initializeParts();
         layoutParts();
+        addValueChangedListeners();
+    }
+
+    private void addValueChangedListeners() {
+        onProperty().addListener((observable, oldValue, newValue) -> {
+            mainOn.setVisible(newValue);
+            mainOff.setVisible(!newValue);
+        });
     }
 
     private void initializeSelf() {
