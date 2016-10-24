@@ -49,7 +49,14 @@ public class LED extends Region {
         initializeSelf();
         initializeParts();
         layoutParts();
+        addEventListeners();
         addValueChangedListeners();
+    }
+
+    //Ist nur für user aktion zuständig
+    //"Wenn ich klicke, soll sich onProperty ändern"
+    private void addEventListeners() {
+        drawingPane.setOnMouseClicked(event -> setOn(!isOn()));
     }
 
     private void addValueChangedListeners() {
