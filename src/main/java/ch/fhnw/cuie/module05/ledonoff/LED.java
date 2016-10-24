@@ -56,6 +56,8 @@ public class LED extends Region {
     //Ist nur für user aktion zuständig
     //"Wenn ich klicke, soll sich onProperty ändern"
     private void addEventListeners() {
+        //Coding Convention für Event Listener: es werden einer oder mehrere Properties geändert
+        //Ist wichtig für das Nachführen der CheckBox!
         drawingPane.setOnMouseClicked(event -> setOn(!isOn()));
     }
 
