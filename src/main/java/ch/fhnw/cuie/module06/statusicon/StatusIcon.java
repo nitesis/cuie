@@ -1,5 +1,6 @@
 package ch.fhnw.cuie.module06.statusicon;
 
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -101,6 +102,8 @@ public class StatusIcon extends Region {
 
     private Circle frame;
 
+    private Timeline timeline = new Timeline();
+
     private Pane drawingPane;
 
     // all properties
@@ -158,8 +161,32 @@ public class StatusIcon extends Region {
         });
     }
 
+    //hier wir dauf Wertänderungen reagiert
     private void addValueChangedListeners() {
 
+        statusProperty().addListener((observable, oldValue, newStatus) -> {
+            //Wenn die Animation läuft, dann zurückgehen
+            if(timeline.getStatus().equals(Animation.Status.RUNNING)){
+                return;
+            }
+            //Keyframe erstellen über 500 Millisekunden
+            KeyFrame kf = new KeyFrame(Duration.millis(500),
+                    new KeyValue(line1.startXProperty(), newStatus.getLine1Start().getX()),
+                    new KeyValue(line1.startYProperty(), newStatus.getLine1Start().getY()),
+                    new KeyValue(line1.endXProperty(), newStatus.getLine1End().getX()),
+                    new KeyValue(line1.endYProperty(), newStatus.getLine1End().getY()),
+            new KeyValue(line2.startXProperty(), newStatus.getLine2Start().getX()),
+                    new KeyValue(line2.startYProperty(), newStatus.getLine2Start().getY()),
+                    new KeyValue(line2.endXProperty(), newStatus.getLine2End().getX()),
+                    new KeyValue(line2.endYProperty(), newStatus.getLine2End().getY()),
+                    new KeyValue(line3.startXProperty(), newStatus.getLine3Start().getX()),
+                    new KeyValue(line3.startYProperty(), newStatus.getLine3Start().getY()),
+                    new KeyValue(line3.endXProperty(), newStatus.getLine3End().getX()),
+                    new KeyValue(line3.endYProperty(), newStatus.getLine3End().getY())
+                    );
+            timeline.getKeyFrames().setAll(kf);
+            timeline.play();
+        });
         // always needed
         widthProperty().addListener((observable, oldValue, newValue) -> resize());
         heightProperty().addListener((observable, oldValue, newValue) -> resize());
