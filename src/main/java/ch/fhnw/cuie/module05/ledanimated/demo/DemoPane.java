@@ -60,6 +60,7 @@ public class DemoPane extends BorderPane {
     private void setupBindings() {
         led.onProperty().bindBidirectional(onBox.selectedProperty());
         led.blinkRateProperty().bindBidirectional(blinkRateSlider.valueProperty());
+        led.blinkingProperty().bindBidirectional(blinkingBox.selectedProperty());
     }
 
 }
