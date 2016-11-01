@@ -1,6 +1,7 @@
 package ch.fhnw.cuie.module05.ledanimated;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
@@ -14,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 
 public class LED extends Region {
     private static final double ARTBOARD_SIZE = 400;
@@ -36,6 +38,11 @@ public class LED extends Region {
 
     // all properties
     private final BooleanProperty on        = new SimpleBooleanProperty(true);
+    private final DoubleProperty blinkRate = new SimpleDoubleProperty();
+
+    // all animations
+    private TranslateTransition onAnimation = new TranslateTransition(Duration.millis(2000), mainOn);
+    private TranslateTransition offAnimation = new TranslateTransition(Duration.millis(2000), mainOff);
 
     // drawing pane needed for resizing
     private Pane drawingPane;
@@ -102,6 +109,18 @@ public class LED extends Region {
         getChildren().add(drawingPane);
     }
 
+    // Animation Timer
+    private final AnimationTimer timer = new AnimationTimer() {
+        // zur Taktverwaltung
+        private long lastTimerCall;
+        @Override
+        public void handle(long now) {
+            if (now > lastTimerCall + (getBlinkRate() * 1_000_000_000L)){
+                setOn(!isOn());
+                lastTimerCall = now;
+            }
+        }
+    };
     private void addEventHandlers() {
         drawingPane.setOnMouseClicked(event -> setOn(!isOn()));
     }
@@ -145,5 +164,18 @@ public class LED extends Region {
     public void setOn(boolean on) {
         this.on.set(on);
     }
+
+    public double getBlinkRate() {
+        return blinkRate.get();
+    }
+
+    public DoubleProperty blinkRateProperty() {
+        return blinkRate;
+    }
+
+    public void setBlinkRate(double blinkRate) {
+        this.blinkRate.set(blinkRate);
+    }
+
 
 }

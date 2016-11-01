@@ -59,6 +59,7 @@ public class DemoPane extends BorderPane {
 
     private void setupBindings() {
         led.onProperty().bindBidirectional(onBox.selectedProperty());
+
     }
 
 }
