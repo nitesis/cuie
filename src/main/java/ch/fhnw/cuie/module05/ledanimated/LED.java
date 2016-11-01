@@ -39,6 +39,7 @@ public class LED extends Region {
     // all properties
     private final BooleanProperty on        = new SimpleBooleanProperty(true);
     private final DoubleProperty blinkRate = new SimpleDoubleProperty();
+    private final BooleanProperty blinking = new SimpleBooleanProperty();
 
     // all animations
     private TranslateTransition onAnimation = new TranslateTransition(Duration.millis(2000), mainOn);
@@ -125,10 +126,19 @@ public class LED extends Region {
         drawingPane.setOnMouseClicked(event -> setOn(!isOn()));
     }
 
+    // Reaktion auf Property Änderung
     private void addValueChangeListeners() {
         onProperty().addListener((observable, oldValue, newValue) -> {
             mainOn.setVisible(newValue);
             mainOff.setVisible(!newValue);
+        });
+    // Starten/Stoppen des Timers via Property
+        blinkingProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue){
+                timer.start();
+            } else {
+                timer.stop();
+            }
         });
     }
 
@@ -177,5 +187,16 @@ public class LED extends Region {
         this.blinkRate.set(blinkRate);
     }
 
+    public boolean isBlinking() {
+        return blinking.get();
+    }
+
+    public BooleanProperty blinkingProperty() {
+        return blinking;
+    }
+
+    public void setBlinking(boolean blinking) {
+        this.blinking.set(blinking);
+    }
 
 }
