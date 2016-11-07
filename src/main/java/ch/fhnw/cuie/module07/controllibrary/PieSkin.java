@@ -33,12 +33,7 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 	private static final long   BLINK_RATE = 500_000_000L;
 
 	// all parts
-	private Line   separator;
-	private Text   titleLabel;
-	private Text   valueLabel;
-	private Text   unitLabel;
-	private Circle barBackground;
-	private Arc    bar;
+
 
 	private Pane drawingPane;
 
@@ -49,7 +44,7 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 		@Override
 		public void handle(long now) {
 			if (now > lastTimerCall + BLINK_RATE) {
-				bar.setVisible(!bar.isVisible());
+
 				lastTimerCall = now;
 			}
 		}
@@ -76,34 +71,7 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 	}
 
 	private void initializeParts() {
-		separator = new Line(25, 15, 225, 15);
-		separator.getStyleClass().add("separator");
-		separator.setStrokeLineCap(StrokeLineCap.ROUND);
 
-		titleLabel = new Text();
-		titleLabel.getStyleClass().add("title");
-		titleLabel.setTextOrigin(VPos.TOP);
-		titleLabel.setTextAlignment(TextAlignment.CENTER);
-		titleLabel.setY(19);
-
-		valueLabel = new Text();
-		valueLabel.getStyleClass().add("value");
-		valueLabel.setTextOrigin(VPos.CENTER);
-		valueLabel.setTextAlignment(TextAlignment.CENTER);
-		valueLabel.setY(150);
-
-		unitLabel = new Text();
-		unitLabel.getStyleClass().add("unit");
-		unitLabel.setTextOrigin(VPos.TOP);
-		unitLabel.setTextAlignment(TextAlignment.CENTER);
-		unitLabel.setY(188);
-
-		barBackground = new Circle(125, 150, 100);
-		barBackground.getStyleClass().add("barBackground");
-
-		bar = new Arc(125, 150, 100, 100, 90, 0);
-		bar.getStyleClass().add("bar");
-		bar.setType(ArcType.OPEN);
 
 		// always needed
 		drawingPane = new Pane();
@@ -113,7 +81,7 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 	}
 
 	private void layoutParts() {
-		drawingPane.getChildren().addAll(barBackground, bar, separator, titleLabel, valueLabel, unitLabel);
+
 		getChildren().add(drawingPane);
 	}
 
@@ -121,20 +89,7 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 	}
 
 	private void addValueChangedListeners() {
-		titleLabel.textProperty()
-		          .addListener((observable, oldValue, newValue) -> {
-			          relocateTexts();
-		          });
 
-		unitLabel.textProperty()
-		         .addListener((observable, oldValue, newValue) -> {
-			         relocateTexts();
-		         });
-
-		valueLabel.textProperty()
-		          .addListener((observable, oldValue, newValue) -> {
-			          relocateTexts();
-		          });
 
 		getSkinnable().outOfRangeProperty()
 		              .addListener((observable, oldValue, newValue) -> {
@@ -142,7 +97,7 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 				              timer.start();
 			              } else {
 				              timer.stop();
-				              bar.setVisible(true);
+
 			              }
 		              });
 
@@ -152,16 +107,11 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 	}
 
 	private void addBindings() {
-		titleLabel.textProperty().bind(getSkinnable().titleProperty());
-		unitLabel.textProperty().bind(getSkinnable().unitProperty());
-		valueLabel.textProperty().bind(getSkinnable().valueProperty().asString(FORMAT));
-		bar.lengthProperty().bind(Bindings.min(getSkinnable().angleProperty(), -1.0));
+
 	}
 
 	private void relocateTexts() {
-		titleLabel.setX((PREFERRED_WIDTH - titleLabel.getLayoutBounds().getWidth()) * 0.5);
-		valueLabel.setX((PREFERRED_WIDTH - valueLabel.getLayoutBounds().getWidth()) * 0.5);
-		unitLabel.setX((PREFERRED_WIDTH - unitLabel.getLayoutBounds().getWidth()) * 0.5);
+
 	}
 
 	private void resize() {
