@@ -16,7 +16,7 @@ import javafx.scene.text.TextAlignment;
  */
 class PieSkin extends SkinBase<NumberRangeControl> {
 	private static final String FONTS_CSS = "fonts.css";
-	private static final String STYLE_CSS = "slimStyle.css";
+	private static final String STYLE_CSS = "pieStyle.css";
 
 	private static final double PREFERRED_WIDTH  = 250;
 	private static final double PREFERRED_HEIGHT = 265;
