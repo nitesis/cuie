@@ -36,7 +36,7 @@ public class DemoPane extends BorderPane {
 	private void initializeControls() {
 		setPadding(new Insets(10));
 
-		customControl = new NumberRangeControl(SkinType.SLIM);
+		customControl = new NumberRangeControl(SkinType.PIE);
 
 		titleField = new TextField();
 		valueField = new TextField();

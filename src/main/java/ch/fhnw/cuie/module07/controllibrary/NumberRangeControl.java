@@ -83,7 +83,7 @@ public class NumberRangeControl extends Control {
 				return new LinearSkin(this);
 			case SLIM:
 				return new SlimSkin(this);
-			case Pie:
+			case PIE:
 				return new PieSkin(this);
 			default:
 				return new SlimSkin(this);
