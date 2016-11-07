@@ -3,6 +3,8 @@ package ch.fhnw.cuie.module06.slimvaluedisplay;
 import java.util.List;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
@@ -173,7 +175,15 @@ public class SlimValueDisplay extends Region {
     }
 
     private void addValueChangedListeners() {
+        //Hier wird Animation festgelegt
         valueProperty().addListener((observable, oldValue, newValue) -> {
+            timeline.stop();
+            timeline.getKeyFrames().setAll(new KeyFrame(Duration.millis(500),
+                    new KeyValue(animatedValue, newValue)));
+            timeline.play();
+        });
+        //Hier wird Wertänderung festgelegt
+        animatedValueProperty().addListener((observable, oldValue, newValue) -> {
             bar.setVisible(true);
             checkBoundaries(getValue());
             bar.setLength(getAngle(newValue));
