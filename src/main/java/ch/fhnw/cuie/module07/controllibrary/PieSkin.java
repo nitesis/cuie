@@ -6,6 +6,7 @@ import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.control.SkinBase;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.*;
 import javafx.scene.text.Text;
@@ -19,7 +20,7 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 	private static final String STYLE_CSS = "pieStyle.css";
 
 	private static final double PREFERRED_WIDTH  = 250;
-	private static final double PREFERRED_HEIGHT = 265;
+	private static final double PREFERRED_HEIGHT = 40;
 
 	private static final double ASPECT_RATIO = PREFERRED_WIDTH / PREFERRED_HEIGHT;
 
@@ -33,7 +34,9 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 	private static final long   BLINK_RATE = 500_000_000L;
 
 	// all parts
-
+	private Circle border;
+	private Arc pieSlice;
+	private TextField valueField;
 
 	private Pane drawingPane;
 
@@ -72,6 +75,14 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 
 	private void initializeParts() {
 
+		double center = PREFERRED_HEIGHT * 0.5;
+		//Kreis an Position (20,20) mit Radius 20 -> alles in Anhängigkeit von der Höhe
+		border = new Circle(center, center, center);
+		border.getStyleClass().add("border");
+
+		pieSlice = new Arc(center, center, center -1, center -1, 90, -45);
+		pieSlice.setType(ArcType.ROUND);
+		pieSlice.getStyleClass().add("pieSlice");
 
 		// always needed
 		drawingPane = new Pane();
@@ -81,7 +92,7 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 	}
 
 	private void layoutParts() {
-
+		drawingPane.getChildren().addAll(border, pieSlice);
 		getChildren().add(drawingPane);
 	}
 
