@@ -101,6 +101,8 @@ class PieSkin extends SkinBase<NumberRangeControl> {
 
 	private void addValueChangedListeners() {
 
+		//legt die angleProperty direkt auf die Länge vom Arc
+		pieSlice.lengthProperty().bind(getSkinnable().angleProperty());
 
 		getSkinnable().outOfRangeProperty()
 		              .addListener((observable, oldValue, newValue) -> {
