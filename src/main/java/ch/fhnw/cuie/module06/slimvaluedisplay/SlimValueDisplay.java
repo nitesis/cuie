@@ -3,6 +3,7 @@ package ch.fhnw.cuie.module06.slimvaluedisplay;
 import java.util.List;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.Timeline;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
@@ -94,6 +95,7 @@ public class SlimValueDisplay extends Region {
     };
 
     // all animations
+    private final Timeline timeline = new Timeline();
 
     // all parts need to be children of the drawingPane
     private Pane drawingPane;
