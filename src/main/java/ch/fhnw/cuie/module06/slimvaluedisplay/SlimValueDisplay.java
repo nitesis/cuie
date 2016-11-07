@@ -77,6 +77,7 @@ public class SlimValueDisplay extends Region {
     private final DoubleProperty minValue = new SimpleDoubleProperty(0);
     private final DoubleProperty maxValue = new SimpleDoubleProperty(1000);
     private final DoubleProperty value    = new SimpleDoubleProperty();
+    private final DoubleProperty animatedValue = new SimpleDoubleProperty();
 
     private final BooleanProperty          timerIsRunning = new SimpleBooleanProperty(false);
     private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(0.5));
@@ -440,5 +441,16 @@ public class SlimValueDisplay extends Region {
         this.value.set(value);
     }
 
+    public double getAnimatedValue() {
+        return animatedValue.get();
+    }
+
+    public DoubleProperty animatedValueProperty() {
+        return animatedValue;
+    }
+
+    public void setAnimatedValue(double animatedValue) {
+        this.animatedValue.set(animatedValue);
+    }
 }
 
