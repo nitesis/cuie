@@ -1,4 +1,4 @@
-package ch.fhnw.cuie.MyProjects.PoT.demo;
+package ch.fhnw.cuie.myProjects.pot.demo;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

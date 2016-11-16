@@ -1,4 +1,4 @@
-package ch.fhnw.cuie.MyProjects.PoT;
+package ch.fhnw.cuie.myProjects.pot;
 
 import java.util.List;
 
@@ -30,11 +30,11 @@ import javafx.scene.text.TextBoundsType;
 import javafx.util.Duration;
 
 /**
- * @author Dieter Holz
+ * @author Viviane Bendjus
  */
-public class SimpleControl extends Region {
+public class PotHeightControl extends Region {
     // needed for StyleableProperties
-    private static final StyleablePropertyFactory<SimpleControl> FACTORY = new StyleablePropertyFactory<>(Region.getClassCssMetaData());
+    private static final StyleablePropertyFactory<PotHeightControl> FACTORY = new StyleablePropertyFactory<>(Region.getClassCssMetaData());
 
     @Override
     public List<CssMetaData<? extends Styleable, ?>> getCssMetaData() {
@@ -44,8 +44,8 @@ public class SimpleControl extends Region {
     private static final String FONTS_CSS = "fonts.css";
     private static final String STYLE_CSS = "style.css";
 
-    private static final double ARTBOARD_WIDTH  = 100;
-    private static final double ARTBOARD_HEIGHT = 100;
+    private static final double ARTBOARD_WIDTH  = 400;
+    private static final double ARTBOARD_HEIGHT = 400;
 
     private static final double ASPECT_RATIO = ARTBOARD_WIDTH / ARTBOARD_HEIGHT;
 
@@ -64,7 +64,7 @@ public class SimpleControl extends Region {
     private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(1.0));
 
     //CSS stylable properties
-    private static final CssMetaData<SimpleControl, Color> BASE_COLOR_META_DATA = FACTORY.createColorCssMetaData("-base-color", s -> s.baseColor);
+    private static final CssMetaData<PotHeightControl, Color> BASE_COLOR_META_DATA = FACTORY.createColorCssMetaData("-base-color", s -> s.baseColor);
 
     private final StyleableObjectProperty<Color> baseColor = new SimpleStyleableObjectProperty<Color>(BASE_COLOR_META_DATA, this, "baseColor") {
         @Override
@@ -91,7 +91,7 @@ public class SimpleControl extends Region {
         }
     };
 
-    public SimpleControl() {
+    public PotHeightControl() {
         initializeSelf();
         initializeParts();
         layoutParts();

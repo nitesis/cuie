@@ -1,6 +1,6 @@
-package ch.fhnw.cuie.MyProjects.PoT.demo;
+package ch.fhnw.cuie.myProjects.pot.demo;
 
-import ch.fhnw.cuie.MyProjects.PoT.SimpleControl;
+import ch.fhnw.cuie.myProjects.pot.PotHeightControl;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
@@ -12,7 +12,7 @@ import javafx.util.Duration;
  * @author Dieter Holz
  */
 public class DemoPane extends BorderPane {
-    private SimpleControl customControl;
+    private PotHeightControl customControl;
 
     private TextField   valueField;
     private CheckBox    timerRunningBox;
@@ -28,7 +28,7 @@ public class DemoPane extends BorderPane {
     private void initializeControls() {
         setPadding(new Insets(10));
 
-        customControl = new SimpleControl();
+        customControl = new PotHeightControl();
 
         valueField = new TextField();
         valueField.setText("Wow!");
