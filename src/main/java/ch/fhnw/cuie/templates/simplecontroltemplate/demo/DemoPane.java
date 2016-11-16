@@ -1,5 +1,6 @@
 package ch.fhnw.cuie.templates.simplecontroltemplate.demo;
 
+import ch.fhnw.cuie.templates.simplecontroltemplate.SimpleControl;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.scene.control.CheckBox;
@@ -11,7 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
-import simplecontroltemplate.SimpleControl;
+
 
 /**
  * @author Dieter Holz
