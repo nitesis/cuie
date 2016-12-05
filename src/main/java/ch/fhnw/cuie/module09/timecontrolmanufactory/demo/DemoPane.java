@@ -89,6 +89,7 @@ public class DemoPane extends BorderPane {
         timeLabel.textProperty().bind(startTime.asString());
 
         mandatoryBox.selectedProperty().bindBidirectional(businessControl.mandatoryProperty());
+        readOnlyBox.selectedProperty().bindBidirectional(businessControl.editableProperty());
     }
 
     public LocalTime getStartTime() {
