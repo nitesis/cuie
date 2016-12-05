@@ -3,6 +3,7 @@ package ch.fhnw.cuie.module09.timecontrolmanufactory;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+import javafx.scene.control.Label;
 import javafx.scene.control.SkinBase;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -35,6 +36,7 @@ public class MyTimeSkin extends SkinBase<MyTimeControl> {
 
 
     private TextField timeField;
+    private Label timeLabel;
 
     public MyTimeSkin(MyTimeControl control){
         super(control);
@@ -57,10 +59,16 @@ public class MyTimeSkin extends SkinBase<MyTimeControl> {
     private void initializeParts() {
         timeField = new TextField(getSkinnable().getTime().format(DateTimeFormatter.ofPattern("HH:mm")));
         timeField.getStyleClass().add("timeField");
+
+        timeLabel = new Label();
+        //added style class for timeLabel
+        timeLabel.getStyleClass().add("timeLabel");
+        //soll am Anfang NICHT angezeigt werden
+        timeLabel.setVisible(false);
     }
 
     private void layoutParts(){
-        getChildren().add(timeField);
+        getChildren().addAll(timeField, timeLabel);
     }
 
     private void addValueChangeListener(){
@@ -79,6 +87,9 @@ public class MyTimeSkin extends SkinBase<MyTimeControl> {
     }
 
     private void setupBindings(){
-
+        //mit getSkinnable komm ich auf Control Klasse
+        timeField.visibleProperty().bind(getSkinnable().editableProperty());
+        //not = wenn in editableProperty false steht, wird timelabel sichtbar
+        timeLabel.visibleProperty().bind(getSkinnable().editableProperty().not());
     }
 }
