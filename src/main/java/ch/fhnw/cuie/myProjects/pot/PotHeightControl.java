@@ -57,6 +57,7 @@ public class PotHeightControl extends Region {
     // all parts
     private Text display;
 
+
     // all properties
     private final StringProperty value = new SimpleStringProperty();
 

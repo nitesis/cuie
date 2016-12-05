@@ -1,15 +1,15 @@
-.simpleControl {
+.potHeightControl {
     -fx-padding: 10;
     -base-color: rgb(2, 138, 204);
     -fx-background-color: derive(-base-color, 80%);
 }
 
-.simpleControl .drawingPane {
+.potHeightControl .drawingPane {
     -fx-background-color: -base-color;
 }
 
-.simpleControl .display {
-    -fx-font-family: 'Lato Light';
+.potHeightControl .display {
+    -fx-font-family: 'Futura Medium';
     -fx-font-size: 32;
     -fx-fill: derive(-base-color, 80%);
 }

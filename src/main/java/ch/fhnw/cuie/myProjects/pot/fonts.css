@@ -1,4 +1,8 @@
 @font-face {
+    font-family: 'Futura Medium';
+    src: url(/fonts/Futura/FuturaStd-Medium.ttf);
+}
+@font-face {
     font-family: 'FontAwesome';
     src: url("/fonts/fontawesome-webfont.ttf");
 }

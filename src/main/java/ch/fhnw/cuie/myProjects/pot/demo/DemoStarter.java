@@ -12,11 +12,11 @@ public class DemoStarter extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Region rootPanel = new ch.fhnw.cuie.templates.simplecontroltemplate.demo.DemoPane();
+        Region rootPanel = new ch.fhnw.cuie.myProjects.pot.demo.DemoPane();
 
         Scene scene = new Scene(rootPanel);
 
-        primaryStage.setTitle("Simple Control Demo");
+        primaryStage.setTitle("Power of Tower Height Control Demo");
         primaryStage.setScene(scene);
 
         primaryStage.show();

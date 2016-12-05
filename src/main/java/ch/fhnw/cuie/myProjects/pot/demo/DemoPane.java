@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 /**
- * @author Dieter Holz
+ * @author Viviane Bendjus
  */
 public class DemoPane extends BorderPane {
     private PotHeightControl customControl;
