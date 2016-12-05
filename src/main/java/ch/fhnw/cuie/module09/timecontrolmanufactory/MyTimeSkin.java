@@ -91,5 +91,7 @@ public class MyTimeSkin extends SkinBase<MyTimeControl> {
         timeField.visibleProperty().bind(getSkinnable().editableProperty());
         //not = wenn in editableProperty false steht, wird timelabel sichtbar
         timeLabel.visibleProperty().bind(getSkinnable().editableProperty().not());
+
+        timeLabel.textProperty().bind(getSkinnable().timeProperty().asString());
     }
 }
