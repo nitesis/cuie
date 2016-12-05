@@ -23,7 +23,7 @@ public class MyTimeControl extends Control {
         }
     };
 
-    private final BooleanProperty editable = SimpleBooleanProperty();
+    private final BooleanProperty editable = new SimpleBooleanProperty();
     private final ObjectProperty<LocalTime> time     = new SimpleObjectProperty<>();
 
     public MyTimeControl() {
