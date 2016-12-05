@@ -1,0 +1,12 @@
+.myTimeControl {
+    -base-color: blue;
+
+}
+
+.myTimeControl .timeField{
+    -fx-background-color: yellow;
+}
+
+.myTimeControl:mandatory .timeField{
+    -fx-background-color: green;
+}
