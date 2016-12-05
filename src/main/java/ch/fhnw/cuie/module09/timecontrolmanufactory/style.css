@@ -5,8 +5,11 @@
 
 .myTimeControl .timeField{
     -fx-background-color: yellow;
+    -fx-font-size: 100px;
 }
 
 .myTimeControl:mandatory .timeField{
-    -fx-background-color: green;
+    -fx-font-color: red;
+    -fx-background-color: white;
+
 }

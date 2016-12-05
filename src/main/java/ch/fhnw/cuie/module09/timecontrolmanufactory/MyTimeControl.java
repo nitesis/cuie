@@ -23,6 +23,7 @@ public class MyTimeControl extends Control {
         }
     };
 
+    private final BooleanProperty editable = SimpleBooleanProperty();
     private final ObjectProperty<LocalTime> time     = new SimpleObjectProperty<>();
 
     public MyTimeControl() {
@@ -62,4 +63,15 @@ public class MyTimeControl extends Control {
         this.mandatory.set(mandatory);
     }
 
+    public boolean isEditable() {
+        return editable.get();
+    }
+
+    public BooleanProperty editableProperty() {
+        return editable;
+    }
+
+    public void setEditable(boolean editable) {
+        this.editable.set(editable);
+    }
 }
