@@ -11,5 +11,8 @@
 .myTimeControl:mandatory .timeField{
     -fx-font-color: red;
     -fx-background-color: white;
+}
 
+.myTimeControl .timeLabel{
+    -fx-background-color: pink;
 }

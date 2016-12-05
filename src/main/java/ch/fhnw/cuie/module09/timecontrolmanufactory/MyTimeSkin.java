@@ -89,7 +89,7 @@ public class MyTimeSkin extends SkinBase<MyTimeControl> {
     private void setupBindings(){
         //mit getSkinnable komm ich auf Control Klasse
         timeField.visibleProperty().bind(getSkinnable().editableProperty());
-        //not = wenn in editableProperty false steht, wird timelabel sichtbar
+        //not = wenn in editableProperty false steht, wird timeLabel sichtbar
         timeLabel.visibleProperty().bind(getSkinnable().editableProperty().not());
 
         timeLabel.textProperty().bind(getSkinnable().timeProperty().asString());
