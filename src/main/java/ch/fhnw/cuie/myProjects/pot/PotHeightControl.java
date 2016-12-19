@@ -141,7 +141,8 @@ public class PotHeightControl extends Region {
         mainLine.getStyleClass().add("mainLine");
         mainLine.setStrokeLineCap(StrokeLineCap.ROUND);
 
-        baseArc = new Arc()
+        baseArc = new Arc(200, 378, 50, 50, 0, 180);
+        mainLine.getStyleClass().add("mainLine");
 
 
 
@@ -156,7 +157,7 @@ public class PotHeightControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll(mainName, mainCircleBig, mainCircleSmall, mainLine);
+        drawingPane.getChildren().addAll(mainName, mainCircleBig, mainCircleSmall, mainLine, baseArc);
 
         getChildren().add(drawingPane);
     }
