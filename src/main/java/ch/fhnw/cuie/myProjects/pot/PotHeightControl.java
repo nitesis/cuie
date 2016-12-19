@@ -24,6 +24,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.StrokeLineCap;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextBoundsType;
@@ -55,7 +59,13 @@ public class PotHeightControl extends Region {
     private static final double MAXIMUM_WIDTH = 800;
 
     // all parts
-    private Text display;
+    private Text mainName;
+    private Line mainLine;
+    private Text   titleLabel;
+    private Text   valueLabel;
+    private Text   unitLabel;
+    private Circle barBackground;
+    private Arc bar;
 
 
     // all properties
@@ -109,7 +119,16 @@ public class PotHeightControl extends Region {
 
 
     private void initializeParts() {
-        display = createCenteredText("display");
+        //display = createCenteredText("display");
+        mainName = createCenteredText("Burj Kalifa");
+        mainName.setTextOrigin(VPos.TOP);
+
+        mainLine = new Line(200, 328, 200, 121);
+        mainLine.getStyleClass().add("mainLine");
+        mainLine.setStrokeLineCap(StrokeLineCap.ROUND);
+
+
+
 
         // always needed
         drawingPane = new Pane();
@@ -121,7 +140,7 @@ public class PotHeightControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll(display);
+        drawingPane.getChildren().addAll(mainName, mainLine);
 
         getChildren().add(drawingPane);
     }
@@ -152,7 +171,7 @@ public class PotHeightControl extends Region {
     }
 
     private void setupBindings() {
-        display.textProperty().bind(valueProperty());
+        mainName.textProperty().bind(valueProperty());
     }
 
     private void performPeriodicTask() {

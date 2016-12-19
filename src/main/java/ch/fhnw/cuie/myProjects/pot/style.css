@@ -14,3 +14,7 @@
     -fx-fill: derive(-base-color, 80%);
 }
 
+.potHeightControl .mainLine {
+    -fx-stroke: #000000;
+    -fx-stroke-width: 6;
+}
