@@ -31,7 +31,7 @@ public class DemoPane extends BorderPane {
         customControl = new PotHeightControl();
 
         valueField = new TextField();
-        valueField.setText("Wow!");
+        valueField.setText("Burj Kalifa");
 
         timerRunningBox = new CheckBox("Timer running");
         timerRunningBox.setSelected(false);

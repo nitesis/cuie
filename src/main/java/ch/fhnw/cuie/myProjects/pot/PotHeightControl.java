@@ -14,6 +14,7 @@ import javafx.css.SimpleStyleableObjectProperty;
 import javafx.css.Styleable;
 import javafx.css.StyleableObjectProperty;
 import javafx.css.StyleablePropertyFactory;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.geometry.VPos;
@@ -61,11 +62,13 @@ public class PotHeightControl extends Region {
     // all parts
     private Text mainName;
     private Line mainLine;
-    private Text   titleLabel;
-    private Text   valueLabel;
-    private Text   unitLabel;
-    private Circle barBackground;
-    private Arc bar;
+    private Circle mainCircleSmall;
+    private Circle mainCircleWhite;
+    private Circle mainCircleBig;
+    private Arc baseArc;
+    private Line baseLine;
+
+    //private Arc bar;
 
 
     // all properties
@@ -120,12 +123,25 @@ public class PotHeightControl extends Region {
 
     private void initializeParts() {
         //display = createCenteredText("display");
-        mainName = createCenteredText("Burj Kalifa");
+        mainName = new Text("Burj Kalifa");
         mainName.setTextOrigin(VPos.TOP);
+        mainName.setTextAlignment(TextAlignment.CENTER);
+        mainName.getStyleClass().add("mainName");
+
+        mainCircleSmall = new Circle(199, 101, 10);
+        mainCircleSmall.getStyleClass().add("mainCircleWhite");
+
+        //mainCircleWhite = new Circle(, 99, 10);
+        //mainCircleSmall.getStyleClass().add("mainCircleWhite");
+
+        mainCircleBig = new Circle(199, 101, 16);
+        mainCircleBig.getStyleClass().add("mainCircle");
 
         mainLine = new Line(200, 328, 200, 121);
         mainLine.getStyleClass().add("mainLine");
         mainLine.setStrokeLineCap(StrokeLineCap.ROUND);
+
+        baseArc = new Arc()
 
 
 
@@ -140,7 +156,7 @@ public class PotHeightControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll(mainName, mainLine);
+        drawingPane.getChildren().addAll(mainName, mainCircleBig, mainCircleSmall, mainLine);
 
         getChildren().add(drawingPane);
     }

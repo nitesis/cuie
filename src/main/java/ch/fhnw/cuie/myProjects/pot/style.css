@@ -14,6 +14,21 @@
     -fx-fill: derive(-base-color, 80%);
 }
 
+.potHeightControl .mainName {
+    -fx-font-size: 31px;
+}
+
+.potHeightControl .mainCircle {
+    -fx-stroke: #000000;
+    -fx-stroke-width: 6;
+}
+
+.potHeightControl .mainCircleWhite {
+    -fx-stroke: #FFFFFF;
+    -fx-stroke-width: 9;
+
+}
+
 .potHeightControl .mainLine {
     -fx-stroke: #000000;
     -fx-stroke-width: 6;
