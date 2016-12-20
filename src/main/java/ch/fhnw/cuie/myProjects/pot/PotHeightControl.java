@@ -14,16 +14,12 @@ import javafx.css.SimpleStyleableObjectProperty;
 import javafx.css.Styleable;
 import javafx.css.StyleableObjectProperty;
 import javafx.css.StyleablePropertyFactory;
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
-import javafx.geometry.Point2D;
-import javafx.geometry.VPos;
+import javafx.geometry.*;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
@@ -60,13 +56,15 @@ public class PotHeightControl extends Region {
     private static final double MAXIMUM_WIDTH = 800;
 
     // all parts
+    private HBox mainNameBox;
     private Text mainName;
     private Line mainLine;
     private Circle mainCircleSmall;
-    private Circle mainCircleWhite;
     private Circle mainCircleBig;
     private Arc baseArc;
     private Line baseLine;
+    private HBox mainHeightBox;
+    private Text mainHeight;
 
     //private Arc bar;
 
@@ -122,27 +120,42 @@ public class PotHeightControl extends Region {
 
 
     private void initializeParts() {
-        //display = createCenteredText("display");
+        mainNameBox = new HBox();
+        mainNameBox.setStyle("-fx-padding: 10");
+        mainNameBox.setAlignment(Pos.CENTER);
+        mainNameBox.setPrefSize(ARTBOARD_WIDTH, 50);
         mainName = new Text("Burj Kalifa");
-        mainName.setTextOrigin(VPos.TOP);
-        mainName.setTextAlignment(TextAlignment.CENTER);
+        mainNameBox.getChildren().add(mainName);
+
         mainName.getStyleClass().add("mainName");
 
-        mainCircleSmall = new Circle(199, 101, 10);
-        mainCircleSmall.getStyleClass().add("mainCircleWhite");
-
-        //mainCircleWhite = new Circle(, 99, 10);
-        //mainCircleSmall.getStyleClass().add("mainCircleWhite");
+        mainCircleSmall = new Circle(199, 101, 6);
+        mainCircleSmall.getStyleClass().add("mainCircleSmall");
 
         mainCircleBig = new Circle(199, 101, 16);
-        mainCircleBig.getStyleClass().add("mainCircle");
+        mainCircleBig.getStyleClass().add("mainCircleBig");
 
         mainLine = new Line(200, 328, 200, 121);
         mainLine.getStyleClass().add("mainLine");
         mainLine.setStrokeLineCap(StrokeLineCap.ROUND);
 
         baseArc = new Arc(200, 378, 50, 50, 0, 180);
-        mainLine.getStyleClass().add("mainLine");
+        baseArc.getStyleClass().add("mainCircleBig");
+
+        baseLine = new Line(150, 380, 250, 380);
+        baseLine.getStyleClass().add("mainLine");
+
+        mainHeightBox = new HBox();
+        mainHeightBox.setTranslateY(330);
+        mainHeightBox.setStyle("-fx-padding: 10");
+        mainHeightBox.setAlignment(Pos.CENTER);
+        mainHeightBox.setPrefSize(ARTBOARD_WIDTH, 50);
+
+
+        mainHeight = new Text("830 m");
+        mainHeight.getStyleClass().add("mainHeight");
+        mainHeightBox.getChildren().add(mainHeight);
+
 
 
 
@@ -157,7 +170,7 @@ public class PotHeightControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll(mainName, mainCircleBig, mainCircleSmall, mainLine, baseArc);
+        drawingPane.getChildren().addAll(mainNameBox, mainCircleBig, mainCircleSmall, mainLine, baseArc, baseLine, mainHeightBox);
 
         getChildren().add(drawingPane);
     }

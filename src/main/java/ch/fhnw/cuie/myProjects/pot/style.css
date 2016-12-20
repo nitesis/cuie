@@ -16,20 +16,26 @@
 
 .potHeightControl .mainName {
     -fx-font-size: 31px;
+    -fx-padding: 150px;
 }
 
-.potHeightControl .mainCircle {
+.potHeightControl .mainCircleBig {
     -fx-stroke: #000000;
     -fx-stroke-width: 6;
+    -fx-fill: #FFFFFF;
 }
 
-.potHeightControl .mainCircleWhite {
-    -fx-stroke: #FFFFFF;
-    -fx-stroke-width: 9;
+.potHeightControl .mainCircleSmall {
+
 
 }
 
 .potHeightControl .mainLine {
     -fx-stroke: #000000;
     -fx-stroke-width: 6;
+}
+
+.potHeightControl .mainHeight {
+    -fx-fill: #000000;
+    -fx-font-size: 24;
 }
