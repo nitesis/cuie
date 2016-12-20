@@ -1,14 +1,10 @@
 package ch.fhnw.cuie.myProjects.pot;
 
+import java.text.Format;
 import java.util.List;
 
 import javafx.animation.AnimationTimer;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.css.CssMetaData;
 import javafx.css.SimpleStyleableObjectProperty;
 import javafx.css.Styleable;
@@ -71,10 +67,12 @@ public class PotHeightControl extends Region {
 
     // all properties
     private final StringProperty value = new SimpleStringProperty();
+    private final StringProperty mainHeightValue = new SimpleStringProperty();
 
     private final BooleanProperty          timerIsRunning = new SimpleBooleanProperty(false);
     private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(1.0));
 
+    private final DoubleProperty animatedHeight = new SimpleDoubleProperty();
     //CSS stylable properties
     private static final CssMetaData<PotHeightControl, Color> BASE_COLOR_META_DATA = FACTORY.createColorCssMetaData("-base-color", s -> s.baseColor);
 
@@ -202,6 +200,7 @@ public class PotHeightControl extends Region {
 
     private void setupBindings() {
         mainName.textProperty().bind(valueProperty());
+        mainHeight.textProperty().bind(mainHeightValueProperty());
     }
 
     private void performPeriodicTask() {
@@ -372,5 +371,29 @@ public class PotHeightControl extends Region {
 
     public void setPulse(Duration pulse) {
         this.pulse.set(pulse);
+    }
+
+    public String getMainHeightValue() {
+        return mainHeightValue.get();
+    }
+
+    public StringProperty mainHeightValueProperty() {
+        return mainHeightValue;
+    }
+
+    public void setMainHeightValue(String mainHeightValue) {
+        this.mainHeightValue.set(mainHeightValue);
+    }
+
+    public double getAnimatedHeight() {
+        return animatedHeight.get();
+    }
+
+    public DoubleProperty animatedHeightProperty() {
+        return animatedHeight;
+    }
+
+    public void setAnimatedHeight(double animatedHeight) {
+        this.animatedHeight.set(animatedHeight);
     }
 }
