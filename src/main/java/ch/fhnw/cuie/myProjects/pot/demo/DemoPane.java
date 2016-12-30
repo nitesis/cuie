@@ -2,7 +2,6 @@ package ch.fhnw.cuie.myProjects.pot.demo;
 
 import ch.fhnw.cuie.myProjects.pot.PotHeightControl;
 import javafx.beans.binding.Bindings;
-import javafx.beans.binding.DoubleBinding;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -10,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import javafx.util.StringConverter;
 import javafx.util.converter.DoubleStringConverter;
+import javafx.util.converter.NumberStringConverter;
 
 /**
  * @author Viviane Bendjus
@@ -17,7 +17,7 @@ import javafx.util.converter.DoubleStringConverter;
 public class DemoPane extends BorderPane {
     private PotHeightControl customControl;
 
-    private TextField   valueField;
+    private TextField   titleField;
     private TextField   heightField;
     private CheckBox    timerRunningBox;
     private Slider      pulseSlider;
@@ -34,8 +34,8 @@ public class DemoPane extends BorderPane {
 
         customControl = new PotHeightControl();
 
-        valueField = new TextField();
-        valueField.setText("Burj Kalifa");
+        titleField = new TextField();
+        titleField.setText("Burj Kalifa");
 
         heightField = new TextField();
         heightField.setText("830");
@@ -52,7 +52,7 @@ public class DemoPane extends BorderPane {
 
     private void layoutControls() {
         setCenter(customControl);
-        VBox box = new VBox(10, new Label("Control Properties"), valueField, heightField, timerRunningBox, pulseSlider, colorPicker);
+        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, timerRunningBox, pulseSlider, colorPicker);
         box.setPadding(new Insets(10));
         box.setSpacing(10);
         setRight(box);
@@ -62,8 +62,12 @@ public class DemoPane extends BorderPane {
 
         StringConverter converter = new DoubleStringConverter();
 
-        customControl.valueProperty().bindBidirectional(valueField.textProperty());
-        customControl.mainHeightValueProperty().bindBidirectional(heightField.textProperty());
+        customControl.titleProperty().bindBidirectional(titleField.textProperty());
+
+        Bindings.bindBidirectional(heightField.textProperty(), customControl.heightValueProperty(), new NumberStringConverter());
+        //heightField.textProperty().bind(customControl.heightValueProperty().asString("%.2f"));
+
+        //customControl.heightValueProperty().bindBidirectional(heightField.textProperty());
 
         customControl.timerIsRunningProperty().bindBidirectional(timerRunningBox.selectedProperty());
         customControl.pulseProperty().bind(Bindings.createObjectBinding(() -> Duration.seconds(pulseSlider.getValue()), pulseSlider.valueProperty()));

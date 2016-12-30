@@ -69,12 +69,12 @@ public class DemoPane extends BorderPane {
 
 
     private void addValueChangeListeners() {
-//        hourSlider.valueProperty().addListener((observable, oldValue, newValue) -> setStartTime(LocalTime.of((int)hourSlider.getValue(), (int) minuteSlider.getValue())));
-//        minuteSlider.valueProperty().addListener((observable, oldValue, newValue) -> setStartTime(LocalTime.of((int)hourSlider.getValue(), (int) minuteSlider.getValue())));
+//        hourSlider.titleProperty().addListener((observable, oldValue, newValue) -> setStartTime(LocalTime.of((int)hourSlider.getTitle(), (int) minuteSlider.getTitle())));
+//        minuteSlider.titleProperty().addListener((observable, oldValue, newValue) -> setStartTime(LocalTime.of((int)hourSlider.getTitle(), (int) minuteSlider.getTitle())));
 //
 //        startTimeProperty().addListener((observable, oldValue, newValue) -> {
-//            hourSlider.setValue(newValue.getHour());
-//            minuteSlider.setValue(newValue.getMinute());
+//            hourSlider.setTitle(newValue.getHour());
+//            minuteSlider.setTitle(newValue.getMinute());
 //        });
     }
 

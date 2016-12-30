@@ -1,6 +1,5 @@
 package ch.fhnw.cuie.myProjects.pot;
 
-import java.text.Format;
 import java.util.List;
 
 import javafx.animation.AnimationTimer;
@@ -52,22 +51,23 @@ public class PotHeightControl extends Region {
     private static final double MAXIMUM_WIDTH = 800;
 
     // all parts
-    private HBox mainNameBox;
-    private Text mainName;
-    private Line mainLine;
-    private Circle mainCircleSmall;
-    private Circle mainCircleBig;
+    private HBox titleLabelBox;
+    private Text titleLabel;
+    private Line heightLine;
+    private Circle heightCircleSmall;
+    private Circle heightCircleBig;
     private Arc baseArc;
     private Line baseLine;
-    private HBox mainHeightBox;
-    private Text mainHeight;
+    private HBox heightLabelBox;
+    private Text heightLabel;
 
     //private Arc bar;
 
 
     // all properties
-    private final StringProperty value = new SimpleStringProperty();
-    private final StringProperty mainHeightValue = new SimpleStringProperty();
+    private final StringProperty title = new SimpleStringProperty();
+    //private final StringProperty heightValue = new SimpleStringProperty();
+    private final DoubleProperty heightValue = new SimpleDoubleProperty();
 
     private final BooleanProperty          timerIsRunning = new SimpleBooleanProperty(false);
     private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(1.0));
@@ -118,41 +118,41 @@ public class PotHeightControl extends Region {
 
 
     private void initializeParts() {
-        mainNameBox = new HBox();
-        mainNameBox.setStyle("-fx-padding: 10");
-        mainNameBox.setAlignment(Pos.CENTER);
-        mainNameBox.setPrefSize(ARTBOARD_WIDTH, 50);
-        mainName = new Text("Burj Kalifa");
-        mainNameBox.getChildren().add(mainName);
+        titleLabelBox = new HBox();
+        titleLabelBox.setStyle("-fx-padding: 10");
+        titleLabelBox.setAlignment(Pos.CENTER);
+        titleLabelBox.setPrefSize(ARTBOARD_WIDTH, 50);
+        titleLabel = new Text("Burj Kalifa");
+        titleLabelBox.getChildren().add(titleLabel);
 
-        mainName.getStyleClass().add("mainName");
+        titleLabel.getStyleClass().add("titleLabel");
 
-        mainCircleSmall = new Circle(199, 101, 6);
-        mainCircleSmall.getStyleClass().add("mainCircleSmall");
+        heightCircleSmall = new Circle(199, 101, 6);
+        heightCircleSmall.getStyleClass().add("heightCircleSmall");
 
-        mainCircleBig = new Circle(199, 101, 16);
-        mainCircleBig.getStyleClass().add("mainCircleBig");
+        heightCircleBig = new Circle(199, 101, 16);
+        heightCircleBig.getStyleClass().add("heightCircleBig");
 
-        mainLine = new Line(200, 328, 200, 121);
-        mainLine.getStyleClass().add("mainLine");
-        mainLine.setStrokeLineCap(StrokeLineCap.ROUND);
+        heightLine = new Line(200, 328, 200, 121);
+        heightLine.getStyleClass().add("heightLine");
+        heightLine.setStrokeLineCap(StrokeLineCap.ROUND);
 
         baseArc = new Arc(200, 378, 50, 50, 0, 180);
-        baseArc.getStyleClass().add("mainCircleBig");
+        baseArc.getStyleClass().add("heightCircleBig");
 
         baseLine = new Line(150, 380, 250, 380);
-        baseLine.getStyleClass().add("mainLine");
+        baseLine.getStyleClass().add("heightLine");
 
-        mainHeightBox = new HBox();
-        mainHeightBox.setTranslateY(330);
-        mainHeightBox.setStyle("-fx-padding: 10");
-        mainHeightBox.setAlignment(Pos.CENTER);
-        mainHeightBox.setPrefSize(ARTBOARD_WIDTH, 50);
+        heightLabelBox = new HBox();
+        heightLabelBox.setTranslateY(330);
+        heightLabelBox.setStyle("-fx-padding: 10");
+        heightLabelBox.setAlignment(Pos.CENTER);
+        heightLabelBox.setPrefSize(ARTBOARD_WIDTH, 50);
 
 
-        mainHeight = new Text("830 m");
-        mainHeight.getStyleClass().add("mainHeight");
-        mainHeightBox.getChildren().add(mainHeight);
+        heightLabel = new Text("830 m");
+        heightLabel.getStyleClass().add("heightLabel");
+        heightLabelBox.getChildren().add(heightLabel);
 
 
 
@@ -168,7 +168,7 @@ public class PotHeightControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll(mainNameBox, mainCircleBig, mainCircleSmall, mainLine, baseArc, baseLine, mainHeightBox);
+        drawingPane.getChildren().addAll(titleLabelBox, heightCircleBig, heightCircleSmall, heightLine, baseArc, baseLine, heightLabelBox);
 
         getChildren().add(drawingPane);
     }
@@ -178,10 +178,13 @@ public class PotHeightControl extends Region {
     }
 
     private void addEventHandlers() {
-
+//        heightCircleBig.setOnMouseDragged(event -> {
+//            setHeightValue(200.0);
+//        });
     }
 
     private void addValueChangedListeners() {
+        //heightLabel.
 
 
         // if you need the timer
@@ -199,8 +202,8 @@ public class PotHeightControl extends Region {
     }
 
     private void setupBindings() {
-        mainName.textProperty().bind(valueProperty());
-        mainHeight.textProperty().bind(mainHeightValueProperty());
+        titleLabel.textProperty().bind(titleProperty());
+        heightLabel.textProperty().bind(heightValueProperty().asString());
     }
 
     private void performPeriodicTask() {
@@ -325,16 +328,16 @@ public class PotHeightControl extends Region {
 
     // getter and setter for all properties
 
-    public String getValue() {
-        return value.get();
+    public String getTitle() {
+        return title.get();
     }
 
-    public StringProperty valueProperty() {
-        return value;
+    public StringProperty titleProperty() {
+        return title;
     }
 
-    public void setValue(String value) {
-        this.value.set(value);
+    public void setTitle(String title) {
+        this.title.set(title);
     }
 
     public Color getBaseColor() {
@@ -373,17 +376,17 @@ public class PotHeightControl extends Region {
         this.pulse.set(pulse);
     }
 
-    public String getMainHeightValue() {
-        return mainHeightValue.get();
-    }
-
-    public StringProperty mainHeightValueProperty() {
-        return mainHeightValue;
-    }
-
-    public void setMainHeightValue(String mainHeightValue) {
-        this.mainHeightValue.set(mainHeightValue);
-    }
+//    public String getHeightValue() {
+//        return heightValue.get();
+//    }
+//
+//    public StringProperty heightValueProperty() {
+//        return heightValue;
+//    }
+//
+//    public void setHeightValue(String heightValue) {
+//        this.heightValue.set(heightValue);
+//    }
 
     public double getAnimatedHeight() {
         return animatedHeight.get();
@@ -395,5 +398,17 @@ public class PotHeightControl extends Region {
 
     public void setAnimatedHeight(double animatedHeight) {
         this.animatedHeight.set(animatedHeight);
+    }
+
+    public double getHeightValue() {
+        return heightValue.get();
+    }
+
+    public DoubleProperty heightValueProperty() {
+        return heightValue;
+    }
+
+    public void setHeightValue(double heightValue) {
+        this.heightValue.set(heightValue);
     }
 }

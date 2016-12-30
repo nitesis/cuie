@@ -27,7 +27,7 @@ public class ValueChangedExample extends VBox {
     }
 
     private void addValueChangedListeners() {
-        //valueProperty()hält den Wert der Property
+        //titleProperty()hält den Wert der Property
         //passt Value im Textfield entsprechd Slider an
         slider.valueProperty().addListener((observable, oldValue, newValue) -> textField.setText(String.valueOf(newValue)));
         //passt Slider entsprechd Eingabe Textfield an

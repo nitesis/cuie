@@ -14,28 +14,28 @@
     -fx-fill: derive(-base-color, 80%);
 }
 
-.potHeightControl .mainName {
+.potHeightControl .titleLabel{
     -fx-font-size: 31px;
     -fx-padding: 150px;
 }
 
-.potHeightControl .mainCircleBig {
+.potHeightControl .heightCircleBig {
     -fx-stroke: #000000;
     -fx-stroke-width: 6;
     -fx-fill: #FFFFFF;
 }
 
-.potHeightControl .mainCircleSmall {
+.potHeightControl .heightCircleSmall {
 
 
 }
 
-.potHeightControl .mainLine {
+.potHeightControl .heightLine {
     -fx-stroke: #000000;
     -fx-stroke-width: 6;
 }
 
-.potHeightControl .mainHeight {
+.potHeightControl .heightLabel {
     -fx-fill: #000000;
     -fx-font-size: 24;
 }
