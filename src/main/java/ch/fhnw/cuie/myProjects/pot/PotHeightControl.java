@@ -178,9 +178,9 @@ public class PotHeightControl extends Region {
     }
 
     private void addEventHandlers() {
-//        heightCircleBig.setOnMouseDragged(event -> {
-//            setHeightValue(200.0);
-//        });
+        heightCircleBig.setOnMouseDragged(event -> {
+            setHeightValue((drawingPane.getMaxHeight() - 20.0 - event.getY()) * 4.0);
+        });
     }
 
     private void addValueChangedListeners() {
