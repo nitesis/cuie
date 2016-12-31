@@ -5,6 +5,7 @@ import java.util.List;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.property.*;
 import javafx.css.CssMetaData;
 import javafx.css.SimpleStyleableObjectProperty;
@@ -87,6 +88,7 @@ public class PotHeightControl extends Region {
     };
 
     // all animations
+    private final Timeline timeline = new Timeline();
 
     // all parts need to be children of the drawingPane
     private Pane drawingPane;
@@ -186,7 +188,7 @@ public class PotHeightControl extends Region {
     }
 
     private void addValueChangedListeners() {
-        heightValue.addListener((observable, oldValue, newValue) -> {
+        /*heightValue.addListener((observable, oldValue, newValue) -> {
             double lineLength =  heightLine.getStartY() - (newValue.doubleValue() * 0.25);
 
             heightLine.setEndY(lineLength + 60.0);
@@ -200,20 +202,28 @@ public class PotHeightControl extends Region {
             heightCircleSmall.setCenterX(circleCenter.getX());
             heightCircleSmall.setCenterY(circleCenter.getY());
         });
-
-       /* //Hier wird Animation festgelegt
-        valueProperty().addListener((observable, oldValue, newValue) -> {
+*/
+        //Hier wird Animation festgelegt
+        heightValueProperty().addListener((observable, oldValue, newValue) -> {
             timeline.stop();
             timeline.getKeyFrames().setAll(new KeyFrame(Duration.millis(500),
-                    new KeyValue(animatedValue, newValue)));
+                    new KeyValue(animatedHeightValue, newValue)));
             timeline.play();
         });
         //Hier wird Wertänderung festgelegt
-        animatedValueProperty().addListener((observable, oldValue, newValue) -> {
-            bar.setVisible(true);
-            checkBoundaries(getValue());
-            bar.setLength(getAngle(newValue));
-        });*/
+        animatedHeightValueProperty().addListener((observable, oldValue, newValue) -> {
+            double lineLength =  heightLine.getStartY() - (newValue.doubleValue() * 0.25);
+
+            heightLine.setEndY(lineLength + 60.0);
+
+            double centerX = heightLine.getEndX();
+            double centerY = heightLine.getEndY();
+            Point2D circleCenter = new Point2D(centerX, centerY);
+            heightCircleBig.setCenterX(circleCenter.getX());
+            heightCircleBig.setCenterY(circleCenter.getY());
+            heightCircleSmall.setCenterX(circleCenter.getX());
+            heightCircleSmall.setCenterY(circleCenter.getY());
+        });
 
 
         // if you need the timer
