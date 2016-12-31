@@ -193,12 +193,13 @@ public class PotHeightControl extends Region {
             heightLine.setEndY(lineLength + 60.0);
 
 
-          /*  double  center          = drawingPane.getPrefHeight() * 0.5;
-            Point2D circleCenter = pointOnCircle(center, center, center - 15, lineLength);
+            double centerX = heightLine.getEndX();
+            double centerY = heightLine.getEndY();
+            Point2D circleCenter = new Point2D(centerX, centerY);
             heightCircleBig.setCenterX(circleCenter.getX());
             heightCircleBig.setCenterY(circleCenter.getY());
             heightCircleSmall.setCenterX(circleCenter.getX());
-            heightCircleSmall.setCenterY(circleCenter.getY());*/
+            heightCircleSmall.setCenterY(circleCenter.getY());
         });
 
 
