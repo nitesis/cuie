@@ -171,7 +171,7 @@ public class PotHeightControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll(titleLabelBox, heightCircleBig, heightCircleSmall, heightLine, baseArc, baseLine, heightLabelBox);
+        drawingPane.getChildren().addAll(titleLabelBox, baseArc, baseLine, heightLine, heightCircleBig, heightCircleSmall, heightLabelBox);
 
         getChildren().add(drawingPane);
     }
