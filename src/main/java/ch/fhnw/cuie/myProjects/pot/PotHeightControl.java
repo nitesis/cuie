@@ -1,5 +1,7 @@
 package ch.fhnw.cuie.myProjects.pot;
 
+import java.awt.event.MouseListener;
+import java.io.Console;
 import java.util.List;
 
 import javafx.animation.AnimationTimer;
@@ -14,6 +16,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
@@ -184,7 +187,19 @@ public class PotHeightControl extends Region {
     }
 
     private void addValueChangedListeners() {
-        //heightLabel.
+        heightValue.addListener((observable, oldValue, newValue) -> {
+            double lineLength =  heightLine.getStartY() - (newValue.doubleValue() * 0.25);
+
+            heightLine.setEndY(lineLength + 60.0);
+
+
+          /*  double  center          = drawingPane.getPrefHeight() * 0.5;
+            Point2D circleCenter = pointOnCircle(center, center, center - 15, lineLength);
+            heightCircleBig.setCenterX(circleCenter.getX());
+            heightCircleBig.setCenterY(circleCenter.getY());
+            heightCircleSmall.setCenterX(circleCenter.getX());
+            heightCircleSmall.setCenterY(circleCenter.getY());*/
+        });
 
 
         // if you need the timer
@@ -232,7 +247,7 @@ public class PotHeightControl extends Region {
     /*
      * angle in degrees, 0 is north
      */
-    private double angle(double cx, double cy, double x, double y) {
+   /* private double angle(double cx, double cy, double x, double y) {
         double deltaX = x - cx;
         double deltaY = y - cy;
         double radius = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
@@ -241,15 +256,16 @@ public class PotHeightControl extends Region {
         double theta  = Math.toRadians(90) + Math.atan2(ny, nx);
 
         return Double.compare(theta, 0.0) >= 0 ? Math.toDegrees(theta) : Math.toDegrees((theta)) + 360.0;
-    }
+    }*/
 
     /*
      * angle in degrees, 0 is north
      */
-    private Point2D pointOnCircle(double cX, double cY, double radius, double angle) {
+    /*private Point2D pointOnCircle(double cX, double cY, double radius, double angle) {
+
         return new Point2D(cX - (radius * Math.sin(Math.toRadians(angle - 180))),
                            cY + (radius * Math.cos(Math.toRadians(angle - 180))));
-    }
+    }*/
 
     /*
      * Needed if you want to know what's defined in css during initialization
