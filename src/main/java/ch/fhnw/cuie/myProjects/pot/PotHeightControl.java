@@ -1,10 +1,10 @@
 package ch.fhnw.cuie.myProjects.pot;
 
-import java.awt.event.MouseListener;
-import java.io.Console;
 import java.util.List;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
 import javafx.beans.property.*;
 import javafx.css.CssMetaData;
 import javafx.css.SimpleStyleableObjectProperty;
@@ -16,7 +16,6 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
@@ -75,7 +74,7 @@ public class PotHeightControl extends Region {
     private final BooleanProperty          timerIsRunning = new SimpleBooleanProperty(false);
     private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(1.0));
 
-    private final DoubleProperty animatedHeight = new SimpleDoubleProperty();
+    private final DoubleProperty animatedHeightValue = new SimpleDoubleProperty();
     //CSS stylable properties
     private static final CssMetaData<PotHeightControl, Color> BASE_COLOR_META_DATA = FACTORY.createColorCssMetaData("-base-color", s -> s.baseColor);
 
@@ -201,6 +200,20 @@ public class PotHeightControl extends Region {
             heightCircleSmall.setCenterX(circleCenter.getX());
             heightCircleSmall.setCenterY(circleCenter.getY());
         });
+
+       /* //Hier wird Animation festgelegt
+        valueProperty().addListener((observable, oldValue, newValue) -> {
+            timeline.stop();
+            timeline.getKeyFrames().setAll(new KeyFrame(Duration.millis(500),
+                    new KeyValue(animatedValue, newValue)));
+            timeline.play();
+        });
+        //Hier wird Wertänderung festgelegt
+        animatedValueProperty().addListener((observable, oldValue, newValue) -> {
+            bar.setVisible(true);
+            checkBoundaries(getValue());
+            bar.setLength(getAngle(newValue));
+        });*/
 
 
         // if you need the timer
@@ -405,16 +418,16 @@ public class PotHeightControl extends Region {
 //        this.heightValue.set(heightValue);
 //    }
 
-    public double getAnimatedHeight() {
-        return animatedHeight.get();
+    public double getAnimatedHeightValue() {
+        return animatedHeightValue.get();
     }
 
-    public DoubleProperty animatedHeightProperty() {
-        return animatedHeight;
+    public DoubleProperty animatedHeightValueProperty() {
+        return animatedHeightValue;
     }
 
-    public void setAnimatedHeight(double animatedHeight) {
-        this.animatedHeight.set(animatedHeight);
+    public void setAnimatedHeightValue(double animatedHeightValue) {
+        this.animatedHeightValue.set(animatedHeightValue);
     }
 
     public double getHeightValue() {
