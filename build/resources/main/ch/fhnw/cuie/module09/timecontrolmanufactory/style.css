@@ -1,0 +1,18 @@
+.myTimeControl {
+    -base-color: blue;
+
+}
+
+.myTimeControl .timeField{
+    -fx-background-color: yellow;
+    -fx-font-size: 100px;
+}
+
+.myTimeControl:mandatory .timeField{
+    -fx-font-color: red;
+    -fx-background-color: white;
+}
+
+.myTimeControl .timeLabel{
+    -fx-background-color: pink;
+}
