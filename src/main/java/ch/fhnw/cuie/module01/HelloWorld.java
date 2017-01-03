@@ -1,5 +1,7 @@
 package ch.fhnw.cuie.module01;
 
+//test comment
+
 /**
  * @author Dieter Holz
  */

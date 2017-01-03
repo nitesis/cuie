@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="206px" height="240px" viewBox="0 0 206 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>SlimValueDisplay</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SlimValueDisplay" transform="translate(3.000000, 2.000000)">
+            <g id="Page-1">
+                <g id="SlimValueDisplay">
+                    <circle id="barBackground" stroke="#424242" stroke-width="5" fill="#D8D8D8" cx="100" cy="135" r="100"></circle>
+                    <circle id="bar" stroke="#4DD0E1" stroke-width="5" stroke-dasharray="314,100" fill="#D8D8D8" cx="100" cy="135" r="100"></circle>
+                    <text id="UNIT" fill="#8D9397" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal">
+                        <tspan x="79" y="191">UNIT</tspan>
+                    </text>
+                    <text id="8542" fill="#E4E7EE" font-family="Lato-Light, Lato" font-size="48" font-weight="300">
+                        <tspan x="47" y="154">8542</tspan>
+                    </text>
+                    <text id="TITLE" fill="#4DD0E1" font-family="Lato-Regular, Lato" font-size="13" font-weight="normal">
+                        <tspan x="80" y="17">TITLE</tspan>
+                    </text>
+                    <path d="M0,0 L200,0" id="separator" stroke="#4DD0E1" stroke-width="3"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

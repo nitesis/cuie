@@ -1,0 +1,41 @@
+.potHeightControl {
+    -fx-padding: 10;
+    /*-base-color: rgb(2, 138, 204);*/
+    -fx-background-color: derive(-base-color, 80%);
+}
+
+.potHeightControl .drawingPane {
+    -fx-background-color: -base-color;
+}
+
+.potHeightControl .display {
+    -fx-font-family: 'Futura Medium';
+    -fx-font-size: 32;
+    -fx-fill: derive(-base-color, 80%);
+}
+
+.potHeightControl .titleLabel{
+    -fx-font-size: 31px;
+    -fx-padding: 150px;
+}
+
+.potHeightControl .heightCircleBig {
+    -fx-stroke: #000000;
+    -fx-stroke-width: 6;
+    -fx-fill: #FFFFFF;
+}
+
+.potHeightControl .heightCircleSmall {
+
+
+}
+
+.potHeightControl .heightLine {
+    -fx-stroke: #000000;
+    -fx-stroke-width: 6;
+}
+
+.potHeightControl .heightLabel {
+    -fx-fill: #000000;
+    -fx-font-size: 24;
+}

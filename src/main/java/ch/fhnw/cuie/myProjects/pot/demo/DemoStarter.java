@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
+
 /**
  * @author Dieter Holz
  */
