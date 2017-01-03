@@ -16,7 +16,11 @@
 
 .potHeightControl .titleLabel{
     -fx-font-size: 31px;
-    -fx-padding: 150px;
+    -fx-padding: 15px;
+    -fx-alignment: center;
+    -fx-focus-traversable: true;
+    -fx-text-box-border: none;
+    -fx-outer-border: none;
 }
 
 .potHeightControl .heightCircleBig {

@@ -17,6 +17,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
@@ -55,7 +56,7 @@ public class PotHeightControl extends Region {
 
     // all parts
     private HBox titleLabelBox;
-    private Text titleLabel;
+    private TextField titleLabel;
     private Line heightLine;
     private Circle heightCircleSmall;
     private Circle heightCircleBig;
@@ -126,10 +127,11 @@ public class PotHeightControl extends Region {
         titleLabelBox.setStyle("-fx-padding: 10");
         titleLabelBox.setAlignment(Pos.CENTER);
         titleLabelBox.setPrefSize(ARTBOARD_WIDTH, 50);
-        titleLabel = new Text("Burj Kalifa");
-        titleLabelBox.getChildren().add(titleLabel);
+        titleLabel = new TextField("Burj Kalifa");
+        //titleLabelBox.getChildren().add(titleLabel);
 
         titleLabel.getStyleClass().add("titleLabel");
+        titleLabel.setStyle("-fx-border-radius: 10px");
 
         heightCircleSmall = new Circle(199, 101, 6);
         heightCircleSmall.getStyleClass().add("heightCircleSmall");
@@ -172,7 +174,7 @@ public class PotHeightControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll(titleLabelBox, baseArc, baseLine, heightLine, heightCircleBig, heightCircleSmall, heightLabelBox);
+        drawingPane.getChildren().addAll(titleLabel, baseArc, baseLine, heightLine, heightCircleBig, heightCircleSmall, heightLabelBox);
 
         getChildren().add(drawingPane);
     }
@@ -189,7 +191,7 @@ public class PotHeightControl extends Region {
 
     private void addEventHandlers() {
         heightCircleSmall.setOnMouseDragged(event -> {
-            if(((drawingPane.getMaxHeight()-event.getY()) * 4.0) > 800.0 )
+            if(((drawingPane.getMaxHeight() - event.getY()) * 4.0) > 800.0)
                 setHeightValue(1000.0);
             else {
                 if (((drawingPane.getMaxHeight() - event.getY()) * 4.0) < -100.0)
@@ -254,7 +256,7 @@ public class PotHeightControl extends Region {
     }
 
     private void setupBindings() {
-        titleLabel.textProperty().bind(titleProperty());
+        titleLabel.textProperty().bindBidirectional(titleProperty());
         heightLabel.textProperty().bind(heightValueProperty().asString());
     }
 
