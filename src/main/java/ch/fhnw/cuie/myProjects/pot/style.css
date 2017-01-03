@@ -42,4 +42,6 @@
 .potHeightControl .heightLabel {
     -fx-fill: #000000;
     -fx-font-size: 24;
+    -fx-alignment: center;
+
 }

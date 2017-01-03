@@ -6,6 +6,7 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.css.CssMetaData;
 import javafx.css.SimpleStyleableObjectProperty;
@@ -28,6 +29,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextBoundsType;
 import javafx.util.Duration;
+import javafx.util.converter.NumberStringConverter;
 
 /**
  * @author Viviane Bendjus
@@ -63,7 +65,7 @@ public class PotHeightControl extends Region {
     private Arc baseArc;
     private Line baseLine;
     private HBox heightLabelBox;
-    private Text heightLabel;
+    private TextField heightLabel;
 
     //private Arc bar;
 
@@ -156,7 +158,7 @@ public class PotHeightControl extends Region {
         heightLabelBox.setPrefSize(ARTBOARD_WIDTH, 50);
 
 
-        heightLabel = new Text("830 m");
+        heightLabel = new TextField("830 m");
         heightLabel.getStyleClass().add("heightLabel");
         heightLabelBox.getChildren().add(heightLabel);
 
@@ -257,7 +259,8 @@ public class PotHeightControl extends Region {
 
     private void setupBindings() {
         titleLabel.textProperty().bindBidirectional(titleProperty());
-        heightLabel.textProperty().bind(heightValueProperty().asString());
+        //heightLabel.textProperty().bind(heightValueProperty().asString());
+        Bindings.bindBidirectional(heightLabel.textProperty(), this.heightValueProperty(), new NumberStringConverter());
     }
 
     private void performPeriodicTask() {
