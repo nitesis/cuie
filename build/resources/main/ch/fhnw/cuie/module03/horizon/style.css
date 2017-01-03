@@ -1,0 +1,47 @@
+Horizon {
+    -fx-padding: 5;
+    -fx-background-color: white;
+}
+
+.seperator {
+    -fx-stroke: #4DD0E1;
+    -fx-stroke-width: 3px;
+
+}
+
+.title {
+    -fx-font-family: 'Lato Regular';
+    -fx-font-size: 13px;
+    -fx-fill: #4DD0E1;
+    -fx-font-weight: normal;
+}
+ .valueInput {
+     -fx-background-color: #D8D8D8;
+     -fx-text-fill: #E4E7EE;
+     -fx-padding: 3px;
+     -fx-font-family: 'Lato Light';
+     -fx-font-size: 48px;
+     -fx-font-weight: 300;
+
+ }
+
+ .unit {
+     -fx-font-family: 'Lato Regular';
+     -fx-font-size: 18px;
+ }
+
+.bar {
+    -fx-fill: #D8D8D8;
+    -fx-stroke: #4DD0E1;
+    -fx-stroke-width: 6px;
+}
+
+.barBackground {
+    -fx-fill: #D8D8D8;
+    -fx-stroke: #424242;
+    -fx-stroke-width: 5px;
+
+
+}
+
+
