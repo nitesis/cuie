@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06e648cf-34c9-4f0a-baad-d6e974115a84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/demo/DemoPane.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/demo/DemoPane.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/PotHeightControl$1.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/PotHeightControl$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/PotHeightControl$2.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/PotHeightControl$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/PotHeightControl.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/PotHeightControl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/demo/DemoPane.java" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/demo/DemoPane.java" />
     </list>
     <ignored path="cuie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
-              <caret line="260" column="33" selection-start-line="260" selection-start-column="33" selection-end-line="260" selection-end-column="33" />
+              <caret line="260" column="63" selection-start-line="260" selection-start-column="63" selection-end-line="260" selection-end-column="63" />
               <folding>
                 <element signature="e#17009#17010#0" expanded="true" />
                 <element signature="e#17046#17047#0" expanded="true" />
@@ -1680,7 +1680,7 @@
       <workItem from="1483478042063" duration="820000" />
       <workItem from="1483478865897" duration="6843000" />
       <workItem from="1483616299607" duration="7294000" />
-      <workItem from="1483627393343" duration="4804000" />
+      <workItem from="1483627393343" duration="4992000" />
     </task>
     <task id="LOCAL-00001" summary="fixes after merge">
       <created>1483479211803</created>
@@ -1738,11 +1738,18 @@
       <option name="project" value="LOCAL" />
       <updated>1483630034145</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added checkbox for switching on/off animation">
+      <created>1483633422834</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1483633422834</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24656000" />
+    <option name="totallyTimeSpent" value="24844000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="111" y="23" width="1108" height="724" extended-state="0" />
@@ -1795,7 +1802,8 @@
     <MESSAGE value="repositioning and resizing of custom elements" />
     <MESSAGE value="some code cleaning" />
     <MESSAGE value="added animation when mouserEnter bigCircle&#10;TODO: stop animation when dragging" />
-    <option name="LAST_COMMIT_MESSAGE" value="added animation when mouserEnter bigCircle&#10;TODO: stop animation when dragging" />
+    <MESSAGE value="added checkbox for switching on/off animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added checkbox for switching on/off animation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2316,7 +2324,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
-          <caret line="260" column="33" selection-start-line="260" selection-start-column="33" selection-end-line="260" selection-end-column="33" />
+          <caret line="260" column="63" selection-start-line="260" selection-start-column="63" selection-end-line="260" selection-end-column="63" />
           <folding>
             <element signature="e#17009#17010#0" expanded="true" />
             <element signature="e#17046#17047#0" expanded="true" />
