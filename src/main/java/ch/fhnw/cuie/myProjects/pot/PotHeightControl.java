@@ -67,9 +67,6 @@ public class PotHeightControl extends Region {
     private HBox heightLabelBox;
     private TextField heightLabel;
 
-    //private Arc bar;
-
-
     // all properties
     private final StringProperty title = new SimpleStringProperty();
     private final DoubleProperty heightValue = new SimpleDoubleProperty();
