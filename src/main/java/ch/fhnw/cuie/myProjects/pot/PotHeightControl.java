@@ -1,5 +1,6 @@
 package ch.fhnw.cuie.myProjects.pot;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import javafx.animation.*;
@@ -71,6 +72,7 @@ public class PotHeightControl extends Region {
     private final BooleanProperty          timerIsRunning = new SimpleBooleanProperty(false);
     private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(1.0));
 
+    private final BooleanProperty animated      = new SimpleBooleanProperty(true);
     private final DoubleProperty animatedHeightValue = new SimpleDoubleProperty();
     //CSS stylable properties
     private static final CssMetaData<PotHeightControl, Color> BASE_COLOR_META_DATA = FACTORY.createColorCssMetaData("-base-color", s -> s.baseColor);
@@ -249,10 +251,16 @@ public class PotHeightControl extends Region {
 */
         //Hier wird Animation festgelegt
         heightValueProperty().addListener((observable, oldValue, newValue) -> {
-            timeline.stop();
-            timeline.getKeyFrames().setAll(new KeyFrame(Duration.millis(500),
-                    new KeyValue(animatedHeightValue, newValue)));
-            timeline.play();
+            if(isAnimated()) {
+                timeline.stop();
+                timeline.getKeyFrames().setAll(new KeyFrame(Duration.millis(500),
+                        new KeyValue(animatedHeightValue, newValue)));
+                timeline.play();
+            }
+            else {
+                setAnimatedHeightValue(newValue.doubleValue());
+            }
+
         });
         //Hier wird Wertänderung festgelegt
         animatedHeightValueProperty().addListener((observable, oldValue, newValue) -> {
@@ -288,6 +296,7 @@ public class PotHeightControl extends Region {
         titleLabel.textProperty().bindBidirectional(titleProperty());
         //heightLabel.textProperty().bind(heightValueProperty().asString());
         Bindings.bindBidirectional(heightLabel.textProperty(), this.heightValueProperty(), new NumberStringConverter());
+
     }
 
     private void performPeriodicTask() {
@@ -483,5 +492,17 @@ public class PotHeightControl extends Region {
 
     public void setHeightValue(double heightValue) {
         this.heightValue.set(heightValue);
+    }
+
+    public boolean isAnimated() {
+        return animated.get();
+    }
+
+    public BooleanProperty animatedProperty() {
+        return animated;
+    }
+
+    public void setAnimated(boolean animated) {
+        this.animated.set(animated);
     }
 }

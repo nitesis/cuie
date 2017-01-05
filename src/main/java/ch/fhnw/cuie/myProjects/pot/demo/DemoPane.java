@@ -22,6 +22,7 @@ public class DemoPane extends BorderPane {
     private CheckBox    timerRunningBox;
     private Slider      pulseSlider;
     private ColorPicker colorPicker;
+    private CheckBox  isAnimated;
 
     public DemoPane() {
         initializeControls();
@@ -40,6 +41,8 @@ public class DemoPane extends BorderPane {
         heightField = new TextField();
         heightField.setText("830");
 
+        isAnimated = new CheckBox();
+
         timerRunningBox = new CheckBox("Timer running");
         timerRunningBox.setSelected(false);
 
@@ -52,7 +55,7 @@ public class DemoPane extends BorderPane {
 
     private void layoutControls() {
         setCenter(customControl);
-        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, timerRunningBox, pulseSlider, colorPicker);
+        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, new Label("animated:"), isAnimated, timerRunningBox, pulseSlider, colorPicker);
         box.setPadding(new Insets(10));
         box.setSpacing(10);
         setRight(box);
@@ -68,6 +71,7 @@ public class DemoPane extends BorderPane {
         //heightField.textProperty().bind(customControl.heightValueProperty().asString("%.2f"));
 
         //customControl.heightValueProperty().bindBidirectional(heightField.textProperty());
+        isAnimated.selectedProperty().bindBidirectional(customControl.animatedProperty());
 
         customControl.timerIsRunningProperty().bindBidirectional(timerRunningBox.selectedProperty());
         customControl.pulseProperty().bind(Bindings.createObjectBinding(() -> Duration.seconds(pulseSlider.getValue()), pulseSlider.valueProperty()));
