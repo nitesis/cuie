@@ -2,10 +2,7 @@ package ch.fhnw.cuie.myProjects.pot;
 
 import java.util.List;
 
-import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.css.CssMetaData;
@@ -88,6 +85,10 @@ public class PotHeightControl extends Region {
 
     // all animations
     private final Timeline timeline = new Timeline();
+    private ScaleTransition scaleTransition;
+    private FillTransition fillTransition;
+    private StrokeTransition strokeTransition;
+    private ParallelTransition circleTransition;
 
     // all parts need to be children of the drawingPane
     private Pane drawingPane;
@@ -184,6 +185,36 @@ public class PotHeightControl extends Region {
     private void addEventHandlers() {
         heightCircleBig.setOnMouseDragged(event -> {
             setHeightValue((drawingPane.getMaxHeight() - event.getY()) * 2.5);
+        });
+
+        heightCircleBig.setOnMouseEntered(event -> {
+            if (scaleTransition == null) {
+                scaleTransition = new ScaleTransition(Duration.seconds(0.5), heightCircleBig);
+                scaleTransition.setFromX(1.0);
+                scaleTransition.setFromY(1.0);
+                scaleTransition.setByX(0.5);
+                scaleTransition.setByY(0.5);
+                scaleTransition.setCycleCount(2);
+                scaleTransition.setAutoReverse(true);
+            }
+
+            if (fillTransition == null) {
+                fillTransition = new FillTransition(Duration.seconds(1.2), heightCircleBig, Color.WHITE, Color.VIOLET);
+                fillTransition.setOnFinished(event1 -> setBaseColor(Color.WHITE));
+                //fillTransition.setInterpolator(Interpolator.EASE_BOTH);
+            }
+            /*if (strokeTransition == null) {
+                strokeTransition = new StrokeTransition(Duration.seconds(1), heightCircleBig);
+                strokeTransition.setFromValue(Color.BLACK);
+                strokeTransition.setToValue(Color.WHITE);
+                strokeTransition.setCycleCount(2);
+                strokeTransition.setAutoReverse(true);
+            }*/
+            if (!fillTransition.getStatus().equals(Animation.Status.RUNNING)) {
+                circleTransition = new ParallelTransition(scaleTransition, fillTransition);
+                circleTransition.setInterpolator(Interpolator.EASE_BOTH);
+                circleTransition.play();
+            }
         });
     }
 
