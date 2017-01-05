@@ -4,9 +4,7 @@
     <list default="true" id="06e648cf-34c9-4f0a-baad-d6e974115a84" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/PotHeightControl.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/PotHeightControl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/ch/fhnw/cuie/myProjects/pot/style.css" afterPath="$PROJECT_DIR$/build/resources/main/ch/fhnw/cuie/myProjects/pot/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/style.css" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/style.css" />
     </list>
     <ignored path="cuie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,11 +39,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PotHeightControl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PotHeightControl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="157" column="53" selection-start-line="157" selection-start-column="53" selection-end-line="157" selection-end-column="53" />
+            <state relative-caret-position="793">
+              <caret line="231" column="87" selection-start-line="231" selection-start-column="87" selection-end-line="231" selection-end-column="87" />
+              <folding>
+                <element signature="e#15450#15451#0" expanded="true" />
+                <element signature="e#15499#15500#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Arc.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/javafx-src.zip!/javafx/scene/shape/Arc.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="83" column="11" selection-start-line="83" selection-start-column="11" selection-end-line="83" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -91,7 +102,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -126,16 +137,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DemoPane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/module09/timecontrolexample/demo/DemoPane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -424,8 +425,8 @@
         <option value="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/module01/HelloWorld.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/demo/DemoPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/demo/DemoStarter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/style.css" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java" />
       </list>
     </option>
   </component>
@@ -1570,7 +1571,7 @@
       <workItem from="1483382849017" duration="108000" />
       <workItem from="1483478042063" duration="820000" />
       <workItem from="1483478865897" duration="6843000" />
-      <workItem from="1483616299607" duration="678000" />
+      <workItem from="1483616299607" duration="3212000" />
     </task>
     <task id="LOCAL-00001" summary="fixes after merge">
       <created>1483479211803</created>
@@ -1593,11 +1594,18 @@
       <option name="project" value="LOCAL" />
       <updated>1483486000045</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added to style interactive field for height">
+      <created>1483617011055</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1483617011055</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13236000" />
+    <option name="totallyTimeSpent" value="15770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="22" y="23" width="1254" height="724" extended-state="0" />
@@ -1646,7 +1654,8 @@
     <MESSAGE value="fixes after merge" />
     <MESSAGE value="added interactive field for title" />
     <MESSAGE value="added interactive field for height&#10;TODO: size" />
-    <option name="LAST_COMMIT_MESSAGE" value="added interactive field for height&#10;TODO: size" />
+    <MESSAGE value="added to style interactive field for height" />
+    <option name="LAST_COMMIT_MESSAGE" value="added to style interactive field for height" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1661,7 +1670,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#15450#15451#0" expanded="true" />
+            <element signature="e#15499#15500#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1764,7 +1776,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#15450#15451#0" expanded="true" />
+            <element signature="e#15499#15500#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1795,7 +1810,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#15450#15451#0" expanded="true" />
+            <element signature="e#15499#15500#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1826,7 +1844,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#15450#15451#0" expanded="true" />
+            <element signature="e#15499#15500#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1857,7 +1878,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#15450#15451#0" expanded="true" />
+            <element signature="e#15499#15500#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2000,19 +2024,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="157" column="53" selection-start-line="157" selection-start-column="53" selection-end-line="157" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/javafx-src.zip!/javafx/scene/shape/Arc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="83" column="11" selection-start-line="83" selection-start-column="11" selection-end-line="83" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="793">
+          <caret line="231" column="87" selection-start-line="231" selection-start-column="87" selection-end-line="231" selection-end-column="87" />
+          <folding>
+            <element signature="e#15450#15451#0" expanded="true" />
+            <element signature="e#15499#15500#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

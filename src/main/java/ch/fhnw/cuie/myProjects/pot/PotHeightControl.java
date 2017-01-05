@@ -135,24 +135,24 @@ public class PotHeightControl extends Region {
         titleLabel.getStyleClass().add("titleLabel");
         titleLabel.setStyle("-fx-border-radius: 10px");
 
-        heightCircleSmall = new Circle(199, 101, 6);
+        heightCircleSmall = new Circle(199, 200, 6);
         heightCircleSmall.getStyleClass().add("heightCircleSmall");
 
-        heightCircleBig = new Circle(199, 101, 16);
+        heightCircleBig = new Circle(199, 200, 16);
         heightCircleBig.getStyleClass().add("heightCircleBig");
 
-        heightLine = new Line(200, 328, 200, 121);
+        heightLine = new Line(200, 400, 200, 200);
         heightLine.getStyleClass().add("heightLine");
         heightLine.setStrokeLineCap(StrokeLineCap.ROUND);
 
-        baseArc = new Arc(200, 378, 50, 50, 0, 180);
+        baseArc = new Arc(200, 400, 50, 50, 0, 180);
         baseArc.getStyleClass().add("heightCircleBig");
 
-        baseLine = new Line(150, 380, 250, 380);
+        baseLine = new Line(150, 400, 250, 400);
         baseLine.getStyleClass().add("heightLine");
 
         heightLabelBox = new HBox();
-        heightLabelBox.setTranslateY(330);
+        heightLabelBox.setTranslateY(350);
         heightLabelBox.setStyle("-fx-padding: 10");
         heightLabelBox.setAlignment(Pos.CENTER);
         heightLabelBox.setPrefSize(ARTBOARD_WIDTH, 25);
@@ -176,7 +176,7 @@ public class PotHeightControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll(titleLabel, baseArc, baseLine, heightLine, heightCircleBig, heightCircleSmall, heightLabelBox);
+        drawingPane.getChildren().addAll(titleLabel, heightLine, baseArc, baseLine, heightCircleBig, heightCircleSmall, heightLabelBox);
 
         getChildren().add(drawingPane);
     }
@@ -185,13 +185,13 @@ public class PotHeightControl extends Region {
 
     }
 
-  /*  private void addEventHandlers() {
-        heightCircleBig.setOnMouseDragged(event -> {
-            setHeightValue((drawingPane.getMaxHeight() - 20.0 - event.getY()) * 4.0);
-        });
-    }*/
-
     private void addEventHandlers() {
+        heightCircleBig.setOnMouseDragged(event -> {
+            setHeightValue((drawingPane.getMaxHeight() - event.getY()) * 2.5);
+        });
+    }
+
+    /*private void addEventHandlers() {
         heightCircleSmall.setOnMouseDragged(event -> {
             if(((drawingPane.getMaxHeight() - event.getY()) * 4.0) > 800.0)
                 setHeightValue(1000.0);
@@ -202,7 +202,7 @@ public class PotHeightControl extends Region {
                     setHeightValue((drawingPane.getMaxHeight() - event.getY()) * 4.0);
             }
         });
-    }
+    }*/
 
     private void addValueChangedListeners() {
         /*heightValue.addListener((observable, oldValue, newValue) -> {
@@ -229,9 +229,9 @@ public class PotHeightControl extends Region {
         });
         //Hier wird Wertänderung festgelegt
         animatedHeightValueProperty().addListener((observable, oldValue, newValue) -> {
-            double lineLength =  heightLine.getStartY() - (newValue.doubleValue() * 0.25);
+            double lineLength =  heightLine.getStartY() - (newValue.doubleValue() * 0.4);
 
-            heightLine.setEndY(lineLength + 60.0);
+            heightLine.setEndY(lineLength);
 
             double centerX = heightLine.getEndX();
             double centerY = heightLine.getEndY();
