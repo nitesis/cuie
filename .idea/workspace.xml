@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06e648cf-34c9-4f0a-baad-d6e974115a84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/PotHeightControl.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/fhnw/cuie/myProjects/pot/PotHeightControl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java" />
     </list>
@@ -42,11 +41,11 @@
       <file leaf-file-name="PotHeightControl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="793">
-              <caret line="231" column="87" selection-start-line="231" selection-start-column="87" selection-end-line="231" selection-end-column="87" />
+            <state relative-caret-position="150">
+              <caret line="73" column="68" selection-start-line="73" selection-start-column="68" selection-end-line="73" selection-end-column="68" />
               <folding>
-                <element signature="e#15450#15451#0" expanded="true" />
-                <element signature="e#15499#15500#0" expanded="true" />
+                <element signature="e#15085#15086#0" expanded="true" />
+                <element signature="e#15134#15135#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,7 +64,7 @@
       <file leaf-file-name="DemoStarter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/demo/DemoStarter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="58">
               <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
@@ -95,7 +94,7 @@
       <file leaf-file-name="DemoPane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/demo/DemoPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
+            <state relative-caret-position="118">
               <caret line="66" column="129" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="129" />
               <folding />
             </state>
@@ -1571,7 +1570,7 @@
       <workItem from="1483382849017" duration="108000" />
       <workItem from="1483478042063" duration="820000" />
       <workItem from="1483478865897" duration="6843000" />
-      <workItem from="1483616299607" duration="3212000" />
+      <workItem from="1483616299607" duration="3868000" />
     </task>
     <task id="LOCAL-00001" summary="fixes after merge">
       <created>1483479211803</created>
@@ -1601,11 +1600,18 @@
       <option name="project" value="LOCAL" />
       <updated>1483617011055</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="repositioning and resizing of custom elements">
+      <created>1483619582083</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1483619582083</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15770000" />
+    <option name="totallyTimeSpent" value="16426000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="22" y="23" width="1254" height="724" extended-state="0" />
@@ -1655,7 +1661,8 @@
     <MESSAGE value="added interactive field for title" />
     <MESSAGE value="added interactive field for height&#10;TODO: size" />
     <MESSAGE value="added to style interactive field for height" />
-    <option name="LAST_COMMIT_MESSAGE" value="added to style interactive field for height" />
+    <MESSAGE value="repositioning and resizing of custom elements" />
+    <option name="LAST_COMMIT_MESSAGE" value="repositioning and resizing of custom elements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1671,8 +1678,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#15450#15451#0" expanded="true" />
-            <element signature="e#15499#15500#0" expanded="true" />
+            <element signature="e#15085#15086#0" expanded="true" />
+            <element signature="e#15134#15135#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1777,8 +1784,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#15450#15451#0" expanded="true" />
-            <element signature="e#15499#15500#0" expanded="true" />
+            <element signature="e#15085#15086#0" expanded="true" />
+            <element signature="e#15134#15135#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1811,8 +1818,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#15450#15451#0" expanded="true" />
-            <element signature="e#15499#15500#0" expanded="true" />
+            <element signature="e#15085#15086#0" expanded="true" />
+            <element signature="e#15134#15135#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1845,8 +1852,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#15450#15451#0" expanded="true" />
-            <element signature="e#15499#15500#0" expanded="true" />
+            <element signature="e#15085#15086#0" expanded="true" />
+            <element signature="e#15134#15135#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1879,8 +1886,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#15450#15451#0" expanded="true" />
-            <element signature="e#15499#15500#0" expanded="true" />
+            <element signature="e#15085#15086#0" expanded="true" />
+            <element signature="e#15134#15135#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2008,22 +2015,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/demo/DemoStarter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/demo/DemoPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="66" column="129" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="129" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -2040,13 +2031,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/demo/DemoStarter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/demo/DemoPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="66" column="129" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/fhnw/cuie/myProjects/pot/PotHeightControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="793">
-          <caret line="231" column="87" selection-start-line="231" selection-start-column="87" selection-end-line="231" selection-end-column="87" />
+        <state relative-caret-position="150">
+          <caret line="73" column="68" selection-start-line="73" selection-start-column="68" selection-end-line="73" selection-end-column="68" />
           <folding>
-            <element signature="e#15450#15451#0" expanded="true" />
-            <element signature="e#15499#15500#0" expanded="true" />
+            <element signature="e#15085#15086#0" expanded="true" />
+            <element signature="e#15134#15135#0" expanded="true" />
           </folding>
         </state>
       </provider>

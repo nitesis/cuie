@@ -72,7 +72,6 @@ public class PotHeightControl extends Region {
 
     // all properties
     private final StringProperty title = new SimpleStringProperty();
-    //private final StringProperty heightValue = new SimpleStringProperty();
     private final DoubleProperty heightValue = new SimpleDoubleProperty();
 
     private final BooleanProperty          timerIsRunning = new SimpleBooleanProperty(false);
@@ -433,18 +432,6 @@ public class PotHeightControl extends Region {
     public void setPulse(Duration pulse) {
         this.pulse.set(pulse);
     }
-
-//    public String getHeightValue() {
-//        return heightValue.get();
-//    }
-//
-//    public StringProperty heightValueProperty() {
-//        return heightValue;
-//    }
-//
-//    public void setHeightValue(String heightValue) {
-//        this.heightValue.set(heightValue);
-//    }
 
     public double getAnimatedHeightValue() {
         return animatedHeightValue.get();
