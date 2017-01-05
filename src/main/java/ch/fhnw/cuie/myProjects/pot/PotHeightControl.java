@@ -155,7 +155,7 @@ public class PotHeightControl extends Region {
         heightLabelBox.setTranslateY(330);
         heightLabelBox.setStyle("-fx-padding: 10");
         heightLabelBox.setAlignment(Pos.CENTER);
-        heightLabelBox.setPrefSize(ARTBOARD_WIDTH, 50);
+        heightLabelBox.setPrefSize(ARTBOARD_WIDTH, 25);
 
 
         heightLabel = new TextField("830 m");
