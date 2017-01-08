@@ -70,15 +70,14 @@ public class PotHeightControl extends Region {
     private TextField heightLabel;
 
     // parts for other buildings
+    private HBox otherBuildingBox;
+    private Text otherBuildingLabel;
     private Line heightLineB1;
     private Circle heightCircleBigB1;
-
     private Line heightLineB2;
     private Circle heightCircleBigB2;
-
     private Line heightLineB3;
     private Circle heightCircleBigB3;
-
     private Line heightLineB4;
     private Circle heightCircleBigB4;
 
