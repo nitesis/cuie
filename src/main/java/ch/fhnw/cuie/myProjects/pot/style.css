@@ -17,6 +17,7 @@
 .potHeightControl .titleLabel{
     -fx-font-size: 31px;
     -fx-padding: 15px;
+    -fx-border-radius: 10px;
     -fx-alignment: center;
     -fx-focus-traversable: true;
     -fx-text-box-border: none;

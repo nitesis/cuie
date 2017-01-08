@@ -156,7 +156,7 @@ public class PotHeightControl extends Region {
 
 
         titleLabel.getStyleClass().add("titleLabel");
-        titleLabel.setStyle("-fx-border-radius: 10px");
+        //titleLabel.setStyle("-fx-border-radius: 10px");
 
         heightCircleSmall = new Circle(200, ARTBOARD_HEIGHT - buildings.get("Burj Kalifa") * HEIGHT_FACTOR, 4);
         heightCircleSmall.getStyleClass().add("heightCircleSmall");
@@ -242,8 +242,16 @@ public class PotHeightControl extends Region {
     }
 
     private void addEventHandlers() {
+
         heightCircleBig.setOnMouseDragged(event -> {
-            setHeightValue((drawingPane.getMaxHeight() - event.getY()) / HEIGHT_FACTOR);
+            if(((drawingPane.getMaxHeight() - event.getY()) / HEIGHT_FACTOR) > 1000.0)
+                setHeightValue(1000.0);
+            else {
+                if (((drawingPane.getMaxHeight() - event.getY()) / HEIGHT_FACTOR) < 0.0)
+                    setHeightValue(0.0);
+                else
+                    setHeightValue((drawingPane.getMaxHeight() - event.getY()) / HEIGHT_FACTOR);
+            }
         });
 
         heightCircleBig.setOnMouseEntered(event -> {
@@ -276,19 +284,6 @@ public class PotHeightControl extends Region {
             }
         });
     }
-
-    /*private void addEventHandlers() {
-        heightCircleSmall.setOnMouseDragged(event -> {
-            if(((drawingPane.getMaxHeight() - event.getY()) * 4.0) > 800.0)
-                setHeightValue(1000.0);
-            else {
-                if (((drawingPane.getMaxHeight() - event.getY()) * 4.0) < -100.0)
-                    setHeightValue(-100.0);
-                else
-                    setHeightValue((drawingPane.getMaxHeight() - event.getY()) * 4.0);
-            }
-        });
-    }*/
 
     private void addValueChangedListeners() {
         /*heightValue.addListener((observable, oldValue, newValue) -> {
