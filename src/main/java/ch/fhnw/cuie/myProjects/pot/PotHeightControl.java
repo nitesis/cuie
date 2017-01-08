@@ -69,19 +69,15 @@ public class PotHeightControl extends Region {
 
     // parts for other buildings
     private Line heightLineB1;
-    private Circle heightCircleSmallB1;
     private Circle heightCircleBigB1;
 
     private Line heightLineB2;
-    private Circle heightCircleSmallB2;
     private Circle heightCircleBigB2;
 
     private Line heightLineB3;
-    private Circle heightCircleSmallB3;
     private Circle heightCircleBigB3;
 
     private Line heightLineB4;
-    private Circle heightCircleSmallB4;
     private Circle heightCircleBigB4;
 
     // data structure for other buildings to compare
@@ -241,7 +237,7 @@ public class PotHeightControl extends Region {
 
     private void addEventHandlers() {
         heightCircleBig.setOnMouseDragged(event -> {
-            setHeightValue((drawingPane.getMaxHeight() - event.getY()) * 2.5);
+            setHeightValue((drawingPane.getMaxHeight() - event.getY()) / 0.32);
         });
 
         heightCircleBig.setOnMouseEntered(event -> {
@@ -319,7 +315,7 @@ public class PotHeightControl extends Region {
         });
         //Hier wird Wertänderung festgelegt
         animatedHeightValueProperty().addListener((observable, oldValue, newValue) -> {
-            double lineLength =  heightLine.getStartY() - (newValue.doubleValue() * 0.4);
+            double lineLength =  heightLine.getStartY() - (newValue.doubleValue() * 0.32);
 
             heightLine.setEndY(lineLength);
 
