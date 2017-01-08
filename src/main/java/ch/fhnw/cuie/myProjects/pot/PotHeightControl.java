@@ -270,11 +270,11 @@ public class PotHeightControl extends Region {
 
         heightCircleBig.setOnMouseEntered(event -> {
             if (scaleTransition == null) {
-                scaleTransition = new ScaleTransition(Duration.seconds(0.4), heightCircleBig);
+                scaleTransition = new ScaleTransition(Duration.seconds(0.3), heightCircleBig);
                 scaleTransition.setFromX(1.0);
                 scaleTransition.setFromY(1.0);
-                scaleTransition.setByX(0.5);
-                scaleTransition.setByY(0.5);
+                scaleTransition.setByX(0.4);
+                scaleTransition.setByY(0.4);
                 scaleTransition.setCycleCount(2);
                 scaleTransition.setInterpolator(Interpolator.EASE_OUT);
                 scaleTransition.setAutoReverse(true);
