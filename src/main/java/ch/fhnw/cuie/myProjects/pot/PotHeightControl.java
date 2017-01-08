@@ -155,7 +155,7 @@ public class PotHeightControl extends Region {
 
         titleLabel.getStyleClass().add("titleLabel");
 
-        heightCircleSmall = new Circle(200, ARTBOARD_HEIGHT - buildings.get("Burj Kalifa") * HEIGHT_FACTOR, 4);
+        heightCircleSmall = new Circle(200, ARTBOARD_HEIGHT - buildings.get("Burj Kalifa") * HEIGHT_FACTOR, 2);
         heightCircleSmall.getStyleClass().add("heightCircleSmall");
 
         heightCircleBig = new Circle(200, ARTBOARD_HEIGHT - buildings.get("Burj Kalifa") * HEIGHT_FACTOR, 17);
@@ -189,28 +189,28 @@ public class PotHeightControl extends Region {
         buildings.put("Lotte World Tower", 554.5);
 
         heightCircleBigB1 = new Circle(160, ARTBOARD_HEIGHT - buildings.get("Shanghai Tower") * HEIGHT_FACTOR, 7);
-        heightCircleBigB1.getStyleClass().add("heightCircleBig");
+        heightCircleBigB1.getStyleClass().add("heightCircleSmall");
 
         heightLineB1 = new Line(160, 400, 160, ARTBOARD_HEIGHT - buildings.get("Shanghai Tower") * HEIGHT_FACTOR);
         heightLineB1.getStyleClass().add("heightLine");
         heightLineB1.setStrokeLineCap(StrokeLineCap.ROUND);
 
         heightCircleBigB2 = new Circle(180, ARTBOARD_HEIGHT - buildings.get("Abraj Al-Bait Clock Tower") * HEIGHT_FACTOR, 7);
-        heightCircleBigB2.getStyleClass().add("heightCircleBig");
+        heightCircleBigB2.getStyleClass().add("heightCircleSmall");
 
         heightLineB2 = new Line(180, 400, 180, ARTBOARD_HEIGHT - buildings.get("Abraj Al-Bait Clock Tower") * HEIGHT_FACTOR);
         heightLineB2.getStyleClass().add("heightLine");
         heightLineB2.setStrokeLineCap(StrokeLineCap.ROUND);
 
         heightCircleBigB3 = new Circle(220, ARTBOARD_HEIGHT - buildings.get("Ping An Finance Centre") * HEIGHT_FACTOR, 7);
-        heightCircleBigB3.getStyleClass().add("heightCircleBig");
+        heightCircleBigB3.getStyleClass().add("heightCircleSmall");
 
         heightLineB3 = new Line(220, 400, 220, ARTBOARD_HEIGHT - buildings.get("Ping An Finance Centre") * HEIGHT_FACTOR);
         heightLineB3.getStyleClass().add("heightLine");
         heightLineB3.setStrokeLineCap(StrokeLineCap.ROUND);
 
         heightCircleBigB4 = new Circle(240, ARTBOARD_HEIGHT - buildings.get("Lotte World Tower") * HEIGHT_FACTOR, 7);
-        heightCircleBigB4.getStyleClass().add("heightCircleBig");
+        heightCircleBigB4.getStyleClass().add("heightCircleSmall");
 
         heightLineB4 = new Line(240, 400, 240, ARTBOARD_HEIGHT - buildings.get("Lotte World Tower") * HEIGHT_FACTOR);
         heightLineB4.getStyleClass().add("heightLine");
@@ -263,8 +263,8 @@ public class PotHeightControl extends Region {
             }
 
             if (fillTransition == null) {
-                fillTransition = new FillTransition(Duration.seconds(1.2), heightCircleBig, Color.WHITE, Color.VIOLET);
-                fillTransition.setOnFinished(event1 -> setBaseColor(Color.WHITE));
+                fillTransition = new FillTransition(Duration.seconds(1.2), heightCircleBig, getBaseColor(), getBaseColor().darker());
+                fillTransition.setOnFinished(event1 -> getBaseColor());
             }
 
             if (!fillTransition.getStatus().equals(Animation.Status.RUNNING)) {
