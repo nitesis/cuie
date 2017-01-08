@@ -246,7 +246,7 @@ public class PotHeightControl extends Region {
         drawingPane.getChildren().addAll(titleLabel, heightLine, heightLineB1, heightCircleB1, heightLineB2, heightCircleB2,
                 heightLineB3, heightCircleB3, heightLineB4,
                 heightCircleB4, baseArc, baseLine, heightCircleBig, heightCircleSmall,
-                heightLabelBox);
+                heightLabelBox, labelB1B2, labelB3B4);
 
         getChildren().add(drawingPane);
     }
