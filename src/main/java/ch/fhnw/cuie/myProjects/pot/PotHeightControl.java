@@ -149,8 +149,9 @@ public class PotHeightControl extends Region {
         titleLabelBox.setStyle("-fx-padding: 10");
         titleLabelBox.setAlignment(Pos.CENTER);
         titleLabelBox.setPrefSize(ARTBOARD_WIDTH, 50);
-        titleLabel = new TextField("buildings.get(\"Burj Kalifa\") * 0.32");
+        titleLabel = new TextField((String) buildings.keySet().toArray()[0]);
         //titleLabelBox.getChildren().add(titleLabel);
+
 
         titleLabel.getStyleClass().add("titleLabel");
         titleLabel.setStyle("-fx-border-radius: 10px");
@@ -178,7 +179,7 @@ public class PotHeightControl extends Region {
         heightLabelBox.setPrefSize(ARTBOARD_WIDTH, 25);
 
 
-        heightLabel = new TextField("830 m");
+        heightLabel = new TextField(buildings.get("Burj Kalifa").toString());
         heightLabel.getStyleClass().add("heightLabel");
         heightLabelBox.getChildren().add(heightLabel);
 
