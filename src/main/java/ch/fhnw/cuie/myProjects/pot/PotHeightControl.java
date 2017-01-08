@@ -1,7 +1,9 @@
 package ch.fhnw.cuie.myProjects.pot;
 
 import java.text.NumberFormat;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javafx.animation.*;
 import javafx.beans.binding.Bindings;
@@ -64,6 +66,26 @@ public class PotHeightControl extends Region {
     private Line baseLine;
     private HBox heightLabelBox;
     private TextField heightLabel;
+
+    // parts for other buildings
+    private Line heightLineB1;
+    private Circle heightCircleSmallB1;
+    private Circle heightCircleBigB1;
+
+    private Line heightLineB2;
+    private Circle heightCircleSmallB2;
+    private Circle heightCircleBigB2;
+
+    private Line heightLineB3;
+    private Circle heightCircleSmallB3;
+    private Circle heightCircleBigB3;
+
+    private Line heightLineB4;
+    private Circle heightCircleSmallB4;
+    private Circle heightCircleBigB4;
+
+    // data structure for other buildings to compare
+    private Map<String,Double> buildings= new HashMap<String,Double>();
 
     // all properties
     private final StringProperty title = new SimpleStringProperty();
