@@ -93,6 +93,7 @@ public class PotHeightControl extends Region {
 
     private final BooleanProperty animated      = new SimpleBooleanProperty(true);
     private final DoubleProperty animatedHeightValue = new SimpleDoubleProperty();
+
     //CSS stylable properties
     private static final CssMetaData<PotHeightControl, Color> BASE_COLOR_META_DATA = FACTORY.createColorCssMetaData("-base-color", s -> s.baseColor);
 
@@ -108,7 +109,6 @@ public class PotHeightControl extends Region {
     private final Timeline timeline = new Timeline();
     private ScaleTransition scaleTransition;
     private FillTransition fillTransition;
-    private StrokeTransition strokeTransition;
     private ParallelTransition circleTransition;
 
     // all parts need to be children of the drawingPane
@@ -153,9 +153,7 @@ public class PotHeightControl extends Region {
         titleLabel = new TextField((String) buildings.keySet().toArray()[0]);
         //titleLabelBox.getChildren().add(titleLabel);
 
-
         titleLabel.getStyleClass().add("titleLabel");
-        //titleLabel.setStyle("-fx-border-radius: 10px");
 
         heightCircleSmall = new Circle(200, ARTBOARD_HEIGHT - buildings.get("Burj Kalifa") * HEIGHT_FACTOR, 4);
         heightCircleSmall.getStyleClass().add("heightCircleSmall");
@@ -267,15 +265,8 @@ public class PotHeightControl extends Region {
             if (fillTransition == null) {
                 fillTransition = new FillTransition(Duration.seconds(1.2), heightCircleBig, Color.WHITE, Color.VIOLET);
                 fillTransition.setOnFinished(event1 -> setBaseColor(Color.WHITE));
-                //fillTransition.setInterpolator(Interpolator.EASE_BOTH);
             }
-            /*if (strokeTransition == null) {
-                strokeTransition = new StrokeTransition(Duration.seconds(1), heightCircleBig);
-                strokeTransition.setFromValue(Color.BLACK);
-                strokeTransition.setToValue(Color.WHITE);
-                strokeTransition.setCycleCount(2);
-                strokeTransition.setAutoReverse(true);
-            }*/
+
             if (!fillTransition.getStatus().equals(Animation.Status.RUNNING)) {
                 circleTransition = new ParallelTransition(scaleTransition, fillTransition);
                 circleTransition.setInterpolator(Interpolator.EASE_BOTH);
