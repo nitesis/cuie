@@ -17,7 +17,7 @@
 .potHeightControl .titleLabel{
     -fx-font-family: 'Lato Bold';
     -fx-font-size: 31px;
-    -fx-padding: 15px;
+    -fx-padding: 5px;
     -fx-border-radius: 10px;
     -fx-alignment: center;
     -fx-focus-traversable: true;
@@ -52,5 +52,5 @@
 }
 
 .potHeightControl .heightLabelBox {
-    -fx-padding: 10px;
+    -fx-padding: 5px;
 }
