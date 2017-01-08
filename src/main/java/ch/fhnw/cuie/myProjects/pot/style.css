@@ -9,12 +9,13 @@
 }
 
 .potHeightControl .display {
-    -fx-font-family: 'Futura Medium';
-    -fx-font-size: 32;
+    -fx-font-family: 'Lato Bold';
+    -fx-font-size: 32px;
     -fx-fill: derive(-base-color, 80%);
 }
 
 .potHeightControl .titleLabel{
+    -fx-font-family: 'Lato Bold';
     -fx-font-size: 31px;
     -fx-padding: 15px;
     -fx-border-radius: 10px;
@@ -26,7 +27,7 @@
 
 .potHeightControl .heightCircleBig {
     -fx-stroke: #000000;
-    -fx-stroke-width: 6;
+    -fx-stroke-width: 6px;
     -fx-fill: #FFFFFF;
 }
 
@@ -37,14 +38,19 @@
 
 .potHeightControl .heightLine {
     -fx-stroke: #000000;
-    -fx-stroke-width: 6;
+    -fx-stroke-width: 6px;
 }
 
 .potHeightControl .heightLabel {
     -fx-fill: #000000;
-    -fx-font-size: 24;
+    -fx-font-family: 'Lato Bold';
+    -fx-font-size: 24px;
     -fx-alignment: center;
     -fx-focus-traversable: true;
     -fx-text-box-border: none;
     -fx-outer-border: none;
+}
+
+.potHeightControl .heightLabelBox {
+    -fx-padding: 10px;
 }
