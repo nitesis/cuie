@@ -156,10 +156,10 @@ public class PotHeightControl extends Region {
         titleLabel.getStyleClass().add("titleLabel");
         titleLabel.setStyle("-fx-border-radius: 10px");
 
-        heightCircleSmall = new Circle(199, 200, 4);
+        heightCircleSmall = new Circle(200, 200, 4);
         heightCircleSmall.getStyleClass().add("heightCircleSmall");
 
-        heightCircleBig = new Circle(199, 200, 17);
+        heightCircleBig = new Circle(200, 200, 17);
         heightCircleBig.getStyleClass().add("heightCircleBig");
 
         heightLine = new Line(200, 400, 200, 200);
@@ -189,40 +189,40 @@ public class PotHeightControl extends Region {
         buildings.put("Ping An Finance Centre", 599.0);
         buildings.put("Lotte World Tower", 554.5);
 
-        heightCircleSmallB1 = new Circle(159, buildings.get("Shanghai Tower") * 0.32, 3);
+        heightCircleSmallB1 = new Circle(160, buildings.get("Shanghai Tower") * 0.32, 3);
         heightCircleSmallB1.getStyleClass().add("heightCircleSmall");
 
-        heightCircleBigB1 = new Circle(159, buildings.get("Shanghai Tower") * 0.32, 7);
+        heightCircleBigB1 = new Circle(160, buildings.get("Shanghai Tower") * 0.32, 7);
         heightCircleBigB1.getStyleClass().add("heightCircleBig");
 
         heightLineB1 = new Line(160, 400, 160, buildings.get("Shanghai Tower") * 0.32);
         heightLineB1.getStyleClass().add("heightLine");
         heightLineB1.setStrokeLineCap(StrokeLineCap.ROUND);
 
-        heightCircleSmallB2 = new Circle(179, buildings.get("Abraj Al-Bait Clock Tower") * 0.32, 3);
+        heightCircleSmallB2 = new Circle(180, buildings.get("Abraj Al-Bait Clock Tower") * 0.32, 3);
         heightCircleSmallB2.getStyleClass().add("heightCircleSmall");
 
-        heightCircleBigB2 = new Circle(179, buildings.get("Abraj Al-Bait Clock Tower") * 0.32, 7);
+        heightCircleBigB2 = new Circle(180, buildings.get("Abraj Al-Bait Clock Tower") * 0.32, 7);
         heightCircleBigB2.getStyleClass().add("heightCircleBig");
 
         heightLineB2 = new Line(180, 400, 180, buildings.get("Abraj Al-Bait Clock Tower") * 0.32);
         heightLineB2.getStyleClass().add("heightLine");
         heightLineB2.setStrokeLineCap(StrokeLineCap.ROUND);
 
-        heightCircleSmallB3 = new Circle(219, buildings.get("Ping An Finance Centre") * 0.32, 3);
+        heightCircleSmallB3 = new Circle(220, buildings.get("Ping An Finance Centre") * 0.32, 3);
         heightCircleSmallB3.getStyleClass().add("heightCircleSmall");
 
-        heightCircleBigB3 = new Circle(219, buildings.get("Ping An Finance Centre") * 0.32, 7);
+        heightCircleBigB3 = new Circle(220, buildings.get("Ping An Finance Centre") * 0.32, 7);
         heightCircleBigB3.getStyleClass().add("heightCircleBig");
 
         heightLineB3 = new Line(220, 400, 220, buildings.get("Ping An Finance Centre") * 0.32);
         heightLineB3.getStyleClass().add("heightLine");
         heightLineB3.setStrokeLineCap(StrokeLineCap.ROUND);
 
-        heightCircleSmallB4 = new Circle(239, buildings.get("Lotte World Tower") * 0.32, 3);
+        heightCircleSmallB4 = new Circle(240, buildings.get("Lotte World Tower") * 0.32, 3);
         heightCircleSmallB4.getStyleClass().add("heightCircleSmall");
 
-        heightCircleBigB4 = new Circle(239, buildings.get("Lotte World Tower") * 0.32, 7);
+        heightCircleBigB4 = new Circle(240, buildings.get("Lotte World Tower") * 0.32, 7);
         heightCircleBigB4.getStyleClass().add("heightCircleBig");
 
         heightLineB4 = new Line(240, 400, 240, buildings.get("Lotte World Tower") * 0.32);
