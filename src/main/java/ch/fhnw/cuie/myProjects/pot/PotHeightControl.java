@@ -195,7 +195,7 @@ public class PotHeightControl extends Region {
         heightCircleBigB1 = new Circle(159, buildings.get("Shanghai Tower") * 0.32, 8);
         heightCircleBigB1.getStyleClass().add("heightCircleBig");
 
-        heightLineB1 = new Line(160, 344, 160, buildings.get("Shanghai Tower") * 0.32);
+        heightLineB1 = new Line(160, 400, 160, buildings.get("Shanghai Tower") * 0.32);
         heightLineB1.getStyleClass().add("heightLine");
         heightLineB1.setStrokeLineCap(StrokeLineCap.ROUND);
 
@@ -205,7 +205,7 @@ public class PotHeightControl extends Region {
         heightCircleBigB2 = new Circle(179, buildings.get("Abraj Al-Bait Clock Tower") * 0.32, 8);
         heightCircleBigB2.getStyleClass().add("heightCircleBig");
 
-        heightLineB2 = new Line(180, 330, 180, buildings.get("Abraj Al-Bait Clock Tower") * 0.32);
+        heightLineB2 = new Line(180, 400, 180, buildings.get("Abraj Al-Bait Clock Tower") * 0.32);
         heightLineB2.getStyleClass().add("heightLine");
         heightLineB2.setStrokeLineCap(StrokeLineCap.ROUND);
 
@@ -215,7 +215,7 @@ public class PotHeightControl extends Region {
         heightCircleBigB3 = new Circle(219, buildings.get("Ping An Finance Centre") * 0.32, 8);
         heightCircleBigB3.getStyleClass().add("heightCircleBig");
 
-        heightLineB3 = new Line(220, 330, 220, buildings.get("Ping An Finance Centre") * 0.32);
+        heightLineB3 = new Line(220, 400, 220, buildings.get("Ping An Finance Centre") * 0.32);
         heightLineB3.getStyleClass().add("heightLine");
         heightLineB3.setStrokeLineCap(StrokeLineCap.ROUND);
 
@@ -225,7 +225,7 @@ public class PotHeightControl extends Region {
         heightCircleBigB4 = new Circle(239, buildings.get("Lotte World Tower") * 0.32, 8);
         heightCircleBigB4.getStyleClass().add("heightCircleBig");
 
-        heightLineB4 = new Line(240, 344, 240, buildings.get("Lotte World Tower") * 0.32);
+        heightLineB4 = new Line(240, 400, 240, buildings.get("Lotte World Tower") * 0.32);
         heightLineB4.getStyleClass().add("heightLine");
         heightLineB4.setStrokeLineCap(StrokeLineCap.ROUND);
 
@@ -239,7 +239,10 @@ public class PotHeightControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll(titleLabel, heightLine, baseArc, baseLine, heightCircleBig, heightCircleSmall, heightLabelBox);
+        drawingPane.getChildren().addAll(titleLabel, heightLine, heightLineB1, heightCircleBigB1, heightCircleSmallB1, heightLineB2, heightCircleBigB2,
+                heightCircleSmallB2,heightLineB3, heightCircleBigB3, heightCircleSmallB3, heightLineB4,
+                heightCircleBigB4, heightCircleSmallB4, baseArc, baseLine, heightCircleBig, heightCircleSmall,
+                heightLabelBox);
 
         getChildren().add(drawingPane);
     }
