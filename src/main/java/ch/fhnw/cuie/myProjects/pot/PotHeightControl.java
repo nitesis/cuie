@@ -1,6 +1,5 @@
 package ch.fhnw.cuie.myProjects.pot;
 
-import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +17,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -25,6 +25,7 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.StrokeLineCap;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextBoundsType;
@@ -70,16 +71,18 @@ public class PotHeightControl extends Region {
     private TextField heightLabel;
 
     // parts for other buildings
+    private Label labelB1B2;
+    private Label labelB3B4;
     private HBox otherBuildingBox;
     private Text otherBuildingLabel;
     private Line heightLineB1;
-    private Circle heightCircleBigB1;
+    private Circle heightCircleB1;
     private Line heightLineB2;
-    private Circle heightCircleBigB2;
+    private Circle heightCircleB2;
     private Line heightLineB3;
-    private Circle heightCircleBigB3;
+    private Circle heightCircleB3;
     private Line heightLineB4;
-    private Circle heightCircleBigB4;
+    private Circle heightCircleB4;
 
     // data structure for other buildings to compare
     private Map<String,Double> buildings= new HashMap<String,Double>();
@@ -183,34 +186,48 @@ public class PotHeightControl extends Region {
         heightLabelBox.getChildren().add(heightLabel);
 
         // initialize parts for other buildings
+        labelB1B2 = new Label("");
+        labelB1B2.setTranslateX(130);
+        labelB1B2.setTranslateY(140);
+        labelB1B2.setWrapText(true);
+        labelB1B2.setMaxSize(70,70);
+        labelB1B2.setFont(Font.font("Arial",9));
+
+        labelB3B4 = new Label("");
+        labelB3B4.setTranslateX(210);
+        labelB3B4.setTranslateY(130);
+        labelB3B4.setWrapText(true);
+        labelB3B4.setMaxSize(70,70);
+        labelB3B4.setFont(Font.font("Arial",9));
+
         buildings.put("Shanghai Tower", 632.0);
         buildings.put("Abraj Al-Bait Clock Tower", 601.0);
         buildings.put("Ping An Finance Centre", 599.0);
         buildings.put("Lotte World Tower", 554.5);
 
-        heightCircleBigB1 = new Circle(160, ARTBOARD_HEIGHT - buildings.get("Shanghai Tower") * HEIGHT_FACTOR, 7);
-        heightCircleBigB1.getStyleClass().add("heightCircleSmall");
+        heightCircleB1 = new Circle(160, ARTBOARD_HEIGHT - buildings.get("Shanghai Tower") * HEIGHT_FACTOR, 7);
+        heightCircleB1.getStyleClass().add("heightCircleSmall");
 
         heightLineB1 = new Line(160, 400, 160, ARTBOARD_HEIGHT - buildings.get("Shanghai Tower") * HEIGHT_FACTOR);
         heightLineB1.getStyleClass().add("heightLine");
         heightLineB1.setStrokeLineCap(StrokeLineCap.ROUND);
 
-        heightCircleBigB2 = new Circle(180, ARTBOARD_HEIGHT - buildings.get("Abraj Al-Bait Clock Tower") * HEIGHT_FACTOR, 7);
-        heightCircleBigB2.getStyleClass().add("heightCircleSmall");
+        heightCircleB2 = new Circle(180, ARTBOARD_HEIGHT - buildings.get("Abraj Al-Bait Clock Tower") * HEIGHT_FACTOR, 7);
+        heightCircleB2.getStyleClass().add("heightCircleSmall");
 
         heightLineB2 = new Line(180, 400, 180, ARTBOARD_HEIGHT - buildings.get("Abraj Al-Bait Clock Tower") * HEIGHT_FACTOR);
         heightLineB2.getStyleClass().add("heightLine");
         heightLineB2.setStrokeLineCap(StrokeLineCap.ROUND);
 
-        heightCircleBigB3 = new Circle(220, ARTBOARD_HEIGHT - buildings.get("Ping An Finance Centre") * HEIGHT_FACTOR, 7);
-        heightCircleBigB3.getStyleClass().add("heightCircleSmall");
+        heightCircleB3 = new Circle(220, ARTBOARD_HEIGHT - buildings.get("Ping An Finance Centre") * HEIGHT_FACTOR, 7);
+        heightCircleB3.getStyleClass().add("heightCircleSmall");
 
         heightLineB3 = new Line(220, 400, 220, ARTBOARD_HEIGHT - buildings.get("Ping An Finance Centre") * HEIGHT_FACTOR);
         heightLineB3.getStyleClass().add("heightLine");
         heightLineB3.setStrokeLineCap(StrokeLineCap.ROUND);
 
-        heightCircleBigB4 = new Circle(240, ARTBOARD_HEIGHT - buildings.get("Lotte World Tower") * HEIGHT_FACTOR, 7);
-        heightCircleBigB4.getStyleClass().add("heightCircleSmall");
+        heightCircleB4 = new Circle(240, ARTBOARD_HEIGHT - buildings.get("Lotte World Tower") * HEIGHT_FACTOR, 7);
+        heightCircleB4.getStyleClass().add("heightCircleSmall");
 
         heightLineB4 = new Line(240, 400, 240, ARTBOARD_HEIGHT - buildings.get("Lotte World Tower") * HEIGHT_FACTOR);
         heightLineB4.getStyleClass().add("heightLine");
@@ -226,9 +243,9 @@ public class PotHeightControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll(titleLabel, heightLine, heightLineB1, heightCircleBigB1, heightLineB2, heightCircleBigB2,
-                heightLineB3, heightCircleBigB3, heightLineB4,
-                heightCircleBigB4, baseArc, baseLine, heightCircleBig, heightCircleSmall,
+        drawingPane.getChildren().addAll(titleLabel, heightLine, heightLineB1, heightCircleB1, heightLineB2, heightCircleB2,
+                heightLineB3, heightCircleB3, heightLineB4,
+                heightCircleB4, baseArc, baseLine, heightCircleBig, heightCircleSmall,
                 heightLabelBox);
 
         getChildren().add(drawingPane);
@@ -253,12 +270,13 @@ public class PotHeightControl extends Region {
 
         heightCircleBig.setOnMouseEntered(event -> {
             if (scaleTransition == null) {
-                scaleTransition = new ScaleTransition(Duration.seconds(0.5), heightCircleBig);
+                scaleTransition = new ScaleTransition(Duration.seconds(0.4), heightCircleBig);
                 scaleTransition.setFromX(1.0);
                 scaleTransition.setFromY(1.0);
                 scaleTransition.setByX(0.5);
                 scaleTransition.setByY(0.5);
                 scaleTransition.setCycleCount(2);
+                scaleTransition.setInterpolator(Interpolator.EASE_OUT);
                 scaleTransition.setAutoReverse(true);
             }
 
@@ -272,6 +290,62 @@ public class PotHeightControl extends Region {
                 circleTransition.setInterpolator(Interpolator.EASE_BOTH);
                 circleTransition.play();
             }
+        });
+
+        heightCircleBig.setOnMouseExited(event -> {
+            heightCircleBig.getStyleClass().add("heightCircleBig");
+        });
+
+        // B1 OnMouseEntered/Exited
+        heightCircleB1.setOnMouseEntered(event ->{
+            heightCircleB1.setRadius(10.0);
+            heightCircleB1.setFill(Color.LIGHTPINK);
+            labelB1B2.setText("Shanghai Tower: " + buildings.get("Shanghai Tower")+" m");
+        });
+
+        heightCircleB1.setOnMouseExited(event ->{
+            heightCircleB1.setRadius(7.0);
+            heightCircleB1.setFill(Color.WHITE);
+            labelB1B2.setText("");
+        });
+
+        // B2 OnMouseEntered/Exited
+        heightCircleB2.setOnMouseEntered(event ->{
+            heightCircleB2.setRadius(10.0);
+            heightCircleB2.setFill(Color.LIGHTPINK);
+            labelB1B2.setText("Abraj Al-Bait Clock Tower: " + buildings.get("Abraj Al-Bait Clock Tower")+" m");
+        });
+
+        heightCircleB2.setOnMouseExited(event ->{
+            heightCircleB2.setRadius(7.0);
+            heightCircleB2.setFill(Color.WHITE);
+            labelB1B2.setText("");
+        });
+
+        // B3 OnMouseEntered/Exited
+        heightCircleB3.setOnMouseEntered(event ->{
+            heightCircleB3.setRadius(10.0);
+            heightCircleB3.setFill(Color.LIGHTPINK);
+            labelB3B4.setText("Ping An Finance Centre: " + buildings.get("Ping An Finance Centre")+" m");
+        });
+
+        heightCircleB3.setOnMouseExited(event ->{
+            heightCircleB3.setRadius(7.0);
+            heightCircleB3.setFill(Color.WHITE);
+            labelB3B4.setText("");
+        });
+
+        // B4 OnMouseEntered/Exited
+        heightCircleB4.setOnMouseEntered(event ->{
+            heightCircleB4.setRadius(10.0);
+            heightCircleB4.setFill(Color.LIGHTPINK);
+            labelB3B4.setText("Lotte World Tower " + buildings.get("Lotte World Tower")+" m");
+        });
+
+        heightCircleB4.setOnMouseExited(event ->{
+            heightCircleB4.setRadius(7.0);
+            heightCircleB4.setFill(Color.WHITE);
+            labelB3B4.setText("");
         });
     }
 

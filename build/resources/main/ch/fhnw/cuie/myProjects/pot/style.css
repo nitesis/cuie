@@ -1,11 +1,11 @@
 .potHeightControl {
     -fx-padding: 10;
-    /*-base-color: rgb(2, 138, 204);*/
-    -fx-background-color: derive(-base-color, 80%);
+    -base-color: rgb(231, 231, 231);
+    /*-fx-background-color: derive(-base-color, 80%);*/
 }
 
 .potHeightControl .drawingPane {
-    -fx-background-color: -base-color;
+    /*-fx-background-color: -base-color;*/
 }
 
 .potHeightControl .display {
@@ -28,12 +28,13 @@
 .potHeightControl .heightCircleBig {
     -fx-stroke: #000000;
     -fx-stroke-width: 6px;
-    -fx-fill: #FFFFFF;
+    -fx-fill: derive(-base-color, 60%);
 }
 
 .potHeightControl .heightCircleSmall {
-
-
+    -fx-stroke: #000000;
+    -fx-stroke-width: 6px;
+    -fx-fill: derive(-base-color, 90%);
 }
 
 .potHeightControl .heightLine {
