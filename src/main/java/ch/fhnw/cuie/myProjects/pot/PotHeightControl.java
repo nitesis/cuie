@@ -297,52 +297,52 @@ public class PotHeightControl extends Region {
         });
 
         // B1 OnMouseEntered/Exited
-        heightCircleB1.setOnMouseEntered(event ->{
+        heightCircleB1.setOnMouseEntered(event -> {
             heightCircleB1.setRadius(10.0);
             heightCircleB1.setFill(Color.LIGHTPINK);
             labelB1B2.setText("Shanghai Tower: " + buildings.get("Shanghai Tower")+" m");
         });
 
-        heightCircleB1.setOnMouseExited(event ->{
+        heightCircleB1.setOnMouseExited(event -> {
             heightCircleB1.setRadius(7.0);
             heightCircleB1.setFill(Color.WHITE);
             labelB1B2.setText("");
         });
 
         // B2 OnMouseEntered/Exited
-        heightCircleB2.setOnMouseEntered(event ->{
+        heightCircleB2.setOnMouseEntered(event -> {
             heightCircleB2.setRadius(10.0);
             heightCircleB2.setFill(Color.LIGHTPINK);
             labelB1B2.setText("Abraj Al-Bait Clock Tower: " + buildings.get("Abraj Al-Bait Clock Tower")+" m");
         });
 
-        heightCircleB2.setOnMouseExited(event ->{
+        heightCircleB2.setOnMouseExited(event -> {
             heightCircleB2.setRadius(7.0);
             heightCircleB2.setFill(Color.WHITE);
             labelB1B2.setText("");
         });
 
         // B3 OnMouseEntered/Exited
-        heightCircleB3.setOnMouseEntered(event ->{
+        heightCircleB3.setOnMouseEntered(event -> {
             heightCircleB3.setRadius(10.0);
             heightCircleB3.setFill(Color.LIGHTPINK);
             labelB3B4.setText("Ping An Finance Centre: " + buildings.get("Ping An Finance Centre")+" m");
         });
 
-        heightCircleB3.setOnMouseExited(event ->{
+        heightCircleB3.setOnMouseExited(event -> {
             heightCircleB3.setRadius(7.0);
             heightCircleB3.setFill(Color.WHITE);
             labelB3B4.setText("");
         });
 
         // B4 OnMouseEntered/Exited
-        heightCircleB4.setOnMouseEntered(event ->{
+        heightCircleB4.setOnMouseEntered(event -> {
             heightCircleB4.setRadius(10.0);
             heightCircleB4.setFill(Color.LIGHTPINK);
             labelB3B4.setText("Lotte World Tower " + buildings.get("Lotte World Tower")+" m");
         });
 
-        heightCircleB4.setOnMouseExited(event ->{
+        heightCircleB4.setOnMouseExited(event -> {
             heightCircleB4.setRadius(7.0);
             heightCircleB4.setFill(Color.WHITE);
             labelB3B4.setText("");
