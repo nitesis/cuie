@@ -257,7 +257,7 @@ public class PotHeightControl extends Region {
 
     private void addEventHandlers() {
 
-        heightCircleBig.setOnMouseDragged(event -> {
+        heightCircleSmall.setOnMouseDragged(event -> {
             if(((drawingPane.getMaxHeight() - event.getY()) / HEIGHT_FACTOR) > 1000.0)
                 setHeightValue(1000.0);
             else {
@@ -268,7 +268,7 @@ public class PotHeightControl extends Region {
             }
         });
 
-        heightCircleBig.setOnMouseEntered(event -> {
+        heightCircleSmall.setOnMouseEntered(event -> {
             if (scaleTransition == null) {
                 scaleTransition = new ScaleTransition(Duration.seconds(0.3), heightCircleBig);
                 scaleTransition.setFromX(1.0);
