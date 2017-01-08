@@ -149,7 +149,7 @@ public class PotHeightControl extends Region {
         titleLabelBox = new HBox();
         titleLabelBox.setStyle("-fx-padding: 10");
         titleLabelBox.setAlignment(Pos.CENTER);
-        titleLabelBox.setPrefSize(ARTBOARD_WIDTH, 50);
+        titleLabelBox.setPrefSize(ARTBOARD_WIDTH, 25);
         titleLabel = new TextField((String) buildings.keySet().toArray()[0]);
         //titleLabelBox.getChildren().add(titleLabel);
 
