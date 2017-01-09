@@ -194,19 +194,9 @@ public class PotHeightControl extends Region {
         heightLabelBox.getChildren().add(heightLabel);
 
         // initialize parts for other buildings
-        labelB1B2 = new Label("");
-        labelB1B2.setTranslateX(130);
-        labelB1B2.setTranslateY(140);
-        labelB1B2.setWrapText(true);
-        labelB1B2.setMaxSize(70,70);
-        labelB1B2.setFont(Font.font("Arial",9));
 
-        labelB3B4 = new Label("");
-        labelB3B4.setTranslateX(210);
-        labelB3B4.setTranslateY(130);
-        labelB3B4.setWrapText(true);
-        labelB3B4.setMaxSize(70,70);
-        labelB3B4.setFont(Font.font("Arial",9));
+
+
 
         heightCircleB1 = new Circle(160, ARTBOARD_HEIGHT - buildings.get(1).getHeight_m() * HEIGHT_FACTOR, 7);
         heightCircleB1.getStyleClass().add("heightCircleSmall");
@@ -235,6 +225,20 @@ public class PotHeightControl extends Region {
         heightLineB4 = new Line(240, 400, 240, ARTBOARD_HEIGHT - buildings.get(4).getHeight_m() * HEIGHT_FACTOR);
         heightLineB4.getStyleClass().add("heightLine");
         heightLineB4.setStrokeLineCap(StrokeLineCap.ROUND);
+
+        labelB1B2 = new Label("");
+        labelB1B2.setTranslateX(100);
+        labelB1B2.setTranslateY(setPositionForSmallCircleLabels(heightLineB1, heightLineB2));
+        labelB1B2.setWrapText(true);
+        labelB1B2.setMaxSize(70, 70);
+        labelB1B2.setFont(Font.font("Arial", 9));
+
+        labelB3B4 = new Label("");
+        labelB3B4.setTranslateX(230);
+        labelB3B4.setTranslateY(setPositionForSmallCircleLabels(heightLineB3, heightLineB4));
+        labelB3B4.setWrapText(true);
+        labelB3B4.setMaxSize(70, 70);
+        labelB3B4.setFont(Font.font("Arial", 9));
 
         // always needed
         drawingPane = new Pane();
@@ -444,6 +448,19 @@ public class PotHeightControl extends Region {
 
 
     // some useful helper-methods
+
+    private double setPositionForSmallCircleLabels(Line line1, Line line2) {
+        double endYLine1 = line1.getEndY();
+        double endYLine2 = line2.getEndY();
+
+        if (endYLine1 > endYLine2) {
+            return (endYLine2 - 50);
+        }
+        else {
+            return (endYLine1 - 50);
+        }
+    }
+
 
     private Text createCenteredText(String styleClass) {
         return createCenteredText(ARTBOARD_WIDTH * 0.5, ARTBOARD_HEIGHT * 0.5, styleClass);
