@@ -41,7 +41,7 @@ public class DemoPane extends BorderPane {
         titleField.setText("Burj Kalifa");
 
         heightField = new TextField();
-        heightField.setText("830");
+        heightField.setText("830.0");
 
         isAnimated = new CheckBox();
 

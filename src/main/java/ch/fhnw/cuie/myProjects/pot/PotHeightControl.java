@@ -86,8 +86,15 @@ public class PotHeightControl extends Region {
     private Circle heightCircleB4;
 
     // data structure for other buildings to compare
-    private BuildingPM buildingPM;
-    List<BuildingPM> buildings = BuildingPM.getBuildings();
+    private List<BuildingPM> buildings;
+
+    public List<BuildingPM> getBuildings() {
+        return buildings;
+    }
+
+    public void setBuildings(List<BuildingPM> buildings) {
+        this.buildings = buildings;
+    }
 
     // all properties
     private final StringProperty title = new SimpleStringProperty();
@@ -131,7 +138,8 @@ public class PotHeightControl extends Region {
         }
     };
 
-    public PotHeightControl() {
+    public PotHeightControl(List<BuildingPM> buildings) {
+        this.buildings = buildings;
         initializeSelf();
         initializeParts();
         layoutParts();
@@ -153,7 +161,7 @@ public class PotHeightControl extends Region {
         titleLabelBox.setStyle("-fx-padding: 10");
         titleLabelBox.setAlignment(Pos.CENTER);
         titleLabelBox.setPrefSize(ARTBOARD_WIDTH, 25);
-        titleLabel = new TextField("830");
+        titleLabel = new TextField("Burj Kalifa");
         //titleLabelBox.getChildren().add(titleLabel);
 
         titleLabel.getStyleClass().add("titleLabel");
@@ -181,7 +189,7 @@ public class PotHeightControl extends Region {
         heightLabelBox.setPrefSize(ARTBOARD_WIDTH, 25);
 
 
-        heightLabel = new TextField("Burj Kalifa");
+        heightLabel = new TextField("830.0");
         heightLabel.getStyleClass().add("heightLabel");
         heightLabelBox.getChildren().add(heightLabel);
 
