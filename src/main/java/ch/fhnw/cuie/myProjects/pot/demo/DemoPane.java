@@ -66,7 +66,7 @@ public class DemoPane extends BorderPane {
 
     private void layoutControls() {
         setCenter(customControl);
-        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, isAnimated, circleAnimationRunningBox, pulseSlider, colorPicker, new Label("choose building"), buildingsList);
+        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, isAnimated, circleAnimationRunningBox, pulseSlider, colorPicker, new Label("Choose building to compare:"), buildingsList);
         box.setPadding(new Insets(10));
         box.setSpacing(10);
         setRight(box);
