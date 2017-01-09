@@ -2,6 +2,7 @@ package ch.fhnw.cuie.myProjects.pot;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javafx.animation.*;
@@ -431,7 +432,8 @@ public class PotHeightControl extends Region {
     private void setupBindings() {
         titleLabel.textProperty().bindBidirectional(titleProperty());
         //heightLabel.textProperty().bind(heightValueProperty().asString());
-        Bindings.bindBidirectional(heightLabel.textProperty(), this.heightValueProperty(), new NumberStringConverter());
+        Bindings.bindBidirectional(heightLabel.textProperty(), this.heightValueProperty(),
+                new NumberStringConverter(new Locale("ch", "CH"), ".##"));
 
     }
 

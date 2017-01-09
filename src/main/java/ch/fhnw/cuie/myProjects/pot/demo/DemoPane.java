@@ -11,6 +11,8 @@ import javafx.util.StringConverter;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.NumberStringConverter;
 
+import java.util.Locale;
+
 /**
  * @author Viviane Bendjus
  */
@@ -67,7 +69,7 @@ public class DemoPane extends BorderPane {
 
         customControl.titleProperty().bindBidirectional(titleField.textProperty());
 
-        Bindings.bindBidirectional(heightField.textProperty(), customControl.heightValueProperty(), new NumberStringConverter());
+        Bindings.bindBidirectional(heightField.textProperty(), customControl.heightValueProperty(), new NumberStringConverter(new Locale("ch", "CH"), ".##"));
         //heightField.textProperty().bind(customControl.heightValueProperty().asString("%.2f"));
 
         //customControl.heightValueProperty().bindBidirectional(heightField.textProperty());
