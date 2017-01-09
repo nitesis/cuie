@@ -1,5 +1,6 @@
 package ch.fhnw.cuie.myProjects.pot.demo;
 
+import ch.fhnw.cuie.myProjects.pot.BuildingPM;
 import ch.fhnw.cuie.myProjects.pot.PotHeightControl;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
@@ -25,6 +26,7 @@ public class DemoPane extends BorderPane {
     private Slider      pulseSlider;
     private ColorPicker colorPicker;
     private CheckBox  isAnimated;
+    private ListView buildingsList;
 
     public DemoPane() {
         initializeControls();
@@ -35,7 +37,7 @@ public class DemoPane extends BorderPane {
     private void initializeControls() {
         setPadding(new Insets(10));
 
-        customControl = new PotHeightControl();
+        customControl = new PotHeightControl(BuildingPM.getBuildings());
 
         titleField = new TextField();
         titleField.setText("Burj Kalifa");
@@ -43,7 +45,7 @@ public class DemoPane extends BorderPane {
         heightField = new TextField();
         heightField.setText("830.0");
 
-        isAnimated = new CheckBox();
+        isAnimated = new CheckBox("Height line animated");
 
         circleAnimationRunningBox = new CheckBox("Circle animation running");
         circleAnimationRunningBox.setSelected(true);
@@ -53,11 +55,18 @@ public class DemoPane extends BorderPane {
         pulseSlider.setShowTickMarks(true);
 
         colorPicker = new ColorPicker();
+
+        buildingsList= new ListView();
+        for (int i=0; i < customControl.getBuildings().size(); i++)
+        {
+            buildingsList.getItems().add(customControl.getBuildings().get(i).getBuilding());
+        }
+        buildingsList.setPrefHeight(customControl.getBuildings().size() * 24);
     }
 
     private void layoutControls() {
         setCenter(customControl);
-        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, new Label("animated:"), isAnimated, circleAnimationRunningBox, pulseSlider, colorPicker);
+        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, isAnimated, circleAnimationRunningBox, pulseSlider, colorPicker, new Label("choose building"), buildingsList);
         box.setPadding(new Insets(10));
         box.setSpacing(10);
         setRight(box);
