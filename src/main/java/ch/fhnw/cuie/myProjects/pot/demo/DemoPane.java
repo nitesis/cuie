@@ -19,7 +19,7 @@ public class DemoPane extends BorderPane {
 
     private TextField   titleField;
     private TextField   heightField;
-    private CheckBox    timerRunningBox;
+    private CheckBox circleAnimationRunningBox;
     private Slider      pulseSlider;
     private ColorPicker colorPicker;
     private CheckBox  isAnimated;
@@ -43,8 +43,8 @@ public class DemoPane extends BorderPane {
 
         isAnimated = new CheckBox();
 
-        timerRunningBox = new CheckBox("Timer running");
-        timerRunningBox.setSelected(false);
+        circleAnimationRunningBox = new CheckBox("Circle animation running");
+        circleAnimationRunningBox.setSelected(true);
 
         pulseSlider = new Slider(0.5, 2.0, 1.0);
         pulseSlider.setShowTickLabels(true);
@@ -55,7 +55,7 @@ public class DemoPane extends BorderPane {
 
     private void layoutControls() {
         setCenter(customControl);
-        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, new Label("animated:"), isAnimated, timerRunningBox, pulseSlider, colorPicker);
+        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, new Label("animated:"), isAnimated, circleAnimationRunningBox, pulseSlider, colorPicker);
         box.setPadding(new Insets(10));
         box.setSpacing(10);
         setRight(box);
@@ -73,7 +73,7 @@ public class DemoPane extends BorderPane {
         //customControl.heightValueProperty().bindBidirectional(heightField.textProperty());
         isAnimated.selectedProperty().bindBidirectional(customControl.animatedProperty());
 
-        customControl.timerIsRunningProperty().bindBidirectional(timerRunningBox.selectedProperty());
+        customControl.circleAnimationIsRunningProperty().bindBidirectional(circleAnimationRunningBox.selectedProperty());
         customControl.pulseProperty().bind(Bindings.createObjectBinding(() -> Duration.seconds(pulseSlider.getValue()), pulseSlider.valueProperty()));
 
         colorPicker.valueProperty().bindBidirectional(customControl.baseColorProperty());

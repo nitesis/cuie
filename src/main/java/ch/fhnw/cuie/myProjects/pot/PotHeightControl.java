@@ -91,7 +91,7 @@ public class PotHeightControl extends Region {
     private final StringProperty title = new SimpleStringProperty();
     private final DoubleProperty heightValue = new SimpleDoubleProperty();
 
-    private final BooleanProperty          timerIsRunning = new SimpleBooleanProperty(false);
+    private final BooleanProperty circleAnimationIsRunning = new SimpleBooleanProperty(true);
     private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(1.0));
 
     private final BooleanProperty animated      = new SimpleBooleanProperty(true);
@@ -257,6 +257,15 @@ public class PotHeightControl extends Region {
 
     private void addEventHandlers() {
 
+        /*heightCircleSmall.setOnMouseClicked(event -> {
+            setCircleAnimationIsRunning(false);
+        });*/
+
+        heightCircleSmall.setOnMouseReleased(event -> {
+            //setCircleAnimationIsRunning(true);
+            //heightCircleBig.setRadius(17.0);
+        });
+
         heightCircleSmall.setOnMouseDragged(event -> {
             if(((drawingPane.getMaxHeight() - event.getY()) / HEIGHT_FACTOR) > 1000.0)
                 setHeightValue(1000.0);
@@ -268,33 +277,44 @@ public class PotHeightControl extends Region {
             }
         });
 
-        heightCircleSmall.setOnMouseEntered(event -> {
-            if (scaleTransition == null) {
-                scaleTransition = new ScaleTransition(Duration.seconds(0.3), heightCircleBig);
-                scaleTransition.setFromX(1.0);
-                scaleTransition.setFromY(1.0);
-                scaleTransition.setByX(0.4);
-                scaleTransition.setByY(0.4);
-                scaleTransition.setCycleCount(2);
-                scaleTransition.setInterpolator(Interpolator.EASE_OUT);
-                scaleTransition.setAutoReverse(true);
-            }
+        heightCircleSmall.setOnMousePressed(event -> {
+            /*KeyValue keyValue1 = new KeyValue(heightCircleBig.radiusProperty(), 25.0);
+            KeyValue keyValue2 = new KeyValue(heightCircleBig.radiusProperty(), 20.0);
+            KeyFrame keyFrame1 = new KeyFrame(Duration.seconds(0.2), keyValue1);
+            KeyFrame keyFrame2 = new KeyFrame(Duration.seconds(0.3), keyValue2);
 
-            if (fillTransition == null) {
-                fillTransition = new FillTransition(Duration.seconds(1.2), heightCircleBig, getBaseColor(), getBaseColor().darker());
-                fillTransition.setOnFinished(event1 -> getBaseColor());
-            }
+            timeline.getKeyFrames().addAll(keyFrame1, keyFrame2);
+            timeline.play();*/
+            if(getCircleAnimationIsRunning()) {
+                if (scaleTransition == null) {
+                    scaleTransition = new ScaleTransition(Duration.seconds(0.2), heightCircleBig);
+                    scaleTransition.setFromX(1.0);
+                    scaleTransition.setFromY(1.0);
+                    scaleTransition.setByX(0.4);
+                    scaleTransition.setByY(0.4);
+                    scaleTransition.setCycleCount(2);
+                    scaleTransition.setInterpolator(Interpolator.EASE_OUT);
+                    scaleTransition.setAutoReverse(true);
+                }
 
-            if (!fillTransition.getStatus().equals(Animation.Status.RUNNING)) {
-                circleTransition = new ParallelTransition(scaleTransition, fillTransition);
-                circleTransition.setInterpolator(Interpolator.EASE_BOTH);
-                circleTransition.play();
+                if (fillTransition == null) {
+                    fillTransition = new FillTransition(Duration.seconds(1.2), heightCircleBig, getBaseColor(), getBaseColor().darker());
+                    fillTransition.setOnFinished(event1 -> getBaseColor());
+                }
+
+                if (!fillTransition.getStatus().equals(Animation.Status.RUNNING)) {
+                    circleTransition = new ParallelTransition(scaleTransition, fillTransition);
+                    circleTransition.setInterpolator(Interpolator.EASE_BOTH);
+                    circleTransition.play();
+                }
             }
         });
 
-        heightCircleBig.setOnMouseExited(event -> {
+        /*heightCircleBig.setOnMouseExited(event -> {
             heightCircleBig.getStyleClass().add("heightCircleBig");
-        });
+
+            setCircleAnimationIsRunning(true);
+        });*/
 
         // B1 OnMouseEntered/Exited
         heightCircleB1.setOnMouseEntered(event -> {
@@ -395,7 +415,7 @@ public class PotHeightControl extends Region {
 
 
         // if you need the timer
-        timerIsRunning.addListener((observable, oldValue, newValue) -> {
+        circleAnimationIsRunning.addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 timer.start();
             } else {
@@ -562,16 +582,16 @@ public class PotHeightControl extends Region {
         this.baseColor.set(baseColor);
     }
 
-    public boolean isTimerIsRunning() {
-        return timerIsRunning.get();
+    public boolean getCircleAnimationIsRunning() {
+        return circleAnimationIsRunning.get();
     }
 
-    public BooleanProperty timerIsRunningProperty() {
-        return timerIsRunning;
+    public BooleanProperty circleAnimationIsRunningProperty() {
+        return circleAnimationIsRunning;
     }
 
-    public void setTimerIsRunning(boolean timerIsRunning) {
-        this.timerIsRunning.set(timerIsRunning);
+    public void setCircleAnimationIsRunning(boolean circleAnimationIsRunning) {
+        this.circleAnimationIsRunning.set(circleAnimationIsRunning);
     }
 
     public Duration getPulse() {
