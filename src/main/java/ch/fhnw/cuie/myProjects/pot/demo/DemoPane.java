@@ -56,8 +56,8 @@ public class DemoPane extends BorderPane {
 
         colorPicker = new ColorPicker();
 
-        buildingsList= new ListView();
-        for (int i=0; i < customControl.getBuildings().size(); i++)
+        buildingsList = new ListView();
+        for(int i = 0; i < customControl.getBuildings().size(); i++)
         {
             buildingsList.getItems().add(customControl.getBuildings().get(i).getBuilding());
         }
