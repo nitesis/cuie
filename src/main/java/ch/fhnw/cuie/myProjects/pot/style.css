@@ -55,3 +55,8 @@
 .potHeightControl .heightLabelBox {
     -fx-padding: 5px;
 }
+
+.potHeightControl .smallLabel {
+    -fx-font-family: 'Lato Bold';
+    -fx-font-size: 12px;
+}

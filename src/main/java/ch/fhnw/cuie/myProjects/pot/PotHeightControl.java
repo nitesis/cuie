@@ -227,18 +227,18 @@ public class PotHeightControl extends Region {
         heightLineB4.setStrokeLineCap(StrokeLineCap.ROUND);
 
         labelB1B2 = new Label("");
-        labelB1B2.setTranslateX(100);
+        labelB1B2.setTranslateX(80);
         labelB1B2.setTranslateY(setPositionForSmallCircleLabels(heightLineB1, heightLineB2));
         labelB1B2.setWrapText(true);
-        labelB1B2.setMaxSize(70, 70);
-        labelB1B2.setFont(Font.font("Arial", 9));
+        labelB1B2.setMaxSize(100, 70);
+        labelB1B2.getStyleClass().add("smallLabel");
 
         labelB3B4 = new Label("");
         labelB3B4.setTranslateX(230);
         labelB3B4.setTranslateY(setPositionForSmallCircleLabels(heightLineB3, heightLineB4));
         labelB3B4.setWrapText(true);
-        labelB3B4.setMaxSize(70, 70);
-        labelB3B4.setFont(Font.font("Arial", 9));
+        labelB3B4.setMaxSize(100, 70);
+        labelB3B4.getStyleClass().add("smallLabel");
 
         // always needed
         drawingPane = new Pane();
@@ -327,7 +327,7 @@ public class PotHeightControl extends Region {
         heightCircleB1.setOnMouseEntered(event -> {
             heightCircleB1.setRadius(10.0);
             heightCircleB1.setFill(Color.LIGHTPINK);
-            labelB1B2.setText("Shanghai Tower: " + buildings.get(1).getHeight_m() + " m");
+            labelB1B2.setText(buildings.get(1).getBuilding() + ": " + buildings.get(1).getHeight_m() + " m");
         });
 
         heightCircleB1.setOnMouseExited(event -> {
@@ -340,7 +340,7 @@ public class PotHeightControl extends Region {
         heightCircleB2.setOnMouseEntered(event -> {
             heightCircleB2.setRadius(10.0);
             heightCircleB2.setFill(Color.LIGHTPINK);
-            labelB1B2.setText("Abraj Al-Bait Clock Tower: " + buildings.get(2).getHeight_m() + " m");
+            labelB1B2.setText(buildings.get(2).getBuilding() + ": " + buildings.get(2).getHeight_m() + " m");
         });
 
         heightCircleB2.setOnMouseExited(event -> {
@@ -353,7 +353,7 @@ public class PotHeightControl extends Region {
         heightCircleB3.setOnMouseEntered(event -> {
             heightCircleB3.setRadius(10.0);
             heightCircleB3.setFill(Color.LIGHTPINK);
-            labelB3B4.setText("Ping An Finance Centre: " + buildings.get(3).getHeight_m() + " m");
+            labelB3B4.setText(buildings.get(3).getBuilding() + ": " + buildings.get(3).getHeight_m() + " m");
         });
 
         heightCircleB3.setOnMouseExited(event -> {
@@ -366,7 +366,7 @@ public class PotHeightControl extends Region {
         heightCircleB4.setOnMouseEntered(event -> {
             heightCircleB4.setRadius(10.0);
             heightCircleB4.setFill(Color.LIGHTPINK);
-            labelB3B4.setText("Lotte World Tower " + buildings.get(4).getHeight_m() + " m");
+            labelB3B4.setText(buildings.get(4).getBuilding() + ": " + buildings.get(4).getHeight_m() + " m");
         });
 
         heightCircleB4.setOnMouseExited(event -> {
