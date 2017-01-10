@@ -164,6 +164,7 @@ public class PotHeightControl extends Region {
         addEventHandlers();
         addValueChangedListeners();
         setupBindings();
+        setHeightValue(830.0);
     }
 
     private void initializeSelf() {
