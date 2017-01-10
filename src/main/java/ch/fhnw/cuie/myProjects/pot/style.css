@@ -30,9 +30,8 @@
 }
 
 .potHeightControl .titleLabel:focused {
-    -fx-background-color: -fx-focus-color, -fx-text-box-border, -fx-control-inner-background;
-    -fx-border-color: #D8D8D8;
-    -fx-focus-traversable: true;
+    -fx-background-color: white;
+    -fx-border-color: none;
 }
 
 .potHeightControl .heightCircleBig {
@@ -60,6 +59,11 @@
     -fx-focus-traversable: true;
     -fx-text-box-border: none;
     -fx-outer-border: none;
+}
+
+.potHeightControl .heightLabel:focused {
+    -fx-background-color: white;
+    -fx-border-color: none;
 }
 
 .potHeightControl .heightLabelBox {
