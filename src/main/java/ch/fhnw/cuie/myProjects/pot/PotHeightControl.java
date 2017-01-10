@@ -100,7 +100,10 @@ public class PotHeightControl extends Region {
     }
 
     // parts for pop up menu
-    private ListView buildingsList;
+    private ListView buildingsListB1;
+    private ListView buildingsListB2;
+    private ListView buildingsListB3;
+    private ListView buildingsListB4;
     private Popup popupB1;
     private int indexB1;
     private Popup popupB2;
@@ -251,21 +254,45 @@ public class PotHeightControl extends Region {
         labelB3B4.setMaxSize(100, 70);
         labelB3B4.getStyleClass().add("smallLabel");
 
-        buildingsList= new ListView();
+        buildingsListB1 = new ListView();
         for (int i = 0; i < buildings.size(); i++)
         {
-            buildingsList.getItems().add(buildings.get(i).getBuilding());
+            buildingsListB1.getItems().add(buildings.get(i).getBuilding());
         }
-        buildingsList.setPrefHeight(buildings.size() * 24);
+        buildingsListB1.setPrefHeight(buildings.size() * 24);
 
         popupB1 = new Popup();
-        popupB1.getContent().addAll(buildingsList);
+        popupB1.getContent().addAll(buildingsListB1);
+
+        buildingsListB2 = new ListView();
+        for (int i = 0; i < buildings.size(); i++)
+        {
+            buildingsListB2.getItems().add(buildings.get(i).getBuilding());
+        }
+        buildingsListB2.setPrefHeight(buildings.size() * 24);
+
         popupB2 = new Popup();
-        popupB2.getContent().addAll(buildingsList);
+        popupB2.getContent().addAll(buildingsListB2);
+
+        buildingsListB3 = new ListView();
+        for (int i = 0; i < buildings.size(); i++)
+        {
+            buildingsListB3.getItems().add(buildings.get(i).getBuilding());
+        }
+        buildingsListB3.setPrefHeight(buildings.size() * 24);
+
         popupB3 = new Popup();
-        popupB3.getContent().addAll(buildingsList);
+        popupB3.getContent().addAll(buildingsListB3);
+
+        buildingsListB4 = new ListView();
+        for (int i = 0; i < buildings.size(); i++)
+        {
+            buildingsListB4.getItems().add(buildings.get(i).getBuilding());
+        }
+        buildingsListB4.setPrefHeight(buildings.size() * 24);
+
         popupB4 = new Popup();
-        popupB4.getContent().addAll(buildingsList);
+        popupB4.getContent().addAll(buildingsListB4);
 
 
         // always needed
@@ -408,7 +435,7 @@ public class PotHeightControl extends Region {
             labelB3B4.setText("");
         });
 
-        // events for pop up menu
+        // events for pop up menu1
         heightCircleB1.setOnMouseClicked(event -> {
             if (popupB1.isShowing()) {
                 popupB1.hide();
@@ -423,12 +450,81 @@ public class PotHeightControl extends Region {
             popupB1.setY(location.getY());
         });
 
-        buildingsList.setOnMouseClicked(event ->
+        buildingsListB1.setOnMouseClicked(event ->
         {
             popupB1.hide();
-            indexB1=buildingsList.getItems().indexOf(buildingsList.getSelectionModel().getSelectedItem().toString());
+            indexB1 = buildingsListB1.getItems().indexOf(buildingsListB1.getSelectionModel().getSelectedItem().toString());
             heightCircleB1.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB1).getHeight_m() * HEIGHT_FACTOR);
             heightLineB1.setEndY(ARTBOARD_HEIGHT - buildings.get(indexB1).getHeight_m() * HEIGHT_FACTOR);
+        });
+
+        // events for pop up menu2
+        heightCircleB2.setOnMouseClicked(event -> {
+            if (popupB2.isShowing()) {
+                popupB2.hide();
+            } else {
+                popupB2.show(heightCircleB2.getScene().getWindow());
+            }
+        });
+
+        popupB2.setOnShown(event -> {
+            Point2D location = heightCircleB2.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB2).getHeight_m() * HEIGHT_FACTOR);
+            popupB2.setX(location.getX());
+            popupB2.setY(location.getY());
+        });
+
+        buildingsListB2.setOnMouseClicked(event ->
+        {
+            popupB2.hide();
+            indexB2 = buildingsListB2.getItems().indexOf(buildingsListB2.getSelectionModel().getSelectedItem().toString());
+            heightCircleB2.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB2).getHeight_m() * HEIGHT_FACTOR);
+            heightLineB2.setEndY(ARTBOARD_HEIGHT - buildings.get(indexB2).getHeight_m() * HEIGHT_FACTOR);
+        });
+
+        // events for pop up menu3
+        heightCircleB3.setOnMouseClicked(event -> {
+            if (popupB3.isShowing()) {
+                popupB3.hide();
+            } else {
+                popupB3.show(heightCircleB3.getScene().getWindow());
+            }
+        });
+
+        popupB3.setOnShown(event -> {
+            Point2D location = heightCircleB3.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB3).getHeight_m() * HEIGHT_FACTOR);
+            popupB3.setX(location.getX());
+            popupB3.setY(location.getY());
+        });
+
+        buildingsListB3.setOnMouseClicked(event ->
+        {
+            popupB3.hide();
+            indexB3 = buildingsListB3.getItems().indexOf(buildingsListB3.getSelectionModel().getSelectedItem().toString());
+            heightCircleB3.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB3).getHeight_m() * HEIGHT_FACTOR);
+            heightLineB3.setEndY(ARTBOARD_HEIGHT - buildings.get(indexB3).getHeight_m() * HEIGHT_FACTOR);
+        });
+
+        // events for pop up menu4
+        heightCircleB4.setOnMouseClicked(event -> {
+            if (popupB4.isShowing()) {
+                popupB4.hide();
+            } else {
+                popupB4.show(heightCircleB4.getScene().getWindow());
+            }
+        });
+
+        popupB4.setOnShown(event -> {
+            Point2D location = heightCircleB4.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB4).getHeight_m() * HEIGHT_FACTOR);
+            popupB4.setX(location.getX());
+            popupB4.setY(location.getY());
+        });
+
+        buildingsListB4.setOnMouseClicked(event ->
+        {
+            popupB4.hide();
+            indexB4 = buildingsListB4.getItems().indexOf(buildingsListB4.getSelectionModel().getSelectedItem().toString());
+            heightCircleB4.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB4).getHeight_m() * HEIGHT_FACTOR);
+            heightLineB4.setEndY(ARTBOARD_HEIGHT - buildings.get(indexB4).getHeight_m() * HEIGHT_FACTOR);
         });
     }
 
