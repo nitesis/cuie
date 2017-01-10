@@ -1,3 +1,7 @@
+.root {
+    -fx-focus-color: #e4e4e4;;
+}
+
 .potHeightControl {
     -fx-padding: 10;
     -base-color: rgb(255, 255, 255);
@@ -14,7 +18,7 @@
     -fx-fill: derive(-base-color, 80%);
 }
 
-.potHeightControl .titleLabel{
+.potHeightControl .titleLabel {
     -fx-font-family: 'Lato Bold';
     -fx-font-size: 31px;
     -fx-padding: 5px;
@@ -23,6 +27,12 @@
     -fx-focus-traversable: true;
     -fx-text-box-border: none;
     -fx-outer-border: none;
+}
+
+.potHeightControl .titleLabel:focused {
+    -fx-background-color: -fx-focus-color, -fx-text-box-border, -fx-control-inner-background;
+    -fx-border-color: #D8D8D8;
+    -fx-focus-traversable: true;
 }
 
 .potHeightControl .heightCircleBig {
