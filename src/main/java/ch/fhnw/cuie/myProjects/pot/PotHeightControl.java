@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
@@ -103,7 +104,7 @@ public class PotHeightControl extends Region {
     private final BooleanProperty circleAnimationIsRunning = new SimpleBooleanProperty(true);
     private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(1.0));
 
-    private final BooleanProperty animated      = new SimpleBooleanProperty(true);
+    private final BooleanProperty animated      = new SimpleBooleanProperty(false);
     private final DoubleProperty animatedHeightValue = new SimpleDoubleProperty();
 
     //CSS stylable properties
@@ -195,9 +196,6 @@ public class PotHeightControl extends Region {
 
         // initialize parts for other buildings
 
-
-
-
         heightCircleB1 = new Circle(160, ARTBOARD_HEIGHT - buildings.get(1).getHeight_m() * HEIGHT_FACTOR, 7);
         heightCircleB1.getStyleClass().add("heightCircleSmall");
 
@@ -264,13 +262,22 @@ public class PotHeightControl extends Region {
 
     private void addEventHandlers() {
 
+        heightLabel.setOnMouseClicked(event -> {
+            setAnimated(true);
+        });
+
+        heightLabel.setOnAction(event -> {
+                setAnimated(false);
+                //drawingPane.requestFocus();
+        });
+
         /*heightCircleSmall.setOnMouseClicked(event -> {
-            setCircleAnimationIsRunning(false);
+            setAnimated(false);
+            //setCircleAnimationIsRunning(false);
         });*/
 
         heightCircleSmall.setOnMouseReleased(event -> {
-            //setCircleAnimationIsRunning(true);
-            //heightCircleBig.setRadius(17.0);
+            setCircleAnimationIsRunning(true);
         });
 
         heightCircleSmall.setOnMouseDragged(event -> {
@@ -285,13 +292,7 @@ public class PotHeightControl extends Region {
         });
 
         heightCircleSmall.setOnMousePressed(event -> {
-            /*KeyValue keyValue1 = new KeyValue(heightCircleBig.radiusProperty(), 25.0);
-            KeyValue keyValue2 = new KeyValue(heightCircleBig.radiusProperty(), 20.0);
-            KeyFrame keyFrame1 = new KeyFrame(Duration.seconds(0.2), keyValue1);
-            KeyFrame keyFrame2 = new KeyFrame(Duration.seconds(0.3), keyValue2);
-
-            timeline.getKeyFrames().addAll(keyFrame1, keyFrame2);
-            timeline.play();*/
+            setAnimated(false);
             if(getCircleAnimationIsRunning()) {
                 if (scaleTransition == null) {
                     scaleTransition = new ScaleTransition(Duration.seconds(0.2), heightCircleBig);
@@ -305,8 +306,8 @@ public class PotHeightControl extends Region {
                 }
 
                 if (fillTransition == null) {
-                    fillTransition = new FillTransition(Duration.seconds(1.2), heightCircleBig, getBaseColor(), getBaseColor().darker());
-                    fillTransition.setOnFinished(event1 -> getBaseColor());
+                    fillTransition = new FillTransition(Duration.seconds(1.2), heightCircleBig, getBaseColor(), Color.PINK);
+                    fillTransition.setAutoReverse(true);
                 }
 
                 if (!fillTransition.getStatus().equals(Animation.Status.RUNNING)) {
@@ -317,11 +318,9 @@ public class PotHeightControl extends Region {
             }
         });
 
-        /*heightCircleBig.setOnMouseExited(event -> {
-            heightCircleBig.getStyleClass().add("heightCircleBig");
-
-            setCircleAnimationIsRunning(true);
-        });*/
+        heightCircleSmall.setOnMouseReleased(event -> {
+            heightCircleBig.setFill(Color.WHITE);
+        });
 
         // B1 OnMouseEntered/Exited
         heightCircleB1.setOnMouseEntered(event -> {

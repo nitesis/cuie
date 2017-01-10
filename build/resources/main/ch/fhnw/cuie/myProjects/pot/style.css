@@ -1,6 +1,6 @@
 .potHeightControl {
     -fx-padding: 10;
-    -base-color: rgb(231, 231, 231);
+    -base-color: rgb(255, 255, 255);
     /*-fx-background-color: derive(-base-color, 80%);*/
 }
 
@@ -54,4 +54,9 @@
 
 .potHeightControl .heightLabelBox {
     -fx-padding: 5px;
+}
+
+.potHeightControl .smallLabel {
+    -fx-font-family: 'Lato Bold';
+    -fx-font-size: 12px;
 }
