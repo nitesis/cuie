@@ -78,7 +78,7 @@ public class DemoPane extends BorderPane {
 
         customControl.titleProperty().bindBidirectional(titleField.textProperty());
 
-        Bindings.bindBidirectional(heightField.textProperty(), customControl.heightValueProperty(), new NumberStringConverter(new Locale("ch", "CH"), ".##"));
+        Bindings.bindBidirectional(heightField.textProperty(), customControl.heightValueProperty(), new NumberStringConverter(new Locale("ch", "CH"), ".#"));
         //heightField.textProperty().bind(customControl.heightValueProperty().asString("%.2f"));
 
         //customControl.heightValueProperty().bindBidirectional(heightField.textProperty());

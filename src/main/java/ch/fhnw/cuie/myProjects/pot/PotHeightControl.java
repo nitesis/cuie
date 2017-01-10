@@ -596,7 +596,7 @@ public class PotHeightControl extends Region {
         titleLabel.textProperty().bindBidirectional(titleProperty());
         //heightLabel.textProperty().bind(heightValueProperty().asString());
         Bindings.bindBidirectional(heightLabel.textProperty(), this.heightValueProperty(),
-                new NumberStringConverter(new Locale("ch", "CH"), ".##"));
+                new NumberStringConverter(new Locale("ch", "CH"), ".#"));
 
     }
 
