@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
@@ -31,6 +32,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextBoundsType;
+import javafx.stage.Popup;
 import javafx.util.Duration;
 import javafx.util.converter.NumberStringConverter;
 
@@ -96,6 +98,11 @@ public class PotHeightControl extends Region {
     public void setBuildings(List<BuildingPM> buildings) {
         this.buildings = buildings;
     }
+
+    // parts for pop up menu
+    private ListView buildingsList;
+    private Popup popup;
+    private int indexB1;
 
     // all properties
     private final StringProperty title = new SimpleStringProperty();
@@ -237,6 +244,7 @@ public class PotHeightControl extends Region {
         labelB3B4.setWrapText(true);
         labelB3B4.setMaxSize(100, 70);
         labelB3B4.getStyleClass().add("smallLabel");
+
 
         // always needed
         drawingPane = new Pane();
