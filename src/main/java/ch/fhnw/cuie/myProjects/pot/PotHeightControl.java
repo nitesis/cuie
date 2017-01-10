@@ -101,8 +101,14 @@ public class PotHeightControl extends Region {
 
     // parts for pop up menu
     private ListView buildingsList;
-    private Popup popup;
+    private Popup popupB1;
     private int indexB1;
+    private Popup popupB2;
+    private int indexB2;
+    private Popup popupB3;
+    private int indexB3;
+    private Popup popupB4;
+    private int indexB4;
 
     // all properties
     private final StringProperty title = new SimpleStringProperty();
