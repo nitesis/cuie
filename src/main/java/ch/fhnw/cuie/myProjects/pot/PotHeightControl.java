@@ -257,8 +257,15 @@ public class PotHeightControl extends Region {
             buildingsList.getItems().add(buildings.get(i).getBuilding());
         }
         buildingsList.setPrefHeight(buildings.size() * 24);
+
         popupB1 = new Popup();
         popupB1.getContent().addAll(buildingsList);
+        popupB2 = new Popup();
+        popupB2.getContent().addAll(buildingsList);
+        popupB3 = new Popup();
+        popupB3.getContent().addAll(buildingsList);
+        popupB4 = new Popup();
+        popupB4.getContent().addAll(buildingsList);
 
 
         // always needed
