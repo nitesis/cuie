@@ -251,6 +251,15 @@ public class PotHeightControl extends Region {
         labelB3B4.setMaxSize(100, 70);
         labelB3B4.getStyleClass().add("smallLabel");
 
+        buildingsList= new ListView();
+        for (int i = 0; i < buildings.size(); i++)
+        {
+            buildingsList.getItems().add(buildings.get(i).getBuilding());
+        }
+        buildingsList.setPrefHeight(buildings.size() * 24);
+        popupB1 = new Popup();
+        popupB1.getContent().addAll(buildingsList);
+
 
         // always needed
         drawingPane = new Pane();
@@ -390,6 +399,29 @@ public class PotHeightControl extends Region {
             heightCircleB4.setRadius(7.0);
             heightCircleB4.setFill(Color.WHITE);
             labelB3B4.setText("");
+        });
+
+        // events for pop up menu
+        heightCircleB1.setOnMouseClicked(event -> {
+            if (popupB1.isShowing()) {
+                popupB1.hide();
+            } else {
+                popupB1.show(heightCircleB1.getScene().getWindow());
+            }
+        });
+
+        popupB1.setOnShown(event -> {
+            Point2D location = heightCircleB1.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB1).getHeight_m() * HEIGHT_FACTOR);
+            popupB1.setX(location.getX());
+            popupB1.setY(location.getY());
+        });
+
+        buildingsList.setOnMouseClicked(event ->
+        {
+            popupB1.hide();
+            indexB1=buildingsList.getItems().indexOf(buildingsList.getSelectionModel().getSelectedItem().toString());
+            heightCircleB1.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB1).getHeight_m() * HEIGHT_FACTOR);
+            heightLineB1.setEndY(ARTBOARD_HEIGHT - buildings.get(indexB1).getHeight_m() * HEIGHT_FACTOR);
         });
     }
 
