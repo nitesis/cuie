@@ -262,13 +262,17 @@ public class PotHeightControl extends Region {
 
     private void addEventHandlers() {
 
+        titleLabel.setOnAction(event -> {
+            drawingPane.requestFocus();
+        });
+
         heightLabel.setOnMouseClicked(event -> {
             setAnimated(true);
         });
 
         heightLabel.setOnAction(event -> {
                 setAnimated(false);
-                //drawingPane.requestFocus();
+                drawingPane.requestFocus();
         });
 
         /*heightCircleSmall.setOnMouseClicked(event -> {
