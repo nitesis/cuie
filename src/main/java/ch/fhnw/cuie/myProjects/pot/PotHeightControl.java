@@ -456,6 +456,7 @@ public class PotHeightControl extends Region {
             indexB1 = buildingsListB1.getItems().indexOf(buildingsListB1.getSelectionModel().getSelectedItem().toString());
             heightCircleB1.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB1).getHeight_m() * HEIGHT_FACTOR);
             heightLineB1.setEndY(ARTBOARD_HEIGHT - buildings.get(indexB1).getHeight_m() * HEIGHT_FACTOR);
+            labelB1B2.setTranslateY(setPositionForSmallCircleLabels(heightLineB1, heightLineB2));
         });
 
         // events for pop up menu2
@@ -479,6 +480,7 @@ public class PotHeightControl extends Region {
             indexB2 = buildingsListB2.getItems().indexOf(buildingsListB2.getSelectionModel().getSelectedItem().toString());
             heightCircleB2.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB2).getHeight_m() * HEIGHT_FACTOR);
             heightLineB2.setEndY(ARTBOARD_HEIGHT - buildings.get(indexB2).getHeight_m() * HEIGHT_FACTOR);
+            labelB1B2.setTranslateY(setPositionForSmallCircleLabels(heightLineB1, heightLineB2));
         });
 
         // events for pop up menu3
@@ -502,6 +504,7 @@ public class PotHeightControl extends Region {
             indexB3 = buildingsListB3.getItems().indexOf(buildingsListB3.getSelectionModel().getSelectedItem().toString());
             heightCircleB3.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB3).getHeight_m() * HEIGHT_FACTOR);
             heightLineB3.setEndY(ARTBOARD_HEIGHT - buildings.get(indexB3).getHeight_m() * HEIGHT_FACTOR);
+            labelB3B4.setTranslateY(setPositionForSmallCircleLabels(heightLineB3, heightLineB4));
         });
 
         // events for pop up menu4
@@ -525,6 +528,7 @@ public class PotHeightControl extends Region {
             indexB4 = buildingsListB4.getItems().indexOf(buildingsListB4.getSelectionModel().getSelectedItem().toString());
             heightCircleB4.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB4).getHeight_m() * HEIGHT_FACTOR);
             heightLineB4.setEndY(ARTBOARD_HEIGHT - buildings.get(indexB4).getHeight_m() * HEIGHT_FACTOR);
+            labelB3B4.setTranslateY(setPositionForSmallCircleLabels(heightLineB3, heightLineB4));
         });
     }
 
