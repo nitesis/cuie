@@ -63,7 +63,11 @@ public class DemoPane extends BorderPane {
         customControl.titleProperty().bindBidirectional(titleField.textProperty());
 
         Bindings.bindBidirectional(heightField.textProperty(), customControl.heightValueProperty(), new NumberStringConverter(new Locale("ch", "CH"), ".#"));
-        
+
+        heightField.setOnMouseClicked(event -> {
+            customControl.setAnimated(true);
+        });
+
         isAnimated.selectedProperty().bindBidirectional(customControl.animatedProperty());
 
         customControl.circleAnimationIsRunningProperty().bindBidirectional(circleAnimationRunningBox.selectedProperty());

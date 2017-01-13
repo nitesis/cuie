@@ -115,10 +115,10 @@ public class PotHeightControl extends Region {
     private final StringProperty title = new SimpleStringProperty();
     private final DoubleProperty heightValue = new SimpleDoubleProperty();
 
-    private final BooleanProperty circleAnimationIsRunning = new SimpleBooleanProperty(true);
+    private final BooleanProperty circleAnimationIsRunning = new SimpleBooleanProperty();
     private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(1.0));
 
-    private final BooleanProperty animated      = new SimpleBooleanProperty(false);
+    private final BooleanProperty animated      = new SimpleBooleanProperty();
     private final DoubleProperty animatedHeightValue = new SimpleDoubleProperty();
 
     // CSS stylable properties
@@ -202,10 +202,10 @@ public class PotHeightControl extends Region {
         heightLabel = new TextField("830.0");
         heightLabel.getStyleClass().add("heightLabel");
         heightLabelBox.getChildren().add(heightLabel);
-        heightLabel.textProperty().addListener((observable, oldValue, newValue) ->
+        /*heightLabel.textProperty().addListener((observable, oldValue, newValue) ->
                 heightLabel.setText(newValue.matches
                         ("^[0-9]*\\.?[0-9]*$") && (Double.parseDouble(newValue) < 1001) && newValue.length() < 6 ? newValue : oldValue)
-        );
+        );*/
 
         // initialize parts for other buildings
         heightCircleB1 = new Circle(160, ARTBOARD_HEIGHT - buildings.get(1).getHeight_m() * HEIGHT_FACTOR, 7);
@@ -305,8 +305,8 @@ public class PotHeightControl extends Region {
     }
 
     private void initializeAnimations() {
-//        circleAnimationIsRunning.setValue(true);
-//        animated.setValue(false);
+        circleAnimationIsRunning.setValue(true);
+        animated.setValue(false);
     }
 
     private void addEventHandlers() {
@@ -508,7 +508,7 @@ public class PotHeightControl extends Region {
 
     private void addValueChangedListeners() {
 
-        // animation
+        // line animation
         heightValueProperty().addListener((observable, oldValue, newValue) -> {
             if(isAnimated()) {
                 timeline.stop();
@@ -537,7 +537,7 @@ public class PotHeightControl extends Region {
             heightCircleSmall.setCenterY(circleCenter.getY());
         });
 
-        // if you need the timer
+        // circle animation
         circleAnimationIsRunning.addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 timer.start();
@@ -572,31 +572,6 @@ public class PotHeightControl extends Region {
         else {
             return (endYLine1 - 50);
         }
-    }
-
-    private Text createCenteredText(String styleClass) {
-        return createCenteredText(ARTBOARD_WIDTH * 0.5, ARTBOARD_HEIGHT * 0.5, styleClass);
-    }
-
-    private Text createCenteredText(double cx, double cy, String styleClass) {
-        Text text = new Text();
-        text.getStyleClass().add(styleClass);
-        text.setTextOrigin(VPos.CENTER);
-        text.setTextAlignment(TextAlignment.CENTER);
-        double width = cx > ARTBOARD_WIDTH * 0.5 ? ((ARTBOARD_WIDTH - cx) * 2.0) : cx * 2.0;
-        text.setWrappingWidth(width);
-        text.setBoundsType(TextBoundsType.VISUAL);
-        text.setY(cy);
-
-        return text;
-    }
-
-    private void applyCss(Node node) {
-        Group group = new Group(node);
-        group.getStyleClass().add(getStyleClassName());
-        addStyleSheets(group);
-        new Scene(group);
-        node.applyCss();
     }
 
     private void resize() {
