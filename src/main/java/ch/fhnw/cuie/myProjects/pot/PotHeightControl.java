@@ -62,6 +62,7 @@ public class PotHeightControl extends Region {
     private static final double MAXIMUM_WIDTH = 800;
 
     private static final double HEIGHT_FACTOR = 0.32;
+    private static final int NUMBER_BUILDINGS = 4;
 
     // all parts
     private HBox titleLabelBox;
@@ -260,7 +261,7 @@ public class PotHeightControl extends Region {
         {
             buildingsListB1.getItems().add(buildings.get(i).getBuilding());
         }
-        buildingsListB1.setPrefHeight(buildings.size() * 24);
+        buildingsListB1.setPrefHeight(NUMBER_BUILDINGS * 24);
 
         popupB1 = new Popup();
         popupB1.getContent().addAll(buildingsListB1);
@@ -270,7 +271,7 @@ public class PotHeightControl extends Region {
         {
             buildingsListB2.getItems().add(buildings.get(i).getBuilding());
         }
-        buildingsListB2.setPrefHeight(buildings.size() * 24);
+        buildingsListB2.setPrefHeight(NUMBER_BUILDINGS * 24);
 
         popupB2 = new Popup();
         popupB2.getContent().addAll(buildingsListB2);
@@ -280,7 +281,7 @@ public class PotHeightControl extends Region {
         {
             buildingsListB3.getItems().add(buildings.get(i).getBuilding());
         }
-        buildingsListB3.setPrefHeight(buildings.size() * 24);
+        buildingsListB3.setPrefHeight(NUMBER_BUILDINGS * 24);
 
         popupB3 = new Popup();
         popupB3.getContent().addAll(buildingsListB3);
@@ -290,7 +291,7 @@ public class PotHeightControl extends Region {
         {
             buildingsListB4.getItems().add(buildings.get(i).getBuilding());
         }
-        buildingsListB4.setPrefHeight(buildings.size() * 24);
+        buildingsListB4.setPrefHeight(NUMBER_BUILDINGS * 24);
 
         popupB4 = new Popup();
         popupB4.getContent().addAll(buildingsListB4);
