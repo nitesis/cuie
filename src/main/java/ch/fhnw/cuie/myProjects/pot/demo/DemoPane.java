@@ -18,15 +18,13 @@ import java.util.Locale;
  * @author Viviane Bendjus
  */
 public class DemoPane extends BorderPane {
-    private PotHeightControl customControl;
 
+    private PotHeightControl customControl;
     private TextField   titleField;
     private TextField   heightField;
     private CheckBox circleAnimationRunningBox;
-    private Slider      pulseSlider;
     private ColorPicker colorPicker;
     private CheckBox  isAnimated;
-    private ListView buildingsList;
 
     public DemoPane() {
         initializeControls();
@@ -50,42 +48,25 @@ public class DemoPane extends BorderPane {
         circleAnimationRunningBox = new CheckBox("Circle animation running");
         circleAnimationRunningBox.setSelected(true);
 
-        pulseSlider = new Slider(0.5, 2.0, 1.0);
-        pulseSlider.setShowTickLabels(true);
-        pulseSlider.setShowTickMarks(true);
-
         colorPicker = new ColorPicker();
-
-        buildingsList = new ListView();
-        for(int i = 0; i < customControl.getBuildings().size(); i++)
-        {
-            buildingsList.getItems().add(customControl.getBuildings().get(i).getBuilding());
-        }
-        buildingsList.setPrefHeight(customControl.getBuildings().size() * 24);
     }
 
     private void layoutControls() {
         setCenter(customControl);
-        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, isAnimated, circleAnimationRunningBox, pulseSlider, colorPicker, new Label("Choose building to compare:"), buildingsList);
+        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, isAnimated, circleAnimationRunningBox, colorPicker);
         box.setPadding(new Insets(10));
         box.setSpacing(10);
         setRight(box);
     }
 
     private void addBindings() {
-
-        StringConverter converter = new DoubleStringConverter();
-
         customControl.titleProperty().bindBidirectional(titleField.textProperty());
 
         Bindings.bindBidirectional(heightField.textProperty(), customControl.heightValueProperty(), new NumberStringConverter(new Locale("ch", "CH"), ".#"));
-        //heightField.textProperty().bind(customControl.heightValueProperty().asString("%.2f"));
-
-        //customControl.heightValueProperty().bindBidirectional(heightField.textProperty());
+        
         isAnimated.selectedProperty().bindBidirectional(customControl.animatedProperty());
 
         customControl.circleAnimationIsRunningProperty().bindBidirectional(circleAnimationRunningBox.selectedProperty());
-        customControl.pulseProperty().bind(Bindings.createObjectBinding(() -> Duration.seconds(pulseSlider.getValue()), pulseSlider.valueProperty()));
 
         colorPicker.valueProperty().bindBidirectional(customControl.baseColorProperty());
     }

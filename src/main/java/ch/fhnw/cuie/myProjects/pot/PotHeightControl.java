@@ -64,8 +64,7 @@ public class PotHeightControl extends Region {
     private static final double HEIGHT_FACTOR = 0.32;
     private static final int NUMBER_BUILDINGS = 4;
 
-    // all parts
-    private HBox titleLabelBox;
+    // parts for basic building
     private TextField titleLabel;
     private Line heightLine;
     private Circle heightCircleSmall;
@@ -78,8 +77,6 @@ public class PotHeightControl extends Region {
     // parts for other buildings
     private Label labelB1B2;
     private Label labelB3B4;
-    private HBox otherBuildingBox;
-    private Text otherBuildingLabel;
     private Line heightLineB1;
     private Circle heightCircleB1;
     private Line heightLineB2;
@@ -124,7 +121,7 @@ public class PotHeightControl extends Region {
     private final BooleanProperty animated      = new SimpleBooleanProperty(false);
     private final DoubleProperty animatedHeightValue = new SimpleDoubleProperty();
 
-    //CSS stylable properties
+    // CSS stylable properties
     private static final CssMetaData<PotHeightControl, Color> BASE_COLOR_META_DATA = FACTORY.createColorCssMetaData("-base-color", s -> s.baseColor);
 
     private final StyleableObjectProperty<Color> baseColor = new SimpleStyleableObjectProperty<Color>(BASE_COLOR_META_DATA, this, "baseColor") {
@@ -176,13 +173,8 @@ public class PotHeightControl extends Region {
 
     private void initializeParts() {
 
-        titleLabelBox = new HBox();
-        titleLabelBox.setStyle("-fx-padding: 10");
-        titleLabelBox.setAlignment(Pos.CENTER);
-        titleLabelBox.setPrefSize(ARTBOARD_WIDTH, 25);
+        // initialize parts for the basic building
         titleLabel = new TextField("Burj Kalifa");
-        //titleLabelBox.getChildren().add(titleLabel);
-
         titleLabel.getStyleClass().add("titleLabel");
 
         heightCircleSmall = new Circle(200, ARTBOARD_HEIGHT - buildings.get(0).getHeight_m() * HEIGHT_FACTOR, 2);
@@ -207,7 +199,6 @@ public class PotHeightControl extends Region {
         heightLabelBox.setAlignment(Pos.CENTER);
         heightLabelBox.setPrefSize(ARTBOARD_WIDTH, 25);
 
-
         heightLabel = new TextField("830.0");
         heightLabel.getStyleClass().add("heightLabel");
         heightLabelBox.getChildren().add(heightLabel);
@@ -217,7 +208,6 @@ public class PotHeightControl extends Region {
         );
 
         // initialize parts for other buildings
-
         heightCircleB1 = new Circle(160, ARTBOARD_HEIGHT - buildings.get(1).getHeight_m() * HEIGHT_FACTOR, 7);
         heightCircleB1.getStyleClass().add("heightCircleSmall");
 
@@ -266,7 +256,6 @@ public class PotHeightControl extends Region {
             buildingsListB1.getItems().add(buildings.get(i).getBuilding());
         }
         buildingsListB1.setPrefHeight(NUMBER_BUILDINGS * 24);
-
         popupB1 = new Popup();
         popupB1.getContent().addAll(buildingsListB1);
 
@@ -276,7 +265,6 @@ public class PotHeightControl extends Region {
             buildingsListB2.getItems().add(buildings.get(i).getBuilding());
         }
         buildingsListB2.setPrefHeight(NUMBER_BUILDINGS * 24);
-
         popupB2 = new Popup();
         popupB2.getContent().addAll(buildingsListB2);
 
@@ -286,7 +274,6 @@ public class PotHeightControl extends Region {
             buildingsListB3.getItems().add(buildings.get(i).getBuilding());
         }
         buildingsListB3.setPrefHeight(NUMBER_BUILDINGS * 24);
-
         popupB3 = new Popup();
         popupB3.getContent().addAll(buildingsListB3);
 
@@ -296,10 +283,8 @@ public class PotHeightControl extends Region {
             buildingsListB4.getItems().add(buildings.get(i).getBuilding());
         }
         buildingsListB4.setPrefHeight(NUMBER_BUILDINGS * 24);
-
         popupB4 = new Popup();
         popupB4.getContent().addAll(buildingsListB4);
-
 
         // always needed
         drawingPane = new Pane();
@@ -320,7 +305,8 @@ public class PotHeightControl extends Region {
     }
 
     private void initializeAnimations() {
-
+//        circleAnimationIsRunning.setValue(true);
+//        animated.setValue(false);
     }
 
     private void addEventHandlers() {
@@ -337,11 +323,6 @@ public class PotHeightControl extends Region {
                 setAnimated(false);
                 drawingPane.requestFocus();
         });
-
-        /*heightCircleSmall.setOnMouseClicked(event -> {
-            setAnimated(false);
-            //setCircleAnimationIsRunning(false);
-        });*/
 
         heightCircleSmall.setOnMouseReleased(event -> {
             setCircleAnimationIsRunning(true);
@@ -395,7 +376,6 @@ public class PotHeightControl extends Region {
             heightCircleB1.setFill(Color.LIGHTPINK);
             labelB1B2.setText(buildings.get(1).getBuilding() + ": " + buildings.get(1).getHeight_m() + " m");
         });
-
         heightCircleB1.setOnMouseExited(event -> {
             heightCircleB1.setRadius(7.0);
             heightCircleB1.setFill(Color.WHITE);
@@ -408,7 +388,6 @@ public class PotHeightControl extends Region {
             heightCircleB2.setFill(Color.LIGHTPINK);
             labelB1B2.setText(buildings.get(2).getBuilding() + ": " + buildings.get(2).getHeight_m() + " m");
         });
-
         heightCircleB2.setOnMouseExited(event -> {
             heightCircleB2.setRadius(7.0);
             heightCircleB2.setFill(Color.WHITE);
@@ -421,7 +400,6 @@ public class PotHeightControl extends Region {
             heightCircleB3.setFill(Color.LIGHTPINK);
             labelB3B4.setText(buildings.get(3).getBuilding() + ": " + buildings.get(3).getHeight_m() + " m");
         });
-
         heightCircleB3.setOnMouseExited(event -> {
             heightCircleB3.setRadius(7.0);
             heightCircleB3.setFill(Color.WHITE);
@@ -434,7 +412,6 @@ public class PotHeightControl extends Region {
             heightCircleB4.setFill(Color.LIGHTPINK);
             labelB3B4.setText(buildings.get(4).getBuilding() + ": " + buildings.get(4).getHeight_m() + " m");
         });
-
         heightCircleB4.setOnMouseExited(event -> {
             heightCircleB4.setRadius(7.0);
             heightCircleB4.setFill(Color.WHITE);
@@ -449,13 +426,11 @@ public class PotHeightControl extends Region {
                 popupB1.show(heightCircleB1.getScene().getWindow());
             }
         });
-
         popupB1.setOnShown(event -> {
             Point2D location = heightCircleB1.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB1).getHeight_m() * HEIGHT_FACTOR);
             popupB1.setX(location.getX());
             popupB1.setY(location.getY());
         });
-
         buildingsListB1.setOnMouseClicked(event ->
         {
             popupB1.hide();
@@ -473,15 +448,12 @@ public class PotHeightControl extends Region {
                 popupB2.show(heightCircleB2.getScene().getWindow());
             }
         });
-
         popupB2.setOnShown(event -> {
             Point2D location = heightCircleB2.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB2).getHeight_m() * HEIGHT_FACTOR);
             popupB2.setX(location.getX());
             popupB2.setY(location.getY());
         });
-
-        buildingsListB2.setOnMouseClicked(event ->
-        {
+        buildingsListB2.setOnMouseClicked(event -> {
             popupB2.hide();
             indexB2 = buildingsListB2.getItems().indexOf(buildingsListB2.getSelectionModel().getSelectedItem().toString());
             heightCircleB2.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB2).getHeight_m() * HEIGHT_FACTOR);
@@ -497,15 +469,13 @@ public class PotHeightControl extends Region {
                 popupB3.show(heightCircleB3.getScene().getWindow());
             }
         });
-
         popupB3.setOnShown(event -> {
             Point2D location = heightCircleB3.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB3).getHeight_m() * HEIGHT_FACTOR);
             popupB3.setX(location.getX());
             popupB3.setY(location.getY());
         });
 
-        buildingsListB3.setOnMouseClicked(event ->
-        {
+        buildingsListB3.setOnMouseClicked(event -> {
             popupB3.hide();
             indexB3 = buildingsListB3.getItems().indexOf(buildingsListB3.getSelectionModel().getSelectedItem().toString());
             heightCircleB3.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB3).getHeight_m() * HEIGHT_FACTOR);
@@ -521,15 +491,13 @@ public class PotHeightControl extends Region {
                 popupB4.show(heightCircleB4.getScene().getWindow());
             }
         });
-
         popupB4.setOnShown(event -> {
             Point2D location = heightCircleB4.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB4).getHeight_m() * HEIGHT_FACTOR);
             popupB4.setX(location.getX());
             popupB4.setY(location.getY());
         });
 
-        buildingsListB4.setOnMouseClicked(event ->
-        {
+        buildingsListB4.setOnMouseClicked(event -> {
             popupB4.hide();
             indexB4 = buildingsListB4.getItems().indexOf(buildingsListB4.getSelectionModel().getSelectedItem().toString());
             heightCircleB4.setCenterY(ARTBOARD_HEIGHT - buildings.get(indexB4).getHeight_m() * HEIGHT_FACTOR);
@@ -539,22 +507,8 @@ public class PotHeightControl extends Region {
     }
 
     private void addValueChangedListeners() {
-        /*heightValue.addListener((observable, oldValue, newValue) -> {
-            double lineLength =  heightLine.getStartY() - (newValue.doubleValue() * 0.25);
 
-            heightLine.setEndY(lineLength + 60.0);
-
-
-            double centerX = heightLine.getEndX();
-            double centerY = heightLine.getEndY();
-            Point2D circleCenter = new Point2D(centerX, centerY);
-            heightCircleBig.setCenterX(circleCenter.getX());
-            heightCircleBig.setCenterY(circleCenter.getY());
-            heightCircleSmall.setCenterX(circleCenter.getX());
-            heightCircleSmall.setCenterY(circleCenter.getY());
-        });
-*/
-        //Hier wird Animation festgelegt
+        // animation
         heightValueProperty().addListener((observable, oldValue, newValue) -> {
             if(isAnimated()) {
                 timeline.stop();
@@ -567,7 +521,8 @@ public class PotHeightControl extends Region {
             }
 
         });
-        //Hier wird Wertänderung festgelegt
+
+        // value change
         animatedHeightValueProperty().addListener((observable, oldValue, newValue) -> {
             double lineLength =  heightLine.getStartY() - (newValue.doubleValue() * HEIGHT_FACTOR);
 
@@ -581,7 +536,6 @@ public class PotHeightControl extends Region {
             heightCircleSmall.setCenterX(circleCenter.getX());
             heightCircleSmall.setCenterY(circleCenter.getY());
         });
-
 
         // if you need the timer
         circleAnimationIsRunning.addListener((observable, oldValue, newValue) -> {
@@ -599,7 +553,6 @@ public class PotHeightControl extends Region {
 
     private void setupBindings() {
         titleLabel.textProperty().bindBidirectional(titleProperty());
-        //heightLabel.textProperty().bind(heightValueProperty().asString());
         Bindings.bindBidirectional(heightLabel.textProperty(), this.heightValueProperty(),
                 new NumberStringConverter(new Locale("ch", "CH"), ".#"));
 
@@ -608,9 +561,7 @@ public class PotHeightControl extends Region {
     private void performPeriodicTask() {
     }
 
-
     // some useful helper-methods
-
     private double setPositionForSmallCircleLabels(Line line1, Line line2) {
         double endYLine1 = line1.getEndY();
         double endYLine2 = line2.getEndY();
@@ -622,7 +573,6 @@ public class PotHeightControl extends Region {
             return (endYLine1 - 50);
         }
     }
-
 
     private Text createCenteredText(String styleClass) {
         return createCenteredText(ARTBOARD_WIDTH * 0.5, ARTBOARD_HEIGHT * 0.5, styleClass);
@@ -641,32 +591,6 @@ public class PotHeightControl extends Region {
         return text;
     }
 
-    /*
-     * angle in degrees, 0 is north
-     */
-   /* private double angle(double cx, double cy, double x, double y) {
-        double deltaX = x - cx;
-        double deltaY = y - cy;
-        double radius = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
-        double nx     = deltaX / radius;
-        double ny     = deltaY / radius;
-        double theta  = Math.toRadians(90) + Math.atan2(ny, nx);
-
-        return Double.compare(theta, 0.0) >= 0 ? Math.toDegrees(theta) : Math.toDegrees((theta)) + 360.0;
-    }*/
-
-    /*
-     * angle in degrees, 0 is north
-     */
-    /*private Point2D pointOnCircle(double cX, double cY, double radius, double angle) {
-
-        return new Point2D(cX - (radius * Math.sin(Math.toRadians(angle - 180))),
-                           cY + (radius * Math.cos(Math.toRadians(angle - 180))));
-    }*/
-
-    /*
-     * Needed if you want to know what's defined in css during initialization
-     */
     private void applyCss(Node node) {
         Group group = new Group(node);
         group.getStyleClass().add(getStyleClassName());
@@ -706,7 +630,6 @@ public class PotHeightControl extends Region {
     }
 
     // compute sizes
-
     @Override
     protected double computeMinWidth(double height) {
         Insets padding           = getPadding();
@@ -740,7 +663,6 @@ public class PotHeightControl extends Region {
     }
 
     // getter and setter for all properties
-
     public String getTitle() {
         return title.get();
     }
