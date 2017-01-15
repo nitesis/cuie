@@ -147,7 +147,7 @@ public class PotHeightControl extends Region {
         @Override
         public void handle(long now) {
             if (now > lastTimerCall + (getPulse().toMillis() * 1_000_000L)) {
-                performPeriodicTask();
+                //performPeriodicTask();
                 lastTimerCall = now;
             }
         }
@@ -415,7 +415,7 @@ public class PotHeightControl extends Region {
             }
         });
         popupB1.setOnShown(event -> {
-            Point2D location = heightCircleB1.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB1).getHeight_m() * HEIGHT_FACTOR);
+            Point2D location = heightCircleB1.localToScreen(heightCircleB1.getCenterX(), ARTBOARD_HEIGHT - buildings.get(indexB1).getHeight_m() * HEIGHT_FACTOR);
             popupB1.setX(location.getX());
             popupB1.setY(location.getY());
         });
@@ -437,7 +437,7 @@ public class PotHeightControl extends Region {
             }
         });
         popupB2.setOnShown(event -> {
-            Point2D location = heightCircleB2.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB2).getHeight_m() * HEIGHT_FACTOR);
+            Point2D location = heightCircleB2.localToScreen(heightCircleB2.getCenterX(), ARTBOARD_HEIGHT - buildings.get(indexB2).getHeight_m() * HEIGHT_FACTOR);
             popupB2.setX(location.getX());
             popupB2.setY(location.getY());
         });
@@ -458,7 +458,7 @@ public class PotHeightControl extends Region {
             }
         });
         popupB3.setOnShown(event -> {
-            Point2D location = heightCircleB3.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB3).getHeight_m() * HEIGHT_FACTOR);
+            Point2D location = heightCircleB3.localToScreen(heightCircleB3.getCenterX(), ARTBOARD_HEIGHT - buildings.get(indexB3).getHeight_m() * HEIGHT_FACTOR);
             popupB3.setX(location.getX());
             popupB3.setY(location.getY());
         });
@@ -480,7 +480,7 @@ public class PotHeightControl extends Region {
             }
         });
         popupB4.setOnShown(event -> {
-            Point2D location = heightCircleB4.localToScreen(159, ARTBOARD_HEIGHT - buildings.get(indexB4).getHeight_m() * HEIGHT_FACTOR);
+            Point2D location = heightCircleB4.localToScreen(heightCircleB4.getCenterX(), ARTBOARD_HEIGHT - buildings.get(indexB4).getHeight_m() * HEIGHT_FACTOR);
             popupB4.setX(location.getX());
             popupB4.setY(location.getY());
         });
@@ -547,9 +547,6 @@ public class PotHeightControl extends Region {
         titleLabel.textProperty().bindBidirectional(titleProperty());
         Bindings.bindBidirectional(heightLabel.textProperty(), this.heightValueProperty(),
                 new NumberStringConverter(new Locale("ch", "CH"), ".#"));
-    }
-
-    private void performPeriodicTask() {
     }
 
     // some useful helper-methods
