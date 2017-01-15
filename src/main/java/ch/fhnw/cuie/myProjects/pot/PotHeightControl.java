@@ -202,10 +202,6 @@ public class PotHeightControl extends Region {
         heightLabel = new TextField("830.0");
         heightLabel.getStyleClass().add("heightLabel");
         heightLabelBox.getChildren().add(heightLabel);
-        /*heightLabel.textProperty().addListener((observable, oldValue, newValue) ->
-                heightLabel.setText(newValue.matches
-                        ("^[0-9]*\\.?[0-9]*$") && (Double.parseDouble(newValue) < 1001) && newValue.length() < 6 ? newValue : oldValue)
-        );*/
 
         // initialize parts for other buildings
         heightCircleB1 = new Circle(160, ARTBOARD_HEIGHT - buildings.get(1).getHeight_m() * HEIGHT_FACTOR, 7);
@@ -500,10 +496,10 @@ public class PotHeightControl extends Region {
 
     private void addValueChangedListeners() {
 
-        /*heightLabel.textProperty().addListener((observable, oldValue, newValue) ->
+        heightLabel.textProperty().addListener((observable, oldValue, newValue) ->
                 heightLabel.setText(newValue.matches
-                        ("^[0-9]*\\.?[0-9]*$") && (Double.parseDouble(newValue) < 1001) && newValue.length() < 6 ? newValue : oldValue)
-        );*/
+                        ("^[0-9]*\\.?[0-9]*$") && (Double.parseDouble(newValue) < 1001) ? newValue : oldValue)
+        );
 
         // line animation
         heightValueProperty().addListener((observable, oldValue, newValue) -> {
