@@ -147,7 +147,6 @@ public class PotHeightControl extends Region {
         @Override
         public void handle(long now) {
             if (now > lastTimerCall + (getPulse().toMillis() * 1_000_000L)) {
-                //performPeriodicTask();
                 lastTimerCall = now;
             }
         }
@@ -498,7 +497,7 @@ public class PotHeightControl extends Region {
 
         heightLabel.textProperty().addListener((observable, oldValue, newValue) ->
                 heightLabel.setText(newValue.matches
-                        ("^[0-9]*\\.?[0-9]*$") && (Double.parseDouble(newValue) < 1001) ? newValue : oldValue)
+                        ("^[0-9]*\\.?[0-9]*$") && (Double.parseDouble(newValue) < 1001 && newValue.length() < 7) ? newValue : oldValue)
         );
 
         // line animation

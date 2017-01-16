@@ -5,11 +5,6 @@
 .potHeightControl {
     -fx-padding: 10;
     -base-color: rgb(255, 255, 255);
-    /*-fx-background-color: derive(-base-color, 80%);*/
-}
-
-.potHeightControl .drawingPane {
-    /*-fx-background-color: -base-color;*/
 }
 
 .potHeightControl .display {
