@@ -37,7 +37,7 @@ import javafx.util.Duration;
 import javafx.util.converter.NumberStringConverter;
 
 /**
- * @author Viviane Bendjus
+ * @author Viviane Bendjus & Souzan Alhenawi
  */
 public class PotHeightControl extends Region {
     // needed for StyleableProperties
